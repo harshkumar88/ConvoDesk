@@ -10,5 +10,4 @@
 	url = https://github.com/harshkumar88/React-lib.git
 [submodule "sales/src/React-lib"]
 	path = sales/src/React-lib
-
 	url = https://github.com/harshkumar88/React-lib.git
