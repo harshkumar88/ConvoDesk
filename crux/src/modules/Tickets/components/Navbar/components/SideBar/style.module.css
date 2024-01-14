@@ -1,0 +1,138 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 7%;
+  right: 0;
+  overflow-x: hidden;
+  transition: 1s all ease-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.sidenav_body {
+  background-color: white;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  transition: 1s all ease-in-out;
+  padding: 1vh 1vw;
+  position: relative;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 21px;
+  color: #999999;
+  text-align: center;
+}
+.close {
+  position: absolute;
+  left: -3.5%;
+  top: 0%;
+  z-index: 5;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #183247;
+  border-radius: 0 0 0 3px;
+  opacity: 1;
+  color: white;
+  cursor: pointer;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  font-size: 16px;
+}
+.container {
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ebeff3;
+  padding: 1vh 1vw;
+  margin: 1.5vh 0.5vw;
+}
+.wrapper {
+  margin-top: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.select_all_div {
+  display: flex;
+  gap: 10px;
+  flex: 1 0 100%;
+  margin-bottom: 1vh;
+  color: #6f7c87;
+  font-size: 12px;
+}
+.checkbox_div {
+  display: flex;
+  gap: 10px;
+  flex: 1 0 50%;
+  margin-bottom: 1vh;
+}
+
+.check {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.p {
+  font-size: 13px;
+  font-weight: 5000;
+}
+.info_text {
+  font-size: 12px;
+  color: #6f7c87;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10%;
+  right: 6%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cancel_btn {
+  background-color: #f3f5f7;
+  background-image: none;
+  color: #183247;
+  border: 1px solid #dadfe3;
+  font-weight: 500;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5vh 1vw;
+  font-size: 14px;
+}
+.export {
+  border-radius: 4px;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  background-color: #264966;
+  border: 1px solid #12344d;
+  background-image: linear-gradient(to bottom, #264966, #12344d);
+  font-weight: 500;
+  padding: 0.5vh 1vw;
+}
+@media screen and (max-width: 1440px) {
+  .close {
+    left: -5%;
+  }
+}

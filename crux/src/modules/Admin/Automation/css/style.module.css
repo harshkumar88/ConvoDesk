@@ -1,0 +1,17 @@
+.ticket_container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.ticket {
+  flex: 4;
+  max-height: 92.5vh;
+  overflow-y: auto;
+}
+.filter {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  max-height: 92.5vh;
+  overflow-y: auto;
+}

@@ -1,0 +1,161 @@
+.container {
+  padding: 1vh 1vw;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ebeff3;
+  box-shadow: 0 6px 14px 0 rgba(24, 50, 71, 0.05);
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow: auto;
+}
+
+.header {
+  padding: 1.4vh 1vw;
+  box-shadow: 0 2px 4px 0 rgba(18, 52, 77, 0.06);
+  width: 100%;
+}
+.ticket_wrapper {
+  width: 55%;
+}
+
+.ticket_wrapper:hover {
+  box-shadow: 0 6px 14px 0 rgba(24, 50, 71, 0.05),
+    0 1px 4px 0 rgba(24, 50, 71, 0.15);
+}
+.ticket_box {
+  padding: 0.5vh 0vw;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #cfd7df;
+}
+
+.ticket_item {
+  background-color: #ebeff3;
+  display: flex;
+  gap: 0px;
+  padding: 1vh 0vw;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 1vh 0.6vw;
+  width: 50%;
+}
+
+.item_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_flex_box {
+  display: flex;
+  gap: 10px;
+  padding: 0.7vh 0.5vw;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ticket_icon {
+  margin-top: 6px;
+  fill: gray !important;
+}
+
+.ticket_box:hover .ticket_icon {
+  fill: black !important;
+}
+.plus_icon {
+  visibility: hidden;
+  font-size: 16px;
+}
+
+.item_flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.delete_btn {
+  font-size: 18px;
+  visibility: hidden;
+  margin-right: 2vw;
+}
+
+.item_flex:hover .delete_btn {
+  visibility: visible;
+}
+
+.icon_style {
+  background-color: #fef1e1;
+  padding: 3px 7px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.item_label {
+  color: rgb(80, 78, 78);
+}
+
+.item_input {
+  border: 1px solid #cfd7df;
+  margin: 5px 0 0;
+  border-radius: 4px;
+  padding: 4px 12px 5px;
+  resize: none;
+  background-color: #fff;
+  box-shadow: none;
+  min-height: 32px;
+  outline: none;
+}
+
+.ticket_btns {
+  display: flex;
+  justify-content: end;
+  padding: 1vh 1vw;
+  gap: 20px;
+}
+.cancel_btn {
+  font-size: 14px;
+  padding: 4px 15px 5px;
+  border: none;
+  border-radius: 4px;
+  outline: 0;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+
+.submit_btn {
+  background-color: #264966;
+  border: 1px solid #12344d;
+  background-image: linear-gradient(to bottom, #264966, #12344d);
+  font-size: 14px;
+  padding: 4px 15px 5px;
+  border: none;
+  border-radius: 4px;
+  outline: 0;
+  color: white;
+}
+
+.label_length {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 200px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+  .ticket_wrapper {
+    width: 80%;
+  }
+}

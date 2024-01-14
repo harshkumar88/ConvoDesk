@@ -1,0 +1,147 @@
+.container {
+  padding: 1vh 1vw;
+  flex: 1;
+}
+.heading {
+  margin: 2vh 2vw;
+  font-size: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw;
+  margin: auto;
+  padding: 1vh 1vw;
+  gap: 10px;
+}
+.input_box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 1vh 2vw;
+}
+.input_box_1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 2vw;
+}
+.label {
+  margin: 0.5vh 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  outline: none;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 80%);
+  margin-bottom: 0;
+}
+.json_input {
+  outline: none;
+  padding: 0.5vh 0.5vw;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+.btn_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.dark_btn {
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #12344d;
+  border: none;
+  cursor: pointer;
+}
+.subdiv {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1vw;
+  align-items: flex-end;
+  gap: 10px;
+}
+.indent {
+  margin-left: 10px;
+}
+.selected {
+  font-weight: bold;
+}
+.child_div {
+  flex: 1;
+  margin-bottom: 1.5vh;
+}
+.icon {
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #12344d;
+  color: #12344d;
+  background-color: #fff;
+}
+.icon:hover {
+  border: 1px solid #12344d;
+  color: #fff;
+  background-color: #12344d;
+}
+.add {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 14px;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #12344d;
+  color: #fff;
+  flex: 0.01;
+  padding: 0 3px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  background-color: #12344d;
+}
+
+.child_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 10px;
+}
+.sub_input_box {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 10px;
+}

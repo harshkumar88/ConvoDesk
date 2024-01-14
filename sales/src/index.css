@@ -1,0 +1,17 @@
+.rdrDefinedRangesWrapper {
+  display: none !important;
+}
+.rdrMonth {
+  width: 16.5vmax;
+}
+.rdrMonthPicker {
+  margin: 0;
+}
+.rdrMonthPicker select {
+  padding: 0;
+}
+.rdrNextPrevButton {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}

@@ -1,0 +1,58 @@
+.box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.box img {
+  margin-bottom: 1rem;
+  width: 10vw;
+}
+
+.agent_details {
+  text-align: left;
+  margin: 0.5vh 0;
+}
+.agent_details span {
+  color: grey;
+}
+.agent_details b {
+  color: #364f6b;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1vh 1vw;
+}
+
+.box input {
+  background: #e2e2e2;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 2vh 1vw;
+}
+.box input::placeholder {
+  color: #9f9f9f;
+}
+.submit_btn {
+  padding: 2vh 2vw;
+  background: #59a80b;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.form {
+  display: flex;
+}
+.nav_link {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,238 @@
+a {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+.alert {
+  display: none;
+}
+.alert,
+.alert_error,
+.alert_success {
+  position: fixed;
+  bottom: 0;
+  z-index: 20;
+  background-color: gray;
+  width: 73vw;
+  margin: 1vh 4vw 0;
+  padding: 1vw;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.alert_error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+}
+.alert_success {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(98, 187, 9);
+}
+
+a {
+  cursor: pointer;
+}
+.hide {
+  display: none !important;
+}
+.validate_alert_error {
+  width: 90vw;
+}
+.center-margin {
+  text-align: center;
+  margin: 0.5rem;
+}
+.iframe {
+  position: fixed;
+  bottom: 0;
+  left: 14vw;
+  /* left: 5vw; */
+  z-index: 500;
+  height: 400px;
+  width: 300px;
+}
+.btn {
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  z-index: 5;
+  /* font-weight: 600; */
+  font-size: 14px;
+  justify-content: center;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+  cursor: pointer;
+}
+.dark-btn {
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  z-index: 5;
+  /* font-weight: 600; */
+  font-size: 14px;
+  justify-content: center;
+  color: #f3f5f7;
+  background-color: #12344d;
+  border: none;
+  cursor: pointer;
+}
+
+.center {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.item-row-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 6%);
+  padding: 2vh 2vw;
+  gap: 10px;
+  margin: 0.5vh 0vw;
+  border: 1px solid rgb(0 0 0 / 10%);
+  box-shadow: 1px 0.6px 2px #dee2e6;
+}
+.item-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.item-heading {
+  color: #3d3d3d;
+}
+.item-value {
+  color: #12344d;
+  font-weight: bold;
+}
+.jodit-react-container {
+  width: 100%;
+}
+.jodit-workplace {
+  min-height: 30vh !important;
+  max-height: 60vh !important;
+  overflow-y: scroll;
+}
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.jodit-status-bar-link {
+  display: none;
+}
+.cta {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.select {
+  outline: none;
+  margin: 0.5vh 0w;
+  padding: 0.5vh 0;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+  cursor: pointer;
+}
+.option {
+  cursor: pointer;
+}
+.input {
+  outline: none;
+  margin: 0.5vh 0;
+  padding: 0.75vh 0.5vw;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.input-box,
+.input-box-row label,
+.input-box-row input {
+  flex: 1;
+}
+.input-box-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 90%; */
+  margin: auto;
+}
+.label {
+  margin: 0.5vh 0;
+  padding: 0.5vh 0;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1vh 1vw;
+  gap: 10px;
+  flex-grow: 0;
+  background-color: #fff;
+  font-size: 14px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.text-center {
+  text-align: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .form {
+    font-size: 12px;
+  }
+}
+.radio_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.radio_div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+}
+.radio_text {
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 400;
+}

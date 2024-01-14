@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  font-weight: 700;
+  border-radius: 10px;
+  margin: 1vh 1vw;
+  color: #5d5d5d;
+  background: #f4f4f4;
+}
+.customer_details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* flex: 3; */
+  color: #364f6b;
+  cursor: pointer;
+}
+
+.customer_info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0.5vh 0.5vw;
+  margin: 1vh 1vw;
+}
+
+.heading {
+  color: #b9b9b9;
+}

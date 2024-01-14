@@ -1,0 +1,89 @@
+.container {
+  padding: 2vh 2vw;
+  flex: 1;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.list_container {
+  border: 1px solid;
+  flex: 1;
+  margin: 2vh 0;
+  padding: 1.5vh 1.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+  -webkit-box-pack: justify;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 6%) 0px 2px 4px 0px;
+  border: 1px solid rgb(235, 239, 243);
+  cursor: pointer;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-content: center;
+  flex: 1;
+  color: black;
+}
+.method {
+  line-height: 10px;
+  width: fit-content;
+  padding: 0.5vh 0.5vw;
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.bold {
+  font-weight: bold;
+  color: rgb(24, 50, 71);
+  font-size: 14px;
+}
+.icons_div {
+  gap: 15px;
+  display: flex;
+}
+.icons {
+  font-size: 1.5rem;
+  color: black;
+}
+.create_btn {
+  background: linear-gradient(rgb(255, 255, 255) 0%, rgb(243, 245, 247) 100%);
+  border: 1px solid rgb(207, 215, 223);
+  border-radius: 4px;
+  box-shadow: rgb(24 50 71 / 5%) 0px 1px 2px inset;
+  color: rgb(18, 52, 77);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.5vh 0.5vw;
+}
+.getMethod {
+  color: rgb(44, 92, 197);
+  border: 1px solid rgb(187, 220, 254);
+  background: rgb(229, 242, 253);
+}
+.postMethod {
+  color: rgb(0, 121, 88);
+  border: 1px solid rgb(180, 229, 217);
+  background: rgb(224, 245, 240);
+}
+.putMethod {
+  color: rgb(193, 62, 27);
+  border: 1px solid rgb(253, 219, 181);
+  background: rgb(254, 241, 225);
+}
+.deleteMethod {
+  color: rgb(242, 183, 55);
+  border: 1px solid rgb(253, 218, 13);
+  background: rgb(255, 252, 189);
+}

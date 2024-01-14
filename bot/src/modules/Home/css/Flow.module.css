@@ -1,0 +1,80 @@
+.flows_container {
+  flex: 1 0 25vw;
+  max-width: 25vw;
+  background-color: #fafafa;
+}
+.faq_wrapper {
+  background-color: rgb(245, 247, 249);
+  cursor: pointer;
+  border: 1px solid #ebeff3;
+}
+.faq_heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.faq_details {
+  padding: 1vh 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq_details:nth-child(1) {
+  background-color: white;
+  text-transform: capitalize;
+}
+.arrow_icon {
+  font-size: 1.5rem;
+  color: #3a7638;
+}
+.heading {
+  /* color: rgb(18, 52, 77);
+  font-weight: 400;
+  padding: 0.5vh 0;
+  height: 40px;
+  line-height: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  color: rgb(18, 52, 77);
+  font-weight: 400;
+  padding: 0.5vh 0;
+  height: 23px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.payment_info {
+  padding: 1vh 2vw;
+}
+.extra_details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  border-bottom: 1px solid rgb(235, 239, 243);
+}
+.extra_details:last-child {
+  border-bottom: none;
+}
+.faq_div_wrapper {
+  padding: 1vh 0vw;
+}
+.flow_header {
+  padding: 1vh 1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.flow_subheading {
+  color: #2c5cc5;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.flow_number {
+  font-weight: 600;
+  margin-right: 0.5vw;
+}

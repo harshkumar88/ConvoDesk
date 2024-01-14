@@ -1,0 +1,30 @@
+.app {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  flex: 1;
+  background-color: #efefef;
+  min-height: 100vh;
+}
+.chat {
+  flex: 6;
+  position: relative;
+  max-height: 100vh;
+  overflow: scroll;
+  padding-bottom: 10vh;
+}
+.div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sub_heading {
+  height: 40px;
+  max-width: 10vw;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* background-color: #0df; */
+}

@@ -1,0 +1,185 @@
+.metrics_heading {
+  text-align: center;
+}
+.metrics_header {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+.leadsBox {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(18, 31, 67);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-image: none;
+  overflow: hidden;
+  box-shadow: rgba(95, 116, 141, 0.03) 0px 2px 1px -1px,
+    rgba(95, 116, 141, 0.04) 0px 1px 1px 0px,
+    rgba(95, 116, 141, 0.08) 0px 1px 3px 0px;
+  border-radius: 8px;
+  padding: 17px;
+}
+.lead {
+  border-right: 2px solid lightgray;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 15px;
+}
+.leadsBox :nth-child(4) {
+  border-right: none;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.detail p {
+  /* margin-bottom: 3px; */
+  color: #121f43;
+  font-size: 14px;
+  font-weight: 600;
+  /* margin: 0px 0px 3.2px; */
+}
+
+.pendingData {
+  color: rgb(255, 49, 111);
+  font-size: 24px;
+  font-weight: 600;
+}
+.assignedData {
+  color: rgb(255, 198, 117);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.resolvedData {
+  color: #82ca9d;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.botData {
+  color: rgb(140, 141, 255);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.pendingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: rgb(255, 49, 111);
+  color: white;
+}
+
+.resolvedIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #82ca9d;
+}
+
+.botIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: rgb(140, 141, 255);
+}
+.assignedIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: rgb(255, 198, 117);
+}
+.pending_svg {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.resolved_svg {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+.open_svg {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+.bot_svg {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.assigned_svg {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+@media only screen and (max-width: 1300px) {
+  .lead {
+    gap: 5px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .detail p {
+    font-size: 12px;
+  }
+  .detail h3 {
+    font-size: 20px;
+  }
+}

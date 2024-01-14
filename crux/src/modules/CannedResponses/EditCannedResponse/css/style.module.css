@@ -1,0 +1,64 @@
+.ticket_container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.groups {
+  flex: 4;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.filter {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  max-height: 92.5vh;
+  overflow-y: auto;
+}
+.article_edit {
+  font-size: 14px;
+}
+.jodit-workplace {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.btn {
+  background: #12344d;
+  color: white;
+  margin: 1vh auto;
+}
+.textarea {
+  width: 100%;
+  padding: 1vh 0.5vw;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+  border: 1px solid #cfd7df;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border-radius: 5px;
+}
+.shortcut_div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1vh;
+}
+.input {
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  z-index: 5;
+  font-size: 14px;
+  justify-content: center;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+  cursor: pointer;
+  outline: none;
+}
+.input:focus {
+  outline: none;
+}

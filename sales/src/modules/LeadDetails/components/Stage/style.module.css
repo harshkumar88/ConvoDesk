@@ -1,0 +1,27 @@
+.stage_container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh 2vw;
+  height: 5vh;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+.stage_div {
+  border: none;
+  background-color: #364f6b80;
+  color: white;
+  flex: 1;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active {
+  background-color: #364f6b;
+}

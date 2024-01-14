@@ -1,0 +1,29 @@
+.ticket_container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.groups {
+  flex: 4;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.filter {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  max-height: 92.5vh;
+  overflow-y: auto;
+}
+.article_edit {
+  font-size: 14px;
+}
+.jodit-workplace {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.btn {
+  background: #12344d;
+  color: white;
+  margin: 1vh auto;
+}

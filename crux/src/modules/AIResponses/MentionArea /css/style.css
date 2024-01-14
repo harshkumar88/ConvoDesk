@@ -1,0 +1,31 @@
+.mentions {
+  width: 100%;
+  border: 0;
+  /* border: 1px solid #cfd7df; */
+  border-radius: 4px;
+  background-color: #fff;
+  outline: none;
+  /* border: 1px solid black; */
+}
+
+.mentions__mention {
+  background-color: #cee4ff;
+  color: rgb(24, 50, 71);
+}
+
+.mentions__mention {
+  color: rebeccapurple;
+}
+
+.mentions__input {
+  width: 100%;
+  border: 1px solid transparent !important;
+  outline: none;
+}
+
+.custom-select,
+.custom-select-container,
+.custom-select-menu,
+.custom-select-option {
+  width: 100%;
+}

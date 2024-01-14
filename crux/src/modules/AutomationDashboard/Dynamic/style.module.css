@@ -1,0 +1,70 @@
+.textArea {
+  width: 500px;
+  height: 120px;
+  padding: 20px 10px;
+  resize: none;
+}
+
+.json {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.textdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  max-width: 500px;
+}
+.error {
+  color: red;
+  word-break: break-all;
+  width: 70%;
+  height: 30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.validate_btn {
+  background-color: #264966;
+  border: 1px solid #12344d;
+  background-image: linear-gradient(to bottom, #264966, #12344d);
+  color: white;
+  padding: 0.4vh 1vw;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.success {
+  color: green;
+  word-break: break-all;
+  width: 70%;
+  height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.plus_popup {
+  background-color: rgb(2, 184, 117);
+  border: none;
+  outline: none;
+  /* padding: 0.1vh 0.2vw; */
+  border-radius: 50px;
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
+  margin-top: 30px;
+  margin-right: 10px;
+  position: absolute;
+  right: 5px;
+  top: 60px;
+  width: 20px;
+  height: 20px;
+  /* margin-top: 5vh; */
+}

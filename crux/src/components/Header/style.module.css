@@ -1,0 +1,52 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5vh 1vw;
+  max-height: 7.5vh;
+  background-color: white;
+  z-index: 10;
+}
+.select {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0.5vh 0;
+}
+.subheader {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.icon_btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  font-size: 1.25rem;
+  color: #4d4d4d;
+}
+.search {
+  border: 1px solid #cfd7df;
+  padding: 0.5vh 0.5vw;
+  outline: none;
+  margin: 0.5vh 1vw;
+  padding: 0.5vh 0.5vw;
+  border-radius: 5px;
+  font-weight: 500;
+  justify-content: center;
+  background-color: #f3f5f7;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+
+.profile {
+  cursor: pointer;
+}

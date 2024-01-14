@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: static;
+  top: 0;
+  padding: 1.5vh 1vw;
+  background-color: #f5f7f9;
+  box-shadow: 0 2px 4px 0 rgb(24 50 71 / 8%);
+  border-bottom: 1px #cfd7df solid;
+  z-index: 10;
+  max-height: 7.5vh;
+}
+.row {
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+}
+.select_div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select_option {
+  width: 200px;
+}
+
+.agent_count {
+  font-weight: 600;
+  font-size: 18px;
+}

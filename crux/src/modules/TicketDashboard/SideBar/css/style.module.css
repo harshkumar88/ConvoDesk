@@ -1,0 +1,64 @@
+.container {
+  padding: 1vh 1vw;
+  flex: 0.2;
+  background-color: #f4f5f7;
+  height: 90vh;
+  border: 1px solid #ebeff3;
+  box-shadow: 0 6px 14px 0 rgba(24, 50, 71, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+}
+
+.side_header {
+  padding: 0.4vh 0.1vw;
+  font-size: 14px;
+}
+.ticket_fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item_list {
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ebeff3;
+  box-shadow: 0 6px 14px 0 rgba(24, 50, 71, 0.05);
+  padding: 0.7vh 0.5vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+
+  cursor: pointer;
+}
+.item_list:hover {
+  box-shadow: 0 6px 14px 0 rgba(24, 50, 71, 0.05),
+    0 1px 4px 0 rgba(24, 50, 71, 0.15);
+}
+.plus_icon {
+  visibility: hidden;
+  font-size: 20px;
+}
+
+.item_list:hover .plus_icon {
+  visibility: visible;
+}
+.item_flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icon_style {
+  background-color: #fef1e1;
+  padding: 3px 7px;
+  font-size: 16px;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,152 @@
+.chartBox {
+  background: #f2fbff;
+  color: rgb(18, 31, 67);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-image: none;
+  overflow: hidden;
+  box-shadow: rgba(95, 116, 141, 0.03) 0px 2px 1px -1px,
+    rgba(95, 116, 141, 0.04) 0px 1px 1px 0px,
+    rgba(95, 116, 141, 0.08) 0px 1px 3px 0px;
+  border-radius: 8px;
+  padding: 24px;
+  height: 100%;
+  padding-bottom: 0;
+}
+.chart_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+  align-items: center;
+  border-bottom: 0.1px solid rgb(218, 218, 218);
+  padding: 1vh;
+}
+
+.chart_header p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chart_dropdown {
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid var(--grey-grey-90, #e6e6e6);
+  background: var(--neutral-white, #fff);
+  width: 120px;
+  height: fit-content;
+  text-transform: capitalize;
+}
+
+.chart_flex {
+  display: flex;
+}
+
+.apex_charts {
+  flex: 1;
+  z-index: 0 !important;
+}
+
+.title {
+  text-align: center;
+}
+.title span {
+  display: inline-block;
+  transform: rotate(-90deg);
+  margin-top: 120px;
+  color: #b3b3b3;
+
+  font-size: 16px;
+
+  font-weight: 400;
+}
+.total_values {
+  flex: 0.19;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.nps_labels {
+  display: flex;
+  /* background-color: red; */
+  gap: 1px;
+  padding: 0.2vh 3vw;
+  width: 100%;
+}
+.nps_labels span:nth-child(1) {
+  flex: 0.9;
+  color: #8c97a7;
+  /* background-color: red; */
+}
+
+.nps_not_shown {
+  /* background-color: green; */
+  flex: 0.8;
+  /* text-align: right; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  gap: 10px;
+  /* background-color: red; */
+}
+.design_label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.satisfied_label {
+  background: #62b2fd;
+  border-radius: 50%;
+  /* width: 20px; */
+  height: 5px;
+  flex: 0.05 !important;
+}
+.neutral_label {
+  background: #9bdfc4;
+  border-radius: 50%;
+  /* width: 20px; */
+  height: 5px;
+  flex: 0.05 !important;
+}
+.not_satisfied_label {
+  background: #ffb44f;
+  border-radius: 50%;
+  /* width: 20px; */
+  height: 5px;
+  flex: 0.05 !important;
+}
+.satisfied_value {
+  flex: 1 !important;
+}
+
+.chart_no_data_found {
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  top: 35%;
+}
+.nps_not_found {
+  top: 80% !important;
+}
+.nps_label {
+  border-radius: 50%;
+  /* width: 20px; */
+  height: 5px;
+  flex: 0.05 !important;
+}
+
+.nps_value {
+  font-weight: 1000;
+  /* color: black; */
+  font-size: 18px;
+}
+
+.nps_value_data {
+  font-size: 18px;
+}

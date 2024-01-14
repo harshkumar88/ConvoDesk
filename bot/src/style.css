@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.col_1 {
+  flex: 1;
+  /* max-width: 80px; */
+  flex: 0.01;
+}
+.col_4 {
+  flex: 6;
+  overflow: hidden;
+  flex: 1;
+}
+
+.pipe {
+  border-left: 2px solid #9a9a9a;
+}

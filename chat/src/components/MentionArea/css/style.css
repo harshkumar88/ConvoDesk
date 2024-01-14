@@ -1,0 +1,93 @@
+.mentions {
+  width: 100%;
+  border: 0;
+  /* border: 1px solid #cfd7df; */
+  border-radius: 4px;
+  background-color: #fff;
+  outline: none;
+  max-height: 12vh;
+  min-height: 8vh;
+  /* border: 1px solid black; */
+}
+
+/* .mentions--singleLine .mentions__control {
+  display: inline-block;
+}
+.mentions--singleLine .mentions__higlighter {
+  padding: 1px;
+  border: 2px inset transparent;
+}
+.mentions--singleLine .mentions__input {
+  padding: 5px;
+  border: 2px inset;
+}
+
+.mentions--multiLine .mentions__control {
+  font-family: monospace;
+  font-size: 14pt;
+  border: 1px solid silver;
+}
+.mentions--multiLine .mentions__highlighter {
+  padding: 9px;
+}
+.mentions--multiLine .mentions__input {
+  padding: 9px;
+  min-height: 63px;
+  outline: 0;
+  border: 0;
+}
+
+.mentions__suggestions__list {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 10pt;
+}
+
+.mentions__suggestions__item {
+  padding: 5px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.mentions__suggestions__item--focused {
+  background-color: #cee4e5;
+}
+
+.mentions__mention {
+  background-color: #cee4e5;
+} */
+.mentions__mention {
+  background-color: #cee4ff;
+  color: rgb(24, 50, 71);
+}
+
+.mentions__mention {
+  color: rebeccapurple;
+}
+
+.mentions__input {
+  /* width: 100%;
+  border: 1px solid transparent !important;
+  outline: none;
+  overflow-y: scroll !important; */
+  width: 100%;
+  border: 1px solid transparent !important;
+  outline: none;
+  overflow-y: scroll !important;
+}
+
+/* .css-b62m3t-container {
+  width: 100%;
+} */
+/* .custom-select-container {
+  width: 100%;
+}
+
+.custom-select {
+  width: 100%;
+} */
+.custom-select,
+.custom-select-container,
+.custom-select-menu,
+.custom-select-option {
+  width: 100%;
+}

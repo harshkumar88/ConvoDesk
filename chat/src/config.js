@@ -1,0 +1,10 @@
+export const API_URL = "https://api.crofarm.com";
+export const CONS_API_URL = `${API_URL}/cons`;
+export const PRODUCT_API_URL = `${API_URL}/spa`;
+export const SUPPORT_API_URL = `${API_URL}/support`;
+export const OTIPY_PRODUCT_URL = `${API_URL}/otipy`;
+export const USERS_API_URL = `${API_URL}/users`;
+export const OTIPY_SUBSCRIPTION_URL = `${API_URL}/otipysubscription`;
+export const BASE_IMG_URL = "https://img.crofarm.com";
+export const IMG_URL = "https://img.crofarm.com/images/prodsmall/";
+export const WIDGET_URL = "https://img.crofarm.com/images/widget";

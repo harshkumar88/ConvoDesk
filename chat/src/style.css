@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif !important;
+  /* font-family: "Poppins"; */
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.col_1 {
+  /* flex: 1; */
+  /* max-width: 80px; */
+  /* flex: 1; */
+}
+.col_4 {
+  flex: 13;
+  background-color: #fff;
+  overflow: hidden;
+  /* flex: 15; */
+}
+
+.pipe {
+  border-left: 2px solid #9a9a9a;
+}
+.infinite-scroll-component {
+  overflow: inherit !important;
+  overflow-x: hidden;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif !important;
+  --green-color: rgb(0, 121, 88);
+  --primary-color: rgb(0 113 177);
+  --secondary-color: rgba(36, 153, 239, 0.08);
+  --info-color: rgb(254, 241, 225);
+}

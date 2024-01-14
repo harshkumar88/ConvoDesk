@@ -1,0 +1,6 @@
+.date_picker {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 5px;
+  background-color: white;
+  /* width: 200px; */
+}

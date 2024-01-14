@@ -1,0 +1,22 @@
+
+  .input {
+    margin: 0.5vh 0vw;
+    padding: 0.5vh 0.5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 5;
+    font-size: 14px;
+    justify-content: center;
+    background-color: #f3f5f7;
+    color: #12344d;
+    border: 1px solid #cfd7df;
+    background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+    cursor: pointer;
+    outline: none;
+  }
+  .input:focus {
+    outline: none;
+  }
+  
