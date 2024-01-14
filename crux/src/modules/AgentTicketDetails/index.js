@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "./css/style.module.css";
 import { AppContext } from "../../App";
-import { get_data, post_data_without_reload } from "../../networkHandler";
+import {
+  get_data,
+  post_data_without_reload,
+} from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import { formatDate } from "../../utils/utility";
 import TicketView from "./components/TicketView";
@@ -59,7 +62,7 @@ function AgentTicketDetails() {
     },
     [a_id]
   );
-  
+
   function get_user_tickets() {
     post_data_without_reload(
       `${API_URL}/crux/agent/tickets/v1/`,

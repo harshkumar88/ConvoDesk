@@ -1,7 +1,11 @@
 import React from "react";
 import { AppContext } from "../../../App";
 import { useState, useContext, useEffect } from "react";
-import { get_data, post_data, put_data } from "../../../networkHandler";
+import {
+  get_data,
+  post_data,
+  put_data,
+} from "../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../config";
 import styles from "./css/style.module.css";
 import { useNavigate } from "react-router-dom";

@@ -2,7 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./style.module.css";
 import Ticket from "./components/Ticket";
 import { AppContext } from "../../../../App";
-import { get_data, post_data_without_reload } from "../../../../networkHandler";
+import {
+  get_data,
+  post_data_without_reload,
+} from "../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../config";
 import { NavLink } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
 
 import BusinessHour from "./components/BusinessHour";
-import { get_data, post_data } from "../../../../networkHandler";
+import { get_data, post_data } from "../../../../React-lib/src/networkhandler";
 import { NavLink } from "react-router-dom";
 
 function BusinessHours(props) {

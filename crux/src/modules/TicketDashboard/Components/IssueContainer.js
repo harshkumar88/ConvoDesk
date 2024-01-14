@@ -6,7 +6,7 @@ import {
   put_data,
   delete_data,
   get_data,
-} from "../../../networkHandler";
+} from "../../../React-lib/src/networkhandler";
 import { AppContext } from "../../../App";
 function IssueContainer({ isActive, setDropState }) {
   const appContext = useContext(AppContext);

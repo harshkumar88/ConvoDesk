@@ -1,5 +1,5 @@
 import format from "date-fns/format";
-import { get_agent_id } from "../auth";
+import { get_agent_id } from "../React-lib/src/auth";
 function formatDate(date) {
   const year = date.getFullYear().toString().slice(-2);
   const month = (date.getMonth() + 1).toString().padStart(2, "0");

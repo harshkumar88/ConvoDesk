@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "./css/style.module.css";
 import { AppContext } from "../../App";
-import { post_data_without_reload } from "../../networkHandler";
+import { post_data_without_reload } from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import { formatDate } from "../../utils/utility";
 import TicketView from "./components/TicketView";

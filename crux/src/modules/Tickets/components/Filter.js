@@ -1,17 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { AppContext } from "../../../App";
-import { put_data } from "../../../networkHandler";
 import Select from "react-select";
 import styles from "../css/filter.module.css";
-import { get_agent_id, get_agent_groups } from "../../../auth";
-import { format, parseISO } from "date-fns";
-import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "../../../index.css";
-import PopUp from "../../../utils/Popup";
-import { ReactComponent as Close } from "../../../assets/close.svg";
+
 import DatePicker from "../../../utils/DatePicker";
 import { formatDate } from "../../../utils/utility";
 

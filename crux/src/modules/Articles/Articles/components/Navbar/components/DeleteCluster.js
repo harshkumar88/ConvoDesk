@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../../../App";
 import { API_URL } from "../../../../../../config";
-import { delete_data } from "../../../../../../networkHandler";
+import { delete_data } from "../../../../../../React-lib/src/networkhandler";
 import PopUp from "../../../../../../utils/Popup";
 import styles from "../../../css/popup.module.css";
 

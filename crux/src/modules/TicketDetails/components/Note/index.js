@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { delete_data } from "../../../../networkHandler";
+import { delete_data } from "../../../../React-lib/src/networkhandler";
 import UpdateNote from "../UpdateNote";
 import styles from "./style.module.css";
 

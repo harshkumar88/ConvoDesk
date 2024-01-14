@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { get_data, put_data } from "../../../../networkHandler";
+import { get_data, put_data } from "../../../../React-lib/src/networkhandler";
 
 function EditBusinessHour(props) {
   const appContext = useContext(AppContext);

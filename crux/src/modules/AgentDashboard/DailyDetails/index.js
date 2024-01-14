@@ -3,12 +3,8 @@ import styles from "../css/daily.module.css";
 import { ReactComponent as BarGraph } from "../../../assets/Dashboard/BarGraph.svg";
 import { ReactComponent as Chat } from "../../../assets/Dashboard/Chat.svg";
 import { ReactComponent as Call } from "../../../assets/Dashboard/Call.svg";
-import { list } from "../components/seed";
 import Card from "./components/Card";
 import { AppContext } from "../../../App";
-import { get_data } from "../../../networkHandler";
-import { API_URL } from "../../../config";
-import { format } from "date-fns";
 
 function DailyDetails({ overallData, chatData, callData, agent_id }) {
   let appContext = useContext(AppContext);

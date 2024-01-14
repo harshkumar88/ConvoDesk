@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 import UserInfo from "./components/UserInfo";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { get_data } from "../../../../networkHandler";
+import { get_data } from "../../../../React-lib/src/networkhandler";
 
 function User() {
   const appContext = useContext(AppContext);

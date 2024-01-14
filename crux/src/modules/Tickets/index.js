@@ -4,14 +4,13 @@ import {
   get_data,
   post_data,
   post_data_without_reload,
-} from "../../networkHandler";
+} from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Navbar from "./components/Navbar";
 import styles from "./css/style.module.css";
 import Ticket from "./components/Ticket";
 import Filter from "./components/Filter";
-import { get_agent_groups, get_agent_id } from "../../auth";
 
 function Home() {
   const appContext = useContext(AppContext);

@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
-import { BsTelephoneOutbound } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../../../App";
-import { API_URL } from "../../../config";
-import { put_data } from "../../../networkHandler";
 
 import styles from "../css/ticket.module.css";
 function User({

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { put_data } from "../../../../networkHandler";
+import { put_data } from "../../../../React-lib/src/networkhandler";
 
 function Agent({ data, allRoles }) {
   const appContext = useContext(AppContext);

@@ -2,10 +2,10 @@ import React, { createContext, useEffect, useState, useRef } from "react";
 import "./style.css";
 import "./App.css";
 import AppRoutes from "./Routes/AppRoutes";
-import { get_data, post_data } from "./networkHandler";
+import { get_data, post_data } from "./React-lib/src/networkhandler";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "./config";
-import { get_agent_groups, get_agent_id } from "./auth";
+import { get_agent_groups, get_agent_id } from "./React-lib/src/auth";
 const AppContext = createContext();
 function App() {
   let [header, setHeader] = useState("header");

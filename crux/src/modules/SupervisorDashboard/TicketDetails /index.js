@@ -4,8 +4,6 @@ import { ticket_list } from "../components/seed";
 import { ReactComponent as Arrow } from "../../../assets/Dashboard/Arrow.svg";
 import Select from "react-select";
 import { customStyles } from "../components/seed";
-import { get_data } from "../../../networkHandler";
-import { API_URL } from "../../../config";
 import { AppContext } from "../../../App";
 import { useNavigate } from "react-router-dom";
 

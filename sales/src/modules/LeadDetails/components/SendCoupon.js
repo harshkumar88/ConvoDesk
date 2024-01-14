@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { post_data } from "../../../networkHandler";
+import { post_data } from "../../../React-lib/src/networkhandler";
 import { AppContext } from "../../../App";
 import styles from "../css/popup.module.css";
 import { API_URL } from "../../../config";

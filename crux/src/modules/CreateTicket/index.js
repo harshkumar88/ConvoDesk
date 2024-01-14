@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AppContext } from "../../App";
 import { API_URL } from "../../config";
-import { get_data, post_data } from "../../networkHandler";
+import { get_data, post_data } from "../../React-lib/src/networkhandler";
 import JoditEditor from "jodit-react";
 import { useNavigate } from "react-router-dom";
 

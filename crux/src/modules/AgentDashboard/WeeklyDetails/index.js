@@ -5,8 +5,7 @@ import SlaTickets from "../components/SlaTickets";
 import AvgResolutionTime from "../components/AvgResolutionTime";
 import NPS from "../components/NPS";
 import { AppContext } from "../../../App";
-import { get_data } from "../../../networkHandler";
-import { API_URL } from "../../../config";
+
 function WeeklyDetails({ chartData }) {
   let appContext = useContext(AppContext);
 

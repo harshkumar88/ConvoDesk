@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
-import { post_data_without_reload, post_data } from "../../../networkHandler";
+import {
+  post_data_without_reload,
+  post_data,
+} from "../../../React-lib/src/networkhandler";
 import styles from "../css/merge.module.css";
 import PopUp from "../../../utils/Popup";
 import { API_URL } from "../../../config";

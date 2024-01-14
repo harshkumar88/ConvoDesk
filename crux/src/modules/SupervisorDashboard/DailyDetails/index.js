@@ -7,9 +7,6 @@ import { list } from "../components/seed";
 import Card from "./components/Card";
 import Calendar from "../components/Calendar";
 import { AppContext } from "../../../App";
-import { get_data } from "../../../networkHandler";
-import { API_URL } from "../../../config";
-import { format } from "date-fns";
 
 function DailyDetails({ overallData, chatData, callData }) {
   let appContext = useContext(AppContext);

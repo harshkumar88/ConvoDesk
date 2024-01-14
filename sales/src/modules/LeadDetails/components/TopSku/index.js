@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./css/styles.module.css";
 import { API_URL, IMG_URL } from "../../../../config";
-import { get_data } from "../../../../networkHandler";
+import { get_data } from "../../../../React-lib/src/networkhandler";
 
 function SKU({ phone, appContext }) {
   const [loader, setLoader] = useState(true);

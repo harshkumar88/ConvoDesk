@@ -3,7 +3,7 @@ import styles from "./css/styles.module.css";
 import { AppContext } from "../../App";
 import WeeklyDetails from "./WeeklyDetails";
 import DailyDetails from "./DailyDetails";
-import { get_data } from "../../networkHandler";
+import { get_data } from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import { useParams } from "react-router-dom";
 import { formatDate, convertSlot } from "../../utils/utility";

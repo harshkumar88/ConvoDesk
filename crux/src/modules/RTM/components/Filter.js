@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { AppContext } from "../../../App";
-import { put_data } from "../../../networkHandler";
 import styles from "../css/filter.module.css";
 function Filter({ allFilters, filter, setFilter }) {
   let [search, setSearch] = useState(false);

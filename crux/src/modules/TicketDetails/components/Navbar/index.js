@@ -4,7 +4,7 @@ import { AiOutlineLeftSquare, AiOutlineRightSquare } from "react-icons/ai";
 import { AppContext } from "../../../../App";
 import AddAgent from "./components/AddAgent";
 import AddNote from "../AddNote";
-import { delete_data } from "../../../../networkHandler";
+import { delete_data } from "../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../config";
 import { useNavigate } from "react-router-dom";
 import Merge from "../Merge";

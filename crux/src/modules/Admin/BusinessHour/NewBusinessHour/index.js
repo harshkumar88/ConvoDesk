@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { post_data } from "../../../../networkHandler";
+import { post_data } from "../../../../React-lib/src/networkhandler";
 
 function NewBusinessHour(props) {
   const appContext = useContext(AppContext);

@@ -4,8 +4,8 @@ import { AppContext } from "../../App";
 import WeeklyDetails from "./WeeklyDetails";
 import TicketDetails from "../SupervisorDashboard/TicketDetails /index";
 import DatePicker from "../../utils/DatePicker";
-import { get_agent_name, get_agent_email } from "../../auth";
-import { get_data } from "../../networkHandler";
+import { get_agent_name, get_agent_email } from "../../React-lib/src/auth";
+import { get_data } from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import { convertSlot, formatDate } from "../../utils/utility";
 

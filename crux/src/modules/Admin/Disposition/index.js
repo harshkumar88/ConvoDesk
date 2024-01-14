@@ -6,7 +6,7 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../networkHandler";
+} from "../../../React-lib/src/networkhandler";
 import OutcomeLayout from "./components/OutcomeLayout";
 import TicketTypeLayout from "./components/TicketTypeLayout";
 import IssueLayout from "./components/IssueLayout";

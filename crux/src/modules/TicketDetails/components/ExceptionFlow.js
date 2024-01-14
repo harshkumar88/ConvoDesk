@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../css/popup.module.css";
 import PopUp from "../../../utils/Popup";
 import { API_URL } from "../../../config";
-import { get_data, patch_data } from "../../../networkHandler";
+import { get_data, patch_data } from "../../../React-lib/src/networkhandler";
 import { getNSlot } from "../../../utils/utility";
 function ExceptionFlow({ phone, appContext }) {
   let [close, setClose] = useState(false);

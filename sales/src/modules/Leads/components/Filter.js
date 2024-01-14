@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { AppContext } from "../../../App";
-import { put_data } from "../../../networkHandler";
 import Select from "react-select";
 import styles from "../css/filter.module.css";
-import { get_agent_id, get_agent_groups } from "../../../auth";
 
 import { add, format, parseISO } from "date-fns";
 import { DateRangePicker } from "react-date-range";

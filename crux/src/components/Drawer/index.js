@@ -8,7 +8,7 @@ import { FaBars, FaPhoneAlt } from "react-icons/fa";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { ReactComponent as OtipySmallLogo } from "../../assets/Otipy.svg";
 import { ReactComponent as UsersBreak } from "../../assets/tooltip/UsersBreak.svg";
-import { authorise } from "../../auth";
+import { authorise } from "../../React-lib/src/auth";
 import Tooltip from "../ToolTip";
 function Drawer(props) {
   const appContext = useContext(AppContext);

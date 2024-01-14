@@ -1,7 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../../../App";
 import { API_URL } from "../../../../../config";
-import { get_data, post_data, put_data } from "../../../../../networkHandler";
+import {
+  get_data,
+  post_data,
+  put_data,
+} from "../../../../../React-lib/src/networkhandler";
 import PopUp from "../../../../../utils/Popup";
 import Select from "react-select";
 import styles from "./style.module.css";
