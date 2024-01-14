@@ -1,12 +1,14 @@
-[submodule "crux/React-lib"]
-	path = crux/React-lib
+
+[submodule "crux/src/React-lib"]
+	path = crux/src/React-lib
 	url = https://github.com/harshkumar88/React-lib.git
-[submodule "chat/React-lib"]
-	path = chat/React-lib
+[submodule "chat/src/React-lib"]
+	path = chat/src/React-lib
 	url = https://github.com/harshkumar88/React-lib.git
-[submodule "bot/React-lib"]
-	path = bot/React-lib
+[submodule "bot/src/React-lib"]
+	path = bot/src/React-lib
 	url = https://github.com/harshkumar88/React-lib.git
-[submodule "sales/React-lib"]
-	path = sales/React-lib
+[submodule "sales/src/React-lib"]
+	path = sales/src/React-lib
+
 	url = https://github.com/harshkumar88/React-lib.git
