@@ -1,4 +1,4 @@
-import { get_access_token } from "./auth";
+import { get_access_token } from "./React-lib/src/auth";
 const API_URL = "https://stagemain.crofarm.com";
 const IMG_URL = "https://img.crofarm.com/images/prodsmall/";
 const IMG_URLS = "https://img.crofarm.com/images/retailers/baapp/images/";

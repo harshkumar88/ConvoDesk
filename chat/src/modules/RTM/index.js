@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../App";
-import { get_data } from "../../networkHandler";
+import { get_data } from "../../React-lib/src/networkhandler";
 import { API_URL } from "../../config";
 import ChartGraph from "./components/Chart";
 import styles from "../RTM/css/style.module.css";

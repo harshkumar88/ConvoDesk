@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import List from "./components/List";
 import Filter from "./components/Filter";
 import { AppContext } from "../../../App";
-import { get_data, post_data } from "../../../networkHandler";
+import { get_data, post_data } from "../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../config";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { formatDate } from "../../../utils/utility";

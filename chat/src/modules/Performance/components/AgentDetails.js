@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
 import { API_URL } from "../../../config";
-import { post_data } from "../../../networkHandler";
+import { post_data } from "../../../React-lib/src/networkhandler";
 import styles from "../css/agent.module.css";
 import Agent from "./Agent";
 import { ReactComponent as Descending } from "../../../assets/performance/Descending.svg";
@@ -93,7 +93,7 @@ function AgentDetails({ agent_id, tab, nslotId, agentName, supervisorId }) {
       <div className="loader"></div>
     </div>
   ) : (
-    <div className={styles.agent_details_container} onClick={handleChildClick} >
+    <div className={styles.agent_details_container} onClick={handleChildClick}>
       <div className={styles.agent_details}>
         {details.length > 0 ? (
           <>

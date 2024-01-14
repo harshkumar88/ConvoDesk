@@ -3,7 +3,7 @@ import Alert from "../components/Alert";
 import Drawer from "../components/Drawer";
 import { Navigate, Outlet } from "react-router-dom";
 import { AppContext } from "../App";
-import { isAgentLoggedIn } from "../auth";
+import { isAgentLoggedIn } from "../React-lib/src/auth";
 import { Suspense } from "react";
 
 function ConversationRoutes() {

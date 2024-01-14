@@ -3,11 +3,10 @@ import { NavLink } from "react-router-dom";
 import { AppContext } from "../../App";
 import { nav_data } from "./NavData";
 import styles from "./style.module.css";
-import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { ReactComponent as OtipySmallLogo } from "../../assets/Otipy.svg";
 import { ReactComponent as UsersBreak } from "../../assets/UsersBreak.svg";
 
-import { authorise } from "../../auth";
+import { authorise } from "../../React-lib/src/auth";
 import LinkItem from "./LinkItem";
 import Tooltip from "../ToolTip";
 

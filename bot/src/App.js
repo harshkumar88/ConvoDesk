@@ -2,8 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import "./style.css";
 import "./App.css";
 import AppRoutes from "./Routes/AppRoutes";
-import { get_data } from "./networkHandler";
-import { API_URL } from "./config";
 const AppContext = createContext();
 function App() {
   let [header, setHeader] = useState("header");

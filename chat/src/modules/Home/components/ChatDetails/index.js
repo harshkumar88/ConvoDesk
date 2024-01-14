@@ -6,7 +6,7 @@ import Ticket from "../Ticket";
 import { AppContext } from "../../../../App";
 import UserDetails from "../UserDetail.js";
 import { ChatContext } from "../..";
-import { get_data } from "../../../../networkHandler";
+import { get_data } from "../../../../React-lib/src/networkhandler.js";
 import { API_URL } from "../../../../config";
 function ChatDetails() {
   const appContext = useContext(AppContext);

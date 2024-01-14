@@ -10,7 +10,10 @@ import Carousel from "./Carousel";
 import Image from "./Image";
 import Select, { NonceProvider } from "react-select";
 import { TbBrandStackshare } from "react-icons/tb";
-import { post_data, put_data } from "../../../../../networkHandler";
+import {
+  post_data,
+  put_data,
+} from "../../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../../config";
 import { AppContext } from "../../../../../App";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";

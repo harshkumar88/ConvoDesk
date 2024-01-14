@@ -2,12 +2,12 @@ import React, { createContext, useEffect, useState } from "react";
 import "./style.css";
 import "./App.css";
 import { useRef } from "react";
-import { isAgentLoggedIn } from "./auth";
+import { isAgentLoggedIn } from "./React-lib/src/auth";
 import AppRoutes from "./Routes/AppRoutes";
 import Select from "react-select";
-import { get_data, patch_data, put_data } from "./networkHandler";
+import { get_data, patch_data, put_data } from "./React-lib/src/networkhandler";
 import { API_URL } from "./config";
-import { get_agent_id } from "./auth";
+import { get_agent_id } from "./React-lib/src/auth";
 
 const AppContext = createContext();
 function App() {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Select from "react-select";
-import { get_data } from "../../../../networkHandler";
+import { get_data } from "../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../config";
 import { AppContext } from "../../../../App";
 

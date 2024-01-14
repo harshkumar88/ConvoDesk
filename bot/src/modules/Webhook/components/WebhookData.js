@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styles from "../css/style.module.css";
 import { MdModeEditOutline, MdDelete } from "react-icons/md";
-import { delete_data } from "../../../networkHandler";
+import { delete_data } from "../../../React-lib/src/networkhandler";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../../../App";
 import { API_URL } from "../../../config";

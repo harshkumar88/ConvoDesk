@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Detail from "./components/Detail";
 import styles from "./style.module.css";
 import { AppContext } from "../../../App";
-import { get_data } from "../../../networkHandler";
+import { get_data } from "../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../config";
 import InfiniteScroll from "react-infinite-scroll-component";
 function ConversationActivity() {

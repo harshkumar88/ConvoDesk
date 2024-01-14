@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./css/style.module.css";
 import ChildCondition from "./components/ChildCondition";
 import { ReactComponent as ConditionIcon } from "../../../../assets/Condition.svg";
-import { put_data } from "../../../../networkHandler";
+import { put_data } from "../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../config";
 
 function Condition({

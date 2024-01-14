@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { AppContext } from "../App";
 // import Header from "../components/Header/Header";
 import { API_URL } from "../config";
-import { get_data } from "../networkHandler";
+import { get_data } from "../React-lib/src/networkhandler";
 
 function ChatRoutes(props) {
   const appContext = useContext(AppContext);
@@ -12,9 +12,10 @@ function ChatRoutes(props) {
     getCannedResponses();
   }, []);
   function getCannedResponses() {
-    get_data(`${API_URL}/crux/canned/response/v1/?ecosystem=2`, appContext).then(function (
-      data
-    ) {
+    get_data(
+      `${API_URL}/crux/canned/response/v1/?ecosystem=2`,
+      appContext
+    ).then(function (data) {
       if (data) {
         appContext.setCannedResponses(data.data);
       }

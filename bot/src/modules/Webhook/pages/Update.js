@@ -7,7 +7,11 @@ import MentionArea from "../../../components/MentionArea";
 import JSONView from "../components/JsonViewer";
 import { API_URL } from "../../../config";
 import { AppContext } from "../../../App";
-import { get_data, post_data, put_data } from "../../../networkHandler";
+import {
+  get_data,
+  post_data,
+  put_data,
+} from "../../../React-lib/src/networkhandler";
 import { IoMdAdd } from "react-icons/io";
 import { useParams } from "react-router-dom";
 

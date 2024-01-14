@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import { AiFillPlusCircle } from "react-icons/ai";
 import PopUp from "../../../../utils/Popup";
 import { API_URL } from "../../../../config";
-import { post_data } from "../../../../networkHandler";
+import { post_data } from "../../../../React-lib/src/networkhandler";
 
 function TestTemplate({ bodyContext, template_name }) {
   let { close, setClose, appContext } = bodyContext;

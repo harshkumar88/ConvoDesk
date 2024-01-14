@@ -3,7 +3,7 @@ import Select from "react-select";
 import styles from "./style.module.css";
 import { AppContext } from "../../../../../../App";
 import PopUp from "../../../../../../utils/Popup";
-import { post_data } from "../../../../../../networkHandler";
+import { post_data } from "../../../../../../React-lib/src/networkhandler";
 import { API_URL } from "../../../../../../config";
 function Assign({ chatContext }) {
   const appContext = useContext(AppContext);

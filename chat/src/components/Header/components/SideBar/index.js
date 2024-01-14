@@ -3,8 +3,8 @@ import styles from "./style.module.css";
 import { ReactComponent as Close } from "../../../../assets/CloseIcon.svg";
 import Select from "react-select";
 import Content from "./Content";
-import { get_agent_name, get_time } from "../../../../auth";
-import { get_data } from "../../../../networkHandler";
+import { get_agent_name, get_time } from "../../../../React-lib/src/auth";
+import { get_data } from "../../../../React-lib/src/networkhandler";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
 
