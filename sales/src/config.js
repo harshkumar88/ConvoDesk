@@ -7,7 +7,7 @@ const IMG_URLS = "https://img.crofarm.com/images/retailers/baapp/images/";
 const STAGING_URL = "https://stagemain.crofarm.com";
 const PRODUCTION_URL = "https://api.crofarm.com";
 const API_URL =
-  process.env.NODE_ENV === "development" ? STAGING_URL : PRODUCTION_URL;
+  process.env.NODE_ENV === "development" ? PRODUCTION_URL : PRODUCTION_URL;
 let access_token = get_access_token();
 
 export { API_URL, IMG_URL, IMG_URLS, access_token };
