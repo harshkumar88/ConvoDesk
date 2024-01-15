@@ -27,9 +27,9 @@ function AppRoutes() {
 
       <Route path="/" element={<PrivateRoutes />}>
         <Route path="/" element={<HeaderRoutes />}>
-          <Route path="/" element={<Navigate to={"/home"} replace={true} />} />
+          <Route path="/home" element={<Navigate to={"/"} replace={true} />} />
           <Route
-            path="/home"
+            path="/"
             element={<Navigate to={"/conversation/details"} replace={true} />}
           />
 
