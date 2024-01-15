@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
 import { API_URL } from "../../../config";
-import { post_data } from "../../../React-lib/src/networkhandler";
+import { post_data } from "../../../ReactLib/networkhandler";
 import styles from "../css/agent.module.css";
 import Agent from "./Agent";
 import { ReactComponent as Descending } from "../../../assets/performance/Descending.svg";

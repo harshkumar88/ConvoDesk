@@ -4,7 +4,7 @@ import { AppContext } from "../../App";
 import {
   get_data,
   post_data_without_reload,
-} from "../../React-lib/src/networkhandler";
+} from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import { formatDate } from "../../utils/utility";
 import TicketView from "./components/TicketView";

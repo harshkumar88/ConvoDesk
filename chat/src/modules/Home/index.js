@@ -2,10 +2,10 @@ import { useEffect, useState, useRef, useContext, createContext } from "react";
 import styles from "./css/style.module.css";
 import Header from "../../components/Header/Header";
 import Test from "./components/Test";
-import { get_data, post_data } from "../../React-lib/src/networkhandler";
+import { get_data, post_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import { AppContext } from "../../App";
-import { get_agent_id } from "../../React-lib/src/auth";
+import { get_agent_id } from "../../ReactLib/auth";
 import { Outlet } from "react-router-dom";
 
 const ChatContext = createContext();

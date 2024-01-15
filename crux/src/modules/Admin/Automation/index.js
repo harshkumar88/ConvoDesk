@@ -1,7 +1,7 @@
 import React from "react";
 import { AppContext } from "../../../App";
 import { useState, useContext, useEffect } from "react";
-import { get_data } from "../../../React-lib/src/networkhandler";
+import { get_data } from "../../../ReactLib/networkhandler";
 import { API_URL } from "../../../config";
 import Subject from "./components/Subject";
 import Navbar from "./components/Navbar";

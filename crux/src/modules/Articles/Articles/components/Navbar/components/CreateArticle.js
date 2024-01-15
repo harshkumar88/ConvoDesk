@@ -3,7 +3,7 @@ import styles from "../../../css/popup.module.css";
 import JoditEditor from "jodit-react";
 import { AppContext } from "../../../../../../App";
 import PopUp from "../../../../../../utils/Popup";
-import { post_data } from "../../../../../../React-lib/src/networkhandler";
+import { post_data } from "../../../../../../ReactLib/networkhandler";
 
 function CreateArticle({ cluster }) {
   let [change, setChange] = useState({});

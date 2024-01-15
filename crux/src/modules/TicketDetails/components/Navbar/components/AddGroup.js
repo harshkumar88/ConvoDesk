@@ -5,7 +5,7 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../../../React-lib/src/networkhandler";
+} from "../../../../../ReactLib/networkhandler";
 import PopUp from "../../../../../utils/Popup";
 import Select from "react-select";
 import styles from "./style.module.css";

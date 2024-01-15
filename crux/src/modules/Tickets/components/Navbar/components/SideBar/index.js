@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
 import { ReactComponent as Close } from "../../../../../../assets/cross.svg";
-import { post_data } from "../../../../../../React-lib/src/networkhandler";
+import { post_data } from "../../../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../../../config";
-import { get_file_name } from "../../../../../../React-lib/src/auth";
+import { get_file_name } from "../../../../../../ReactLib/auth";
 
 function SideBar({ show, setShow, appContext }) {
   const sideBarRef = useRef(null);

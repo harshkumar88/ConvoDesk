@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../../App";
-import { post_data_without_reload } from "../../../../../React-lib/src/networkhandler";
+import { post_data_without_reload } from "../../../../../ReactLib/networkhandler";
 import PopUp from "../../../../../utils/Popup";
 import styles from "./style.module.css";
 import { API_URL } from "../../../../../config";

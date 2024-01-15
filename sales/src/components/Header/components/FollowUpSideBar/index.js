@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./style.module.css";
 import { ReactComponent as Close } from "../../../../assets/CloseIcon.svg";
 import Content from "./Content";
-import { get_data } from "../../../../React-lib/src/networkhandler";
+import { get_data } from "../../../../ReactLib/networkhandler";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
 

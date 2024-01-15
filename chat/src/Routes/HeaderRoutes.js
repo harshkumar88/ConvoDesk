@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { AppContext } from "../App";
 // import Header from "../components/Header/Header";
 import { API_URL } from "../config";
-import { get_data } from "../React-lib/src/networkhandler";
+import { get_data } from "../ReactLib/networkhandler";
 
 function HeaderRoutes(props) {
   const appContext = useContext(AppContext);

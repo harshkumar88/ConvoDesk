@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../../../App";
-import { post_data } from "../../../../../React-lib/src/networkhandler";
+import { post_data } from "../../../../../ReactLib/networkhandler";
 import PopUp from "../../../../../utils/Popup";
 import Select from "react-select";
 import styles from "./style.module.css";

@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { HiPencil } from "react-icons/hi";
 import { API_URL } from "../../../config";
 import { AppContext } from "../../../App";
-import { post_data, put_data } from "../../../React-lib/src/networkhandler";
+import { post_data, put_data } from "../../../ReactLib/networkhandler";
 import PopUp from "../../../utils/Popup";
 
 function UpdateDescription({ ticket_id, data }) {

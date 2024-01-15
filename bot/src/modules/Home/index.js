@@ -3,7 +3,7 @@ import styles from "./css/style.module.css";
 import SideBar from "./components/SideBar";
 import Flow from "./components/Flow";
 import { AppContext } from "../../App";
-import { get_data } from "../../React-lib/src/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import Condition from "./components/Conditions";
 

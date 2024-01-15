@@ -5,7 +5,7 @@ import { AppContext } from "../../../../App";
 import {
   get_data,
   post_data_without_reload,
-} from "../../../../React-lib/src/networkhandler";
+} from "../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../config";
 import { NavLink } from "react-router-dom";
 

@@ -8,7 +8,7 @@ import { API_URL } from "../../../../config";
 import {
   get_data,
   post_data_without_reload,
-} from "../../../../React-lib/src/networkhandler";
+} from "../../../../ReactLib/networkhandler";
 
 function UserDetails() {
   const appContext = useContext(AppContext);

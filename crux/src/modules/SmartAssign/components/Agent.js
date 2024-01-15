@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../App";
 import { API_URL } from "../../../config";
-import { put_data } from "../../../React-lib/src/networkhandler";
+import { put_data } from "../../../ReactLib/networkhandler";
 import styles from "../css/style.module.css";
 function Agent(props) {
   const { item } = props;

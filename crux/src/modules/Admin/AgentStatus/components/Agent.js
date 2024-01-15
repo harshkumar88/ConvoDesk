@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import { patch_data } from "../../../../React-lib/src/networkhandler";
+import { patch_data } from "../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../config";
 function Agent({ data, options, appContext }) {
   let [value, setValue] = useState("");

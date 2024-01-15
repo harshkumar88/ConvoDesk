@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./style.module.css";
 import { ReactComponent as Del } from "../../../../assets/header/Del.svg";
-import { delete_data } from "../../../../React-lib/src/networkhandler";
+import { delete_data } from "../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../config";
 import { AppContext } from "../../../../App";
 function Content({ followUpDetails, handleClick }) {

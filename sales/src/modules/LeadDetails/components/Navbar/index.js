@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from "./style.module.css";
 import { AppContext } from "../../../../App";
 import AddNote from "../AddNote";
-import { delete_data } from "../../../../React-lib/src/networkhandler";
+import { delete_data } from "../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../config";
 import { useNavigate } from "react-router-dom";
 

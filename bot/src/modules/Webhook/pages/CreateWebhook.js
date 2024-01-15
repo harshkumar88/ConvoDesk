@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Select from "react-select";
 import styles from "../css/update.module.css";
-import { post_data } from "../../../React-lib/src/networkhandler";
+import { post_data } from "../../../ReactLib/networkhandler";
 import { AppContext } from "../../../App";
 import JSONView from "../components/JsonViewer";
 import { API_URL } from "../../../config";

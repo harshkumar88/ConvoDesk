@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { isAgentLoggedIn, isPartnerLoggedIn } from "../../React-lib/src/auth";
+import { isAgentLoggedIn, isPartnerLoggedIn } from "../../ReactLib/auth";
 import styles from "./css/style.module.css";
-import { get_data } from "../../React-lib/src/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import { AppContext } from "../../App";
 

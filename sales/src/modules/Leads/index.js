@@ -4,7 +4,7 @@ import {
   get_data,
   post_data,
   post_data_without_reload,
-} from "../../React-lib/src/networkhandler";
+} from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Navbar from "./components/Navbar";

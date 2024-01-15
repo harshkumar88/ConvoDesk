@@ -7,7 +7,7 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../React-lib/src/networkhandler";
+} from "../../../ReactLib/networkhandler";
 
 import IssueLayout from "./components/IssueLayout";
 import TabBar from "../../../components/TabBar";

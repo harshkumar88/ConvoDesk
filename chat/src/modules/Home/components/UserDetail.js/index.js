@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { BiSupport } from "react-icons/bi";
-import { post_data_without_reload } from "../../../../React-lib/src/networkhandler";
+import { post_data_without_reload } from "../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../config";
 import Ticket from "./components/Ticket";
 import { IoMdCopy } from "react-icons/io";

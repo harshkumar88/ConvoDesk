@@ -4,13 +4,13 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../React-lib/src/networkhandler";
+} from "../../../ReactLib/networkhandler";
 import Select from "react-select";
 import styles from "../css/popup.module.css";
 import PopUp from "../../../utils/Popup";
 import JoditEditor from "jodit-react";
 import { API_URL } from "../../../config";
-import { get_agent_email, get_agent_id } from "../../../React-lib/src/auth";
+import { get_agent_email, get_agent_id } from "../../../ReactLib/auth";
 function FollowUp({ ticket_id, cannedResponses, group_id }) {
   let [note, setNote] = useState({});
   let [close, setClose] = useState(false);

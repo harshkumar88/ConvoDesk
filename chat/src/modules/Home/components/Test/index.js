@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { NavLink, useLocation } from "react-router-dom";
-import { authorise, get_agent_id } from "../../../../React-lib/src/auth";
+import { authorise, get_agent_id } from "../../../../ReactLib/auth";
 import { BigHead } from "@bigheads/core";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../../App";

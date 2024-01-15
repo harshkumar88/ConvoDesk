@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { post_data } from "../../../../../React-lib/src/networkhandler";
+import { post_data } from "../../../../../ReactLib/networkhandler";
 import { API_URL } from "../../../../../config";
 import styles from "../style.module.css";
 import { AppContext } from "../../../../../App";

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import styles from "./css/style.module.css";
-import { get_data, post_data } from "../../React-lib/src/networkhandler";
+import { get_data, post_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import { AppContext } from "../../App";
 import { useState } from "react";

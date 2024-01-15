@@ -3,11 +3,7 @@ import { AppContext } from "../../App";
 import { useState, useContext, useEffect } from "react";
 import styles from "./css/style.module.css";
 import { useNavigate } from "react-router-dom";
-import {
-  post_data,
-  get_data,
-  put_data,
-} from "../../React-lib/src/networkhandler";
+import { post_data, get_data, put_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import Select from "react-select";
 import { customStyles } from "../../utils/DatePicker/components/CustomStyles";

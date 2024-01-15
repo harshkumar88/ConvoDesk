@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../App";
-import { get_data } from "../../React-lib/src/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import Navbar from "./components/Navbar";
 import styles from "./css/style.module.css";

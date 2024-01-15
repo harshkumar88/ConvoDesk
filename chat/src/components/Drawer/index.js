@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 import { ReactComponent as OtipySmallLogo } from "../../assets/Otipy.svg";
 import { ReactComponent as UsersBreak } from "../../assets/UsersBreak.svg";
 
-import { authorise } from "../../React-lib/src/auth";
+import { authorise } from "../../ReactLib/auth";
 import LinkItem from "./LinkItem";
 import Tooltip from "../ToolTip";
 

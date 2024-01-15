@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../../App";
 import { API_URL } from "../../config";
-import { get_data } from "../../React-lib/src/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import WebhookData from "./components/WebhookData";
 import styles from "./css/style.module.css";
 function Webhook() {

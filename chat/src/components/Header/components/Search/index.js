@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { AppContext } from "../../../../App";
 import styles from "./style.module.css";
 import { API_URL } from "../../../../config";
-import { get_data } from "../../../../React-lib/src/networkhandler";
+import { get_data } from "../../../../ReactLib/networkhandler";
 function Search(props) {
   const appContext = useContext(AppContext);
   let search = appContext.search;

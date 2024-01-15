@@ -3,9 +3,9 @@ import Alert from "../components/Alert";
 import Drawer from "../components/Drawer";
 import { Navigate, Outlet } from "react-router-dom";
 import { AppContext } from "../App";
-import { isAgentLoggedIn, isPartnerLoggedIn } from "../React-lib/src/auth";
+import { isAgentLoggedIn, isPartnerLoggedIn } from "../ReactLib/auth";
 import { Suspense } from "react";
-import { get_data } from "../React-lib/src/networkhandler";
+import { get_data } from "../ReactLib/networkhandler";
 import { API_URL } from "../config";
 
 function PrivateRoutes() {

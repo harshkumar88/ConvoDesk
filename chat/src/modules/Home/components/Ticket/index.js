@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { post_data, get_data } from "../../../../React-lib/src/networkhandler";
+import { post_data, get_data } from "../../../../ReactLib/networkhandler";
 import { useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import { API_URL } from "../../../../config";
 import Select from "react-select";
-import { get_agent_id } from "../../../../React-lib/src/auth";
+import { get_agent_id } from "../../../../ReactLib/auth";
 import { BOT_USER_DICT } from "../../../../constants";
 import { format } from "date-fns";
 

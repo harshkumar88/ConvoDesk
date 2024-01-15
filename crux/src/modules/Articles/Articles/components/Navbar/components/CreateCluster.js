@@ -3,7 +3,7 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../../../../React-lib/src/networkhandler";
+} from "../../../../../../ReactLib/networkhandler";
 import styles from "../../../css/popup.module.css";
 import PopUp from "../../../../../../utils/Popup";
 import { AppContext } from "../../../../../../App";

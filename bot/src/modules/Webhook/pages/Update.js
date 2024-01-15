@@ -11,7 +11,7 @@ import {
   get_data,
   post_data,
   put_data,
-} from "../../../React-lib/src/networkhandler";
+} from "../../../ReactLib/networkhandler";
 import { IoMdAdd } from "react-icons/io";
 import { useParams } from "react-router-dom";
 

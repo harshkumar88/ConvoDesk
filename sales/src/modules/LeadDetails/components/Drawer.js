@@ -9,7 +9,7 @@ import styles from "../css/style.module.css";
 import AddNote from "./AddNote";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../App";
-import { delete_data, post_data } from "../../../React-lib/src/networkhandler";
+import { delete_data, post_data } from "../../../ReactLib/networkhandler";
 import { API_URL } from "../../../config";
 import SendCoupon from "./SendCoupon";
 import LeadProperties from "./LeadProperties";

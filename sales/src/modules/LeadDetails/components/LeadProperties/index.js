@@ -4,7 +4,7 @@ import styles from "./css/style.module.css";
 import { API_URL } from "../../../../config";
 import PopUp from "../../../../utils/Popup";
 import Select from "react-select";
-import { put_data } from "../../../../React-lib/src/networkhandler";
+import { put_data } from "../../../../ReactLib/networkhandler";
 function LeadProperties({ context }) {
   let { lead_id, filters, data } = context;
   const appContext = useContext(AppContext);

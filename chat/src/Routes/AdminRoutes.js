@@ -1,7 +1,7 @@
 import React, { Suspense, useContext, useEffect } from "react";
 import Alert from "../components/Alert";
 import { AppContext } from "../App";
-import { isAgentLoggedIn } from "../React-lib/src/auth";
+import { isAgentLoggedIn } from "../ReactLib/auth";
 import AdminDrawer from "../components/AdminDrawer";
 import { Navigate, Outlet } from "react-router-dom";
 import AdminHeader from "../components/AdminHeader/Header";

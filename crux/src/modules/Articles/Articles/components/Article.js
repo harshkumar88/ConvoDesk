@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { delete_data } from "../../../../React-lib/src/networkhandler";
+import { delete_data } from "../../../../ReactLib/networkhandler";
 import styles from "../css/style.module.css";
 
 function Article({ data }) {

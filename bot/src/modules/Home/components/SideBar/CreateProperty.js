@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "../../css/popup.module.css";
 import PopUp from "../../../../utils/Popup";
 import { API_URL } from "../../../../config";
-import { post_data, put_data } from "../../../../React-lib/src/networkhandler";
+import { post_data, put_data } from "../../../../ReactLib/networkhandler";
 import { AppContext } from "../../../../App";
 
 function CreateProperty() {

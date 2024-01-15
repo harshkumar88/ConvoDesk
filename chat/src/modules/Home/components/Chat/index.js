@@ -4,14 +4,11 @@ import { FiSend } from "react-icons/fi";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Message from "./components/Message";
 import MentionArea from "../../../../components/MentionArea";
-import { get_data } from "../../../../React-lib/src/networkhandler";
+import { get_data } from "../../../../ReactLib/networkhandler";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
 import Assign from "./components/Assign";
-import {
-  get_access_token,
-  get_agent_name,
-} from "../../../../React-lib/src/auth";
+import { get_access_token, get_agent_name } from "../../../../ReactLib/auth";
 import Resolve from "./components/Resolve";
 import Reopen from "./components/Reopen";
 import { ReactComponent as Whatsapp } from "../../../../assets/Whatsapp.svg";

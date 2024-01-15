@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Template from "./Components/Template/index";
 import data from "./seed";
 import { AppContext } from "../../App";
-import { get_data } from "../../React-lib/src/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 
 function WhatsappTemplates() {

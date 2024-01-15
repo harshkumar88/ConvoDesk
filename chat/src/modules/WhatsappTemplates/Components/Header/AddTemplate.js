@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PopUp from "../../../../utils/Popup";
 import styles from "./styles.module.scss";
-import { post_data } from "../../../../React-lib/src/networkhandler";
+import { post_data } from "../../../../ReactLib/networkhandler";
 
 import { API_URL } from "../../../../config";
 function AddTemplate({ headerContext }) {

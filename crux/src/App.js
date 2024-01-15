@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState, useRef } from "react";
 import "./style.css";
 import "./App.css";
 import AppRoutes from "./Routes/AppRoutes";
-import { get_data, post_data, put_data } from "./React-lib/src/networkhandler";
+import { get_data, post_data, put_data } from "./ReactLib/networkhandler";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "./config";
 import {
@@ -10,7 +10,7 @@ import {
   get_agent_id,
   get_nslot_id,
   isAgentLoggedIn,
-} from "./React-lib/src/auth";
+} from "./ReactLib/auth";
 import Select from "react-select";
 import { localStorageSpace } from "./utils/utility";
 const AppContext = createContext();

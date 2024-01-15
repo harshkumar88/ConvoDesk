@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { put_data, patch_data } from "../../../../React-lib/src/networkhandler";
+import { put_data, patch_data } from "../../../../ReactLib/networkhandler";
 import styles from "../../AgentRoles/components/Navbar/components/style.module.css";
 import PopUp from "../../../../utils/Popup";
 import { customStyles } from "./Navbar/components/CustomStyles";
