@@ -19,13 +19,13 @@ function Login() {
   }
 
   function handleTicketNavigation() {
-    window.location.href = "/ticket";
+    window.location.href = "http://localhost:3001/ticket";
   }
   function handleChatNavigation() {
-    window.location.href = "/chat";
+    window.location.href = "http://localhost:3002/chat";
   }
   function handleSalesNavigation() {
-    window.location.href = "/sales";
+    window.location.href = "http://localhost:3003/sales";
   }
   return isAgentLoggedIn() ? (
     <div className={styles.login_container}>
