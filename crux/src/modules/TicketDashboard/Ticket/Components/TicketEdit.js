@@ -4,7 +4,7 @@ import { ReactComponent as TicketIcon } from "../../../../assets/Automation/tick
 import { IoMdTrash } from "react-icons/io";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
-function TicketEdit({ item, payload, setPayload, idx }) {
+function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({});
   const [isActive, setActive] = useState(false);
@@ -12,21 +12,11 @@ function TicketEdit({ item, payload, setPayload, idx }) {
   const [choices, setChoices] = useState([]);
 
   useEffect(() => {
-    setData(item);
-    checkChoices();
+    let { choices, ...info } = item;
+    setData(info);
+    setChoices(choices);
   }, [item]);
 
-  function checkChoices() {
-    const choice_data = payload.choices_data;
-    const data = choice_data?.find((info) => info.key == item.label);
-    if (data) {
-      setChoices(data?.data);
-    }
-  }
-
-  function handleActive() {
-    setActive(!isActive);
-  }
   //handles form input values
   function handleChange(e) {
     e.preventDefault();
@@ -37,34 +27,34 @@ function TicketEdit({ item, payload, setPayload, idx }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const fields_data = payload.fields;
-    fields_data[idx] = data;
+    let ticketData = [];
+    ticketEditData?.map((info, index) => {
+      if (index != idx) {
+        let { choices, ...fieldData } = info;
+        ticketData.push(fieldData);
+      }
+    });
+
+    ticketData.push(data);
+
     let ticket_payload = {
-      fields: fields_data,
-      choices_data: payload.choices_data,
+      fields: ticketData,
     };
 
-    let choice_updated_data = payload.choices_data;
-    choice_updated_data = choice_updated_data?.map((info) => {
-      if (info.key == item.label) {
-        return { key: data?.label, data: choices };
-      }
-      return info;
-    });
     if (data?.field_type == "dependent") {
-      ticket_payload.choices_data = choice_updated_data;
+      ticket_payload.choices_data = { key: data.label, data: choices };
     }
 
-    setPayload({ ...ticket_payload });
+    console.log(ticket_payload, "j");
     setOpen(false);
   }
 
   //handles the delete of ticket item
   function handleDelete() {
-    // let updatedData = ticketData?.filter((info) => {
-    //   return info.uid != data?.uid;
-    // });
-    // setTicketData([...updatedData]);
+    let updatedData = ticketEditData?.filter((info, index) => {
+      return index != idx;
+    });
+    setTicketEditData([...updatedData]);
   }
   return (
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>

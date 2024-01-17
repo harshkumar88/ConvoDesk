@@ -1,14 +1,12 @@
 import React from "react";
 import { AppContext } from "../../App";
 import { useState, useContext, useEffect } from "react";
-import { get_data, post_data } from "../../ReactLib/networkhandler";
+import { get_data } from "../../ReactLib/networkhandler";
 import { API_URL } from "../../config";
 import styles from "./css/style.module.css";
-import TabBar from "../../components/TabBar";
 import { useNavigate, useParams } from "react-router-dom";
 import Note from "./components/Note";
 import Navbar from "./components/Navbar";
-import Filter from "./components/Filter";
 import UpdateFilter from "./components/UpdateFilter";
 import UpdateDescription from "./components/UpdateDescription";
 import Activity from "./components/Note/Activity";

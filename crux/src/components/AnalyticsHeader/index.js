@@ -55,16 +55,16 @@ function AnalyticsHeader() {
             execute: { func: setSearchType, value: "risk_dashboard" },
             callbackfn: routeNavigation,
           },
-          {
-            title: "Canned Response",
-            hidden: true,
-            icon: "https://fassets.freshdesk.com/production/a/assets/images/new-admin/helpdesk-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
-            sub_title:
-              "Eliminate repetitive tasks such as categorization and routing by creating rules",
+          // {
+          //   title: "Canned Response",
+          //   hidden: true,
+          //   icon: "https://fassets.freshdesk.com/production/a/assets/images/new-admin/helpdesk-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+          //   sub_title:
+          //     "Eliminate repetitive tasks such as categorization and routing by creating rules",
 
-            execute: { func: setSearchType, value: "canned_response" },
-            callbackfn: routeNavigation,
-          },
+          //   execute: { func: setSearchType, value: "canned_response" },
+          //   callbackfn: routeNavigation,
+          // },
         ]}
         sub_title={true}
         styles={styles}

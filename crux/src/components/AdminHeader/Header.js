@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import Label from "../../components/Label";
 import { AppContext } from "../../App";
 import { useNavigate } from "react-router-dom";
-import { FiLogOut } from "react-icons/fi";
+import { ReactComponent as Logout } from "../../assets/drawer/icon/Logout.svg";
 function AdminHeader() {
   const appContext = useContext(AppContext);
   const navigate = useNavigate();
@@ -33,8 +33,8 @@ function AdminHeader() {
           Disposition
         </NavLink>
       </div> */}
-      <span className={styles.logut_btn} onClick={() => navigate("/logout")}>
-        <FiLogOut />
+      <span className="logout_btn" onClick={() => navigate("/logout")}>
+        <Logout />
       </span>
     </header>
   );

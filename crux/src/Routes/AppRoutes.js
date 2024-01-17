@@ -7,7 +7,6 @@ import PrivateRoutes from "./PrivateRoutes";
 import Validate from "../modules/Validate";
 import Logout from "../modules/Logout";
 import TicketDetails from "../modules/TicketDetails";
-import Automation from "../modules/Admin/Automation";
 import Group from "../modules/Admin/Group";
 import RTM from "../modules/RTM";
 import Articles from "../modules/Articles/Articles";
@@ -23,12 +22,8 @@ import SmartAssign from "../modules/SmartAssign";
 import EditBusinessHour from "../modules/Admin/BusinessHour/EditBusinessHour";
 import NewBusinessHour from "../modules/Admin/BusinessHour/NewBusinessHour";
 import AgentRoles from "../modules/Admin/AgentRoles";
-import User from "../modules/Admin/User/User";
-import UserDetails from "../modules/Admin/User/UserDetails";
 import AdminRoutes from "./AdminRoutes";
 import Disposition from "../modules/Admin/Disposition";
-import AgentStatus from "../modules/Admin/AgentStatus";
-
 import SupervisorDashboard from "../modules/SupervisorDashboard";
 import AgentDashboard from "../modules/AgentDashboard";
 import AgentTicketDetails from "../modules/AgentTicketDetails";
@@ -38,12 +33,11 @@ import NewRule from "../modules/AutomationDashboard/NewRule";
 import EditRule from "../modules/AutomationDashboard/EditRule";
 import TicketDashboard from "../modules/TicketDashboard";
 import AIResponse from "../modules/AIResponses";
-import AdminPanelRoutes from "./AdminPanelRoutes";
-
-import AdminDetailRoutes from "./AdminDetailRoutes";
-import TeamsRoute from "./TeamsRoute";
-import WorkFlowRoute from "./WorkflowRoute";
-import AnalyticsRoute from "./AnalyticsRoute";
+import AdminPanelRoutes from "./AdminRoutes/AdminPanelRoutes";
+import AdminDetailRoutes from "./AdminRoutes/AdminDetailRoutes";
+import TeamsRoute from "./AdminRoutes/Components/TeamsRoute";
+import WorkFlowRoute from "./AdminRoutes/Components/WorkflowRoute";
+import AnalyticsRoute from "./AdminRoutes/Components/AnalyticsRoute";
 
 const Home = lazy(() => import("../modules/Tickets"));
 
@@ -98,6 +92,9 @@ function AppRoutes() {
               />
             </Route>
 
+            {/* Admin Route */}
+            <Route path="/admin" element={<Navigate to="/teams" />} />
+
             {/* Analytics Route */}
             <Route path="/analytics/*" element={<AnalyticsRoute />}>
               <Route
@@ -142,14 +139,6 @@ function AppRoutes() {
               <Route path="business-hour" element={<BusinessHour />} />
               <Route path="group" element={<Group />} />
             </Route>
-
-            {/* Discuss */}
-
-            <Route path="/admin" element={<Navigate to="/teams" />} />
-            <Route path="/users" element={<User />} />
-            <Route path="/user/details/:user_id" element={<UserDetails />} />
-            <Route path="/automation" element={<Automation />} />
-            <Route path="/agents/status" element={<AgentStatus />} />
           </Route>
         </Route>
       </Route>

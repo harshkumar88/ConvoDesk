@@ -2,8 +2,10 @@
   display: flex;
   align-items: center;
   background-color: #ebeff3;
-  /* padding: 1vh 1vw; */
+  /* padding: 0vh 1vw; */
   /* min-height: 90vh; */
+  height: 68dvh;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 900px) {

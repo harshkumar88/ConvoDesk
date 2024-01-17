@@ -1,10 +1,10 @@
-import React, { Suspense, useContext, useEffect } from "react";
-import Alert from "../components/Alert";
-import { AppContext } from "../App";
-import { isAgentLoggedIn } from "../ReactLib/auth";
-import AdminDrawer from "../components/AdminDrawer";
+import React, { Suspense, useContext } from "react";
+import Alert from "../../components/Alert";
+import { AppContext } from "../../App";
+import { isAgentLoggedIn } from "../../ReactLib/auth";
+import AdminDrawer from "../../components/AdminDrawer";
 import { Navigate, Outlet } from "react-router-dom";
-import styles from "../ReactLib/common.module.css";
+import styles from "../../ReactLib/common.module.css";
 
 function AdminPanelRoutes() {
   const appContext = useContext(AppContext);

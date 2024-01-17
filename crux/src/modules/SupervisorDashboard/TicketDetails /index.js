@@ -26,7 +26,6 @@ function TicketDetails({
 
   function getAgentName(id) {
     let agent_data = appContext?.filters?.agent?.choices || [];
-
     for (let i of agent_data) {
       if (i.value == id) return i.label;
     }

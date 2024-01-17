@@ -141,10 +141,27 @@
 .sub_title {
   font-size: 12px;
   text-align: left;
+  line-height: 1.5; /* Adjust as needed */
+  max-height: 3em; /* Set the maximum height equivalent to 2 lines */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: show ellipsis for overflow content */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Set the desired number of lines */
 }
-
 .icon_container {
   display: flex;
   align-items: flex-start;
   gap: 10px;
 }
+/* @media screen and (max-width: 1300px) {
+  .team_label {
+    font-size: 17px !important;
+  }
+  .title {
+    font-size: 13px !important;
+  }
+  .sub_title {
+    font-size: 10px !important;
+  }
+} */

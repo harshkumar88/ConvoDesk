@@ -2,7 +2,13 @@ import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
-function TicketAdd({ item, ticketData, setTicketData, payload, setPayload }) {
+function TicketAdd({
+  item,
+  ticketData,
+  setTicketData,
+  ticketEditData,
+  setTicketEditData,
+}) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({
     field_type: item?.type,
@@ -29,19 +35,25 @@ function TicketAdd({ item, ticketData, setTicketData, payload, setPayload }) {
       }
       return info;
     });
+
+    let ticket_data = [];
+    ticketEditData?.map((info, index) => {
+      let { choices, ...fieldData } = info;
+      ticket_data.push(fieldData);
+    });
+
+    ticket_data.push(data);
+
     let ticket_payload = {
-      fields: [...payload.fields, data],
-      choices_data: [...payload.choices_data],
+      fields: ticket_data,
     };
+
     if (isActive) {
-      ticket_payload.choices_data = [
-        ...ticket_payload.choices_data,
-        { key: data.label, data: choices },
-      ];
+      ticket_payload.choices_data = { key: data.label, data: choices };
     }
 
     console.log(ticket_payload, "finalData");
-    setPayload({ ...ticket_payload });
+    setTicketEditData([...ticketEditData, { ...data, choices: choices }]);
     appContext.setAlert("Successfully Add", "alert_success");
     setTicketData([...updatedData]);
   }
@@ -49,7 +61,7 @@ function TicketAdd({ item, ticketData, setTicketData, payload, setPayload }) {
   //handles the delete of ticket item
   function handleDelete() {
     let updatedData = ticketData?.filter((info) => {
-      return info.uid != data?.uid;
+      return info.uid != item?.uid;
     });
 
     setTicketData([...updatedData]);

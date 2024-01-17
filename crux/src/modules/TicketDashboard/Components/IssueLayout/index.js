@@ -13,6 +13,17 @@ function IssueLayout(props) {
   const [activeSubIssue, setActiveSubIssue] = useState(0);
   const [activeFurtherBreakup, setActiveFurtherBreakup] = useState(0);
 
+  useEffect(() => {
+    if (choices?.length) {
+      setActiveIssue(choices[0]?.id);
+      if (choices[0]?.choices?.length) {
+        setActiveSubIssue(choices[0]?.choices[0]?.id);
+        if (choices[0]?.choices[0]?.choices?.length) {
+          setActiveFurtherBreakup(choices[0]?.choices[0]?.choices[0]?.id);
+        }
+      }
+    }
+  }, []);
   function addNewHandler(type) {
     // Generate a new UUID
     var id = uuid4();

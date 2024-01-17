@@ -1,18 +1,16 @@
 import React, { Suspense, useContext, useEffect } from "react";
-import Alert from "../components/Alert";
-import { AppContext } from "../App";
-import { isAgentLoggedIn } from "../ReactLib/auth";
-import AdminDrawer from "../components/AdminDrawer";
+import Alert from "../../../components/Alert";
+import { AppContext } from "../../../App";
+import { isAgentLoggedIn } from "../../../ReactLib/auth";
 import { Navigate, Outlet } from "react-router-dom";
-import styles from "../ReactLib/common.module.css";
-import TeamsHeader from "../components/TeamsHeader";
+import AnalyticsHeader from "../../../components/AnalyticsHeader";
 
-function TeamsRoute() {
+function AnalyticsRoute() {
   const appContext = useContext(AppContext);
 
   return isAgentLoggedIn() ? (
     <div className="teams_height">
-      <TeamsHeader />
+      <AnalyticsHeader />
       <Suspense
         fallback={
           <div className="loader_container">
@@ -35,4 +33,4 @@ function TeamsRoute() {
   );
 }
 
-export default TeamsRoute;
+export default AnalyticsRoute;

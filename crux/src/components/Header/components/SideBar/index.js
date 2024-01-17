@@ -9,6 +9,7 @@ import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Logout } from "../../../../assets/drawer/icon/Logout.svg";
 function SideBar({ show, setShow }) {
   const appContext = useContext(AppContext);
   const navigate = useNavigate();
@@ -89,11 +90,8 @@ function SideBar({ show, setShow }) {
                 {localStorage.getItem("agent-email")}
               </p>
             </div>
-            <span
-              className={styles.logout_btn}
-              onClick={() => navigate("/logout")}
-            >
-              <FiLogOut />
+            <span className="logout_btn" onClick={() => navigate("/logout")}>
+              <Logout />
             </span>
           </div>{" "}
           <hr className={styles.grey_hr} />

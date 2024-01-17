@@ -1,16 +1,16 @@
 import React, { Suspense, useContext, useEffect } from "react";
-import Alert from "../components/Alert";
-import { AppContext } from "../App";
-import { isAgentLoggedIn } from "../ReactLib/auth";
+import Alert from "../../../components/Alert";
+import { AppContext } from "../../../App";
+import { isAgentLoggedIn } from "../../../ReactLib/auth";
 import { Navigate, Outlet } from "react-router-dom";
-import AnalyticsHeader from "../components/AnalyticsHeader";
+import WorkFlowHeader from "../../../components/WorkFlowHeader";
 
-function AnalyticsRoute() {
+function WorkFlowRoute() {
   const appContext = useContext(AppContext);
 
   return isAgentLoggedIn() ? (
     <div className="teams_height">
-      <AnalyticsHeader />
+      <WorkFlowHeader />
       <Suspense
         fallback={
           <div className="loader_container">
@@ -33,4 +33,4 @@ function AnalyticsRoute() {
   );
 }
 
-export default AnalyticsRoute;
+export default WorkFlowRoute;

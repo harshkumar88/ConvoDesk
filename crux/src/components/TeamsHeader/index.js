@@ -52,14 +52,14 @@ function TeamsHeader() {
             execute: { func: setSearchType, value: "business_hour" },
             callbackfn: routeNavigation,
           },
-          {
-            title: "Business Hour",
-            hidden: true,
-            sub_title:
-              "Define working hours and holidays to set expectations with customers",
-            execute: { func: setSearchType, value: "business" },
-            callbackfn: routeNavigation,
-          },
+          // {
+          //   title: "Business Hour",
+          //   hidden: true,
+          //   sub_title:
+          //     "Define working hours and holidays to set expectations with customers",
+          //   execute: { func: setSearchType, value: "business" },
+          //   callbackfn: routeNavigation,
+          // },
         ]}
         sub_title={true}
         styles={styles}
