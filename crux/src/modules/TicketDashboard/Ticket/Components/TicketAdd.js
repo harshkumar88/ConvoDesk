@@ -29,6 +29,18 @@ function TicketAdd({
   //handles new item added
   function handleSubmit(e) {
     e.preventDefault();
+
+    for (let i = 0; i < ticketEditData?.length; i++) {
+      let ticket_info = ticketEditData[i];
+      if (ticket_info.label == data.label) {
+        appContext.setAlert(
+          "Ticket Feild with same label is present",
+          "alert_error"
+        );
+        return;
+      }
+    }
+
     let updatedData = ticketData?.map((info) => {
       if (info.uid == item?.uid) {
         return { ...item, isNew: false };
@@ -71,8 +83,8 @@ function TicketAdd({
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>
         <div className={styles.item_flex_box}>
-          <span className={styles.icon_style}>{item?.title}</span>
-          <span>New {item?.icon}</span>
+          <span className={styles.icon_style}>{item?.title[0]}</span>
+          <span>New {item?.type} Field</span>
         </div>
         <div className={styles.ticket_container}>
           <div className={styles.ticket_item}>
@@ -99,7 +111,7 @@ function TicketAdd({
               />
             </div>{" "}
           </div>
-          {item?.icon == "Dependent Fields" && !isActive && (
+          {item?.type == "dependent" && !isActive && (
             <div className={styles.choices_container}>
               <button
                 className={styles.choice_btn}

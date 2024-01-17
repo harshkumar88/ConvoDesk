@@ -67,7 +67,7 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
             <span className={styles.ticket_icon}>
               <TicketIcon />
             </span>
-            <span className={styles.icon_style}>{data?.label?.[0]}</span>
+            <span className={styles.icon_style}>{data?.field_type?.[0]}</span>
             <span className={styles.label_length}>{data?.label}</span>
           </div>
           <span className={styles.delete_btn} onClick={handleDelete}>

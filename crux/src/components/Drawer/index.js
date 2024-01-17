@@ -4,9 +4,9 @@ import { AppContext } from "../../App";
 import { nav_data } from "./NavData";
 import LinkItem from "./LinkItem";
 import styles from "./style.module.css";
-import { ReactComponent as TfiHeadphoneAlt } from "../../assets/drawer/icon/TfiHeadphoneAlt.svg";
+import { ReactComponent as TfiHeadphoneAlt } from "../../assets/drawer/icon/Tf-phone.svg";
 import { ReactComponent as OtipySmallLogo } from "../../assets/Otipy.svg";
-import { ReactComponent as UsersBreak } from "../../assets/drawer/icon/UsersBreak.svg";
+import { ReactComponent as UsersBreak } from "../../assets/drawer/icon/break.svg";
 import { authorise } from "../../ReactLib/auth";
 import Tooltip from "../ToolTip";
 function Drawer(props) {

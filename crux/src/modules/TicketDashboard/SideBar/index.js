@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./css/style.module.css";
 import SideItem from "./Components/SideItem";
+import { fieldData } from "../Components/seed";
 function SideBar({ callbackfn }) {
-  const sideData = [
-    { label: "T", value: "Text", type: "text" },
-    { label: "D", value: "Dropdown", type: "dropdown" },
-    { label: "DF", value: "Dependent Fields", type: "dependent" },
-    { label: "D", value: "Date", type: "date" },
-    { label: "N", value: "Number", type: "number" },
-  ];
+  const [sideData, setSideData] = useState([]);
+
+  useEffect(() => {
+    setSideData(fieldData);
+  }, []);
 
   //call parent fxn to add new ticket
   function handleItem(item) {

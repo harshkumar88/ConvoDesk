@@ -76,4 +76,13 @@ const data = [
   },
 ];
 
-export { data };
+const fieldData = [
+  { name: "INTEGER", value: "integer" },
+  { name: "TEXT", value: "text" },
+  { name: "BOOLEAN", value: "boolean" },
+  { name: "DATE_TIME", value: "date-time" },
+  { name: "DEPENDENT", value: "dependent" },
+  { name: "MULTI_SELECT", value: "multi-select" },
+];
+
+export { data, fieldData };
