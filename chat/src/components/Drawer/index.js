@@ -4,7 +4,7 @@ import { AppContext } from "../../App";
 import { nav_data } from "./NavData";
 import styles from "./style.module.css";
 import { ReactComponent as OtipySmallLogo } from "../../assets/Otipy.svg";
-import { ReactComponent as UsersBreak } from "../../assets/UsersBreak.svg";
+import { ReactComponent as Break } from "../../assets/drawer/UsersBreak.svg";
 
 import { authorise } from "../../ReactLib/auth";
 import LinkItem from "./LinkItem";
@@ -32,7 +32,7 @@ function Drawer(props) {
             className={styles.drawer_tab}
             onClick={appContext.toggleUsersBreak}
           >
-            <UsersBreak />
+            <Break />
           </span>
         </Tooltip>
       </div>

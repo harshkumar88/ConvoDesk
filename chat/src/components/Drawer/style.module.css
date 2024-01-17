@@ -47,12 +47,12 @@
   cursor: pointer;
 }
 .drawer_tab:hover {
-  background: #345c7c;
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 3px;
   text-shadow: none;
 }
 .active {
-  background: #e5f2fd;
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 3px;
   color: rgba(9, 30, 66, 0.87);
   text-shadow: none;

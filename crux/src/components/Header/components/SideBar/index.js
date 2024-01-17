@@ -7,7 +7,6 @@ import { get_agent_name, get_time } from "../../../../ReactLib/auth";
 import { get_data } from "../../../../ReactLib/networkhandler";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logout } from "../../../../assets/drawer/icon/Logout.svg";
 function SideBar({ show, setShow }) {

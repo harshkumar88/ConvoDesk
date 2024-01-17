@@ -1,10 +1,7 @@
 import { ReactComponent as Home } from "../../assets/drawer/icon/Home.svg";
-import { ReactComponent as Agent } from "../../assets/drawer/icon/Agent.svg";
-import { ReactComponent as Supervisor } from "../../assets/drawer/icon/Supervisor.svg";
 import { ReactComponent as SmartAssign } from "../../assets/drawer/icon/Smart-assign.svg";
 import { ReactComponent as Articles } from "../../assets/drawer/icon/Articles.svg";
 import { ReactComponent as Admin } from "../../assets/drawer/icon/admin.svg";
-import { ReactComponent as Risk } from "../../assets/drawer/icon/Risk.svg";
 import { ReactComponent as RTM } from "../../assets/drawer/icon/RTM.svg";
 const nav_data = [
   {

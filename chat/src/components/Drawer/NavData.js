@@ -1,16 +1,8 @@
-import { HiOutlineHome, HiUserAdd } from "react-icons/hi";
-import { FiLogOut } from "react-icons/fi";
-import { RiAdminFill } from "react-icons/ri";
-import { IoMdAnalytics } from "react-icons/io";
-import { GoFileMedia } from "react-icons/go";
-import { GrDocumentPerformance } from "react-icons/gr";
-import { ReactComponent as Performance } from "../../assets/performance/trial.svg";
-import { ReactComponent as Admin } from "../../assets/drawer/Admin.svg";
+import { ReactComponent as Performance } from "../../assets/drawer/Performance.svg";
 import { ReactComponent as Home } from "../../assets/drawer/Home.svg";
-import { ReactComponent as Logout } from "../../assets/drawer/Logout.svg";
-import { ReactComponent as Rtm } from "../../assets/drawer/Rtm.svg";
-import { ReactComponent as SmartAssign } from "../../assets/drawer/SmartAssign.svg";
-
+import { ReactComponent as Rtm } from "../../assets/drawer/RTM.svg";
+import { ReactComponent as SmartAssign } from "../../assets/drawer/Smart_assign.svg";
+import { ReactComponent as Whatsapp } from "../../assets/drawer/whatsapp.svg";
 const nav_data = [
   {
     path: "/home",
@@ -31,8 +23,8 @@ const nav_data = [
   {
     path: "/whatsapp/templates",
     title: "WhatsappTemplates",
-    icon: <GoFileMedia />,
-    activeicon: <GoFileMedia />,
+    icon: <Whatsapp />,
+    activeicon: <Whatsapp />,
     children: [],
     role: "Whatsapp Template",
   },
@@ -52,13 +44,6 @@ const nav_data = [
     children: [],
     role: "Supervisor",
   },
-  // {
-  //   path: "/logout",
-  //   title: "Logout",
-  //   icon: <Logout />,
-  //   activeicon: <Logout />,
-  //   children: [],
-  // },
 ];
 
 export { nav_data };
