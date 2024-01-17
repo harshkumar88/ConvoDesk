@@ -23,7 +23,7 @@ function Navbar({ cluster, setCluster, allClusters, query, setQuery }) {
             })}
           </select>
         </div> */}
-        <NavLink className="btn" to="/canned/response/new">
+        <NavLink className="btn" to="/workflows/canned/response/new">
           Create Canned Response
         </NavLink>
       </div>

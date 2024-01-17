@@ -19,7 +19,7 @@
   width: 100%;
 }
 .ticket_wrapper {
-  width: 55%;
+  width: 65%;
 }
 
 .ticket_wrapper:hover {
@@ -32,16 +32,22 @@
   background-color: #fff;
   border: 1px solid #cfd7df;
 }
+.ticket_container {
+  background-color: #ebeff3;
+  padding: 1vh 0.5vw;
+}
 
 .ticket_item {
   background-color: #ebeff3;
   display: flex;
   gap: 0px;
-  padding: 1vh 0vw;
+  /* padding: 0.5vh 0vw; */
+
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .item {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -120,6 +126,24 @@
   justify-content: end;
   padding: 1vh 1vw;
   gap: 20px;
+}
+
+.choices_container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0vh 1vw;
+  margin: 1vh 0;
+}
+
+.choice_btn {
+  font-size: 12px;
+  padding: 4px 5px 5px;
+  border: none;
+  border-radius: 4px;
+  outline: 0;
+  color: #12344d;
+  border: 1px solid #cfd7df;
+  background-image: linear-gradient(to bottom, #fff, #f3f5f7);
 }
 .cancel_btn {
   font-size: 14px;

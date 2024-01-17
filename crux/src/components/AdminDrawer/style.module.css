@@ -1,95 +1,10 @@
-/* .drawer {
-  background-color: #f4f4f4;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  color: #59a80b;
-  font-weight: 800;
-  position: sticky;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-}
-.drawer::-webkit-scrollbar {
-  width: 0;
-}
-
-.drawer a {
-  text-decoration: none;
-}
-
-.drawer svg {
-  font-size: 1.25rem;
-}
-
-.drawer_tab {
-  margin: 0.5vh 1vw;
-  padding: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 10px;
-  z-index: 5;
-  color: #3a7638;
-}
-.active {
-  background-color: #3a7638;
-  color: white;
-}
-.drawer_tab span {
-  margin-left: 0.5vw;
-}
-.img {
-  height: 7.5vh;
-  width: auto;
-  margin: auto;
-}
-.btn_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 4vh 0;
-}
-.btn_container button {
-  border: none;
-  outline: none;
-  padding: 1vh 1vw;
-  background-color: transparent;
-  margin: 1vh 2vw 1vh 1vw;
-  flex: 1;
-  font-size: 2rem;
-  color: #3a3a3a;
-}
-.btn_container img {
-  flex: 10;
-}
-.collapse {
-  flex-direction: column;
-  text-align: center;
-  transition: all 0.5s;
-}
-.collapse span {
-  font-size: 0.8rem;
-  margin-left: 0;
-  transition: all 0.5s;
-}
-.collapse_btn button {
-  margin: auto;
-} */
 .drawer {
-  background: #006600;
-  flex: 1;
+  background: #fff;
+  padding: 2vh 0.5vw;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  color: #59a80b;
-  font-weight: 800;
-  position: sticky;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
+  gap: 10px;
+  /* border-right: 3px solid gray; */
 }
 .drawer::-webkit-scrollbar {
   width: 0;
@@ -104,19 +19,22 @@
 }
 
 .drawer_tab {
-  margin: 0.5vh 1vw;
-  padding: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
-  z-index: 5;
-  color: #686868;
-  font-weight: 700;
+  /* color: #686868; */
+  /* font-weight: 700; */
+  width: 100%;
+  padding: 1vh 0.5vw;
+}
+
+.drawer_tab:hover {
+  background: #f5f7f9;
 }
 .active {
-  background-color: #364f6b;
-  color: white;
+  background-color: #f1f5f5;
+  /* color: white; */
 }
 .drawer_tab span {
   margin-left: 0.5vw;
@@ -128,4 +46,26 @@
 }
 .inactive {
   width: 80px;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+}
+
+.title_style {
+  text-transform: capitalize;
+  font-weight: bolder !important;
+  font-size: 15px;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sub_title_style {
+  font-size: 12px;
+  color: #475867;
 }

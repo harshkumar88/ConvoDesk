@@ -3,11 +3,11 @@ import styles from "./css/style.module.css";
 import SideItem from "./Components/SideItem";
 function SideBar({ callbackfn }) {
   const sideData = [
-    { label: "T", value: "Single Line Text" },
-    { label: "=", value: "Multi Line Text" },
-    { label: "T", value: "Single Line Text" },
-    { label: "S", value: "Single Line Input" },
-    { label: "B", value: "Multi Line Input" },
+    { label: "T", value: "Text", type: "text" },
+    { label: "D", value: "Dropdown", type: "dropdown" },
+    { label: "DF", value: "Dependent Fields", type: "dependent" },
+    { label: "D", value: "Date", type: "date" },
+    { label: "N", value: "Number", type: "number" },
   ];
 
   //call parent fxn to add new ticket

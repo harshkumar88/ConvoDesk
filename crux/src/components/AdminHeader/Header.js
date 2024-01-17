@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
-
 import styles from "./style.module.css";
 import Label from "../../components/Label";
 import { AppContext } from "../../App";
-
-import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
 function AdminHeader() {
   const appContext = useContext(AppContext);
+  const navigate = useNavigate();
 
   return (
     <header className={styles.header}>
       <div className={styles.subheader}>
-        <Label name={appContext.title} className={styles.ticket_info} />
+        <Label name="Admin" className={styles.ticket_info} />
       </div>
-      <div className={styles.subheader}>
+      {/* <div className={styles.subheader}>
         <NavLink className="btn" to={"/smart-assign"}>
           Smart Assign
         </NavLink>
@@ -33,7 +32,10 @@ function AdminHeader() {
         <NavLink className="btn" to={"/disposition"}>
           Disposition
         </NavLink>
-      </div>
+      </div> */}
+      <span className={styles.logut_btn} onClick={() => navigate("/logout")}>
+        <FiLogOut />
+      </span>
     </header>
   );
 }

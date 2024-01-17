@@ -84,7 +84,9 @@ function TicketDetails({
           return (
             <div
               key={idx}
-              onClick={() => navigate(`/agent/dashboard/${item.agent_id}`)}
+              onClick={() =>
+                navigate(`/analytics/agent/dashboard/${item.agent_id}`)
+              }
               className={styles.cursor_pointer}
             >
               <div className={styles.list_info}>

@@ -13,7 +13,7 @@ function Card({ svg, headerText, data, isOverall, agent_id }) {
         </span>
         <span>
           {isOverall === true ? (
-            <NavLink to={`/agent/ticket/details/${agent_id}`}>
+            <NavLink to={`/analytics/agent/ticket/details/${agent_id}`}>
               <Arrow />
             </NavLink>
           ) : (

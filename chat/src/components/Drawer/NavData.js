@@ -17,28 +17,9 @@ const nav_data = [
     title: "Home",
     icon: <Home />,
     activeicon: <Home />,
-    children: [
-      // {
-      //   name: "xyz",
-      //   path: "/xyz",
-      //   icon: <HiOutlineTicket />,
-      // },
-    ],
+    children: [],
   },
 
-  // {
-  //   path: "/admin",
-  //   title: "Admin",
-  //   icon: <Admin />,
-  //   activeicon: <Admin />,
-  //   children: [
-  //     // {
-  //     //   name: "Automation",
-  //     //   path: "/automation",
-  //     //   icon: <SiAndroidauto />,
-  //     // },
-  //   ],
-  // },
   {
     path: "/performance",
     title: "Performance",
@@ -71,13 +52,13 @@ const nav_data = [
     children: [],
     role: "Supervisor",
   },
-  {
-    path: "/logout",
-    title: "Logout",
-    icon: <Logout />,
-    activeicon: <Logout />,
-    children: [],
-  },
+  // {
+  //   path: "/logout",
+  //   title: "Logout",
+  //   icon: <Logout />,
+  //   activeicon: <Logout />,
+  //   children: [],
+  // },
 ];
 
 export { nav_data };

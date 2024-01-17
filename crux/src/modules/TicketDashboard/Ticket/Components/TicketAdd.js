@@ -1,15 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
-function TicketAdd({ item, ticketData, setTicketData }) {
+import IssueContainer from "../../Components/IssueContainer";
+function TicketAdd({ item, ticketData, setTicketData, payload, setPayload }) {
   const appContext = useContext(AppContext);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    field_type: item?.type,
+    parent_field: "",
+  });
+  const [isActive, setActive] = useState(false);
+  const [choices, setChoices] = useState([]);
 
-  //effect for set data state with ticket item
-  useEffect(() => {
-    setData({ ...item });
-  }, [item]);
-
+  function handleActive() {
+    setActive(!isActive);
+  }
   //handles form input values
   function handleChange(e) {
     e.preventDefault();
@@ -20,13 +24,25 @@ function TicketAdd({ item, ticketData, setTicketData }) {
   function handleSubmit(e) {
     e.preventDefault();
     let updatedData = ticketData?.map((info) => {
-      if (info.uid == data?.uid) {
-        return { ...data, isNew: false };
+      if (info.uid == item?.uid) {
+        return { ...item, isNew: false };
       }
       return info;
     });
-    appContext.setAlert("Successfully Add", "alert_success");
+    let ticket_payload = {
+      fields: [...payload.fields, data],
+      choices_data: [...payload.choices_data],
+    };
+    if (isActive) {
+      ticket_payload.choices_data = [
+        ...ticket_payload.choices_data,
+        { key: data.label, data: choices },
+      ];
+    }
 
+    console.log(ticket_payload, "finalData");
+    setPayload({ ...ticket_payload });
+    appContext.setAlert("Successfully Add", "alert_success");
     setTicketData([...updatedData]);
   }
 
@@ -43,33 +59,51 @@ function TicketAdd({ item, ticketData, setTicketData }) {
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>
         <div className={styles.item_flex_box}>
-          <span className={styles.icon_style}>{data?.label}</span>
-          <span>New {data?.value}</span>
+          <span className={styles.icon_style}>{item?.title}</span>
+          <span>New {item?.icon}</span>
         </div>
-        <div className={styles.ticket_item}>
-          <div className={styles.item}>
-            <label className={styles.item_label}>Label for agents</label>
-            <input
-              type="text"
-              className={styles.item_input}
-              required
-              value={data?.label1}
-              name="label1"
-              onChange={handleChange}
-            />
+        <div className={styles.ticket_container}>
+          <div className={styles.ticket_item}>
+            <div className={styles.item}>
+              <label className={styles.item_label}>Label</label>
+              <input
+                type="text"
+                className={styles.item_input}
+                required
+                value={data?.label}
+                name="label"
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.item}>
+              <label className={styles.item_label}>Key</label>
+              <input
+                type="text"
+                className={styles.item_input}
+                required
+                value={data?.key}
+                name="key"
+                onChange={handleChange}
+              />
+            </div>{" "}
           </div>
-          <div className={styles.item}>
-            <label className={styles.item_label}>Label for customer</label>
-            <input
-              type="text"
-              className={styles.item_input}
-              required
-              value={data?.label2}
-              name="label2"
-              onChange={handleChange}
-            />
-          </div>
+          {item?.icon == "Dependent Fields" && !isActive && (
+            <div className={styles.choices_container}>
+              <button
+                className={styles.choice_btn}
+                onClick={handleActive}
+                type="button"
+              >
+                Add Choices
+              </button>
+            </div>
+          )}
+
+          {isActive && (
+            <IssueContainer choices={choices} setChoices={setChoices} />
+          )}
         </div>
+
         <div className={styles.ticket_btns}>
           <button
             className={styles.cancel_btn}

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-
+import styles from "./style.module.css";
 import BusinessHour from "./components/BusinessHour";
 import { get_data, post_data } from "../../../../ReactLib/networkhandler";
 import { NavLink } from "react-router-dom";
@@ -22,8 +22,8 @@ function BusinessHours(props) {
   );
   return (
     <>
-      <div className="btn-container">
-        <NavLink className="btn" to="/create/business-hour">
+      <div className={styles.btncontainer}>
+        <NavLink className="btn" to="/teams/create/business-hour">
           Create Business Hour
         </NavLink>
       </div>

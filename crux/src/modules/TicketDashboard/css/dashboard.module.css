@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   background-color: #ebeff3;
-  padding: 1vh 1vw;
-  min-height: 90vh;
+  /* padding: 1vh 1vw; */
+  /* min-height: 90vh; */
 }
 
 @media screen and (max-width: 900px) {

@@ -6,7 +6,10 @@ import styles from "../style.module.css";
 function BusinessHour({ data }) {
   return (
     <div className="item-row">
-      <NavLink to={`/business-hour/${data.id}`} className={styles.item_row}>
+      <NavLink
+        to={`/teams/business-hour/${data.id}`}
+        className={styles.item_row}
+      >
         <div className="item-col">
           <div className="item-heading">ID</div>
           <div className="item-value">{data.id}</div>

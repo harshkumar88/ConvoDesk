@@ -10,6 +10,7 @@ import Drawer from "../components/Drawer";
 function AdminRoutes() {
   const appContext = useContext(AppContext);
   useEffect(function () {
+    appContext.setPage("admin");
     delete localStorage["partner-id"];
   }, []);
 

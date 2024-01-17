@@ -8,6 +8,7 @@
   max-height: 7.5vh;
   background-color: white;
   z-index: 10;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
 }
 .select {
   border: none;
@@ -44,4 +45,9 @@
   color: #12344d;
   border: 1px solid #cfd7df;
   background-image: linear-gradient(to bottom, #fff, #f3f5f7);
+}
+
+.logut_btn {
+  font-size: 24px;
+  cursor: pointer;
 }

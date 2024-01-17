@@ -30,10 +30,9 @@ function TicketDashboard() {
       {
         uid: id,
         isNew: true,
-        label1: "",
-        label2: "",
-        label: item.label,
-        value: item.value,
+        title: item.label,
+        icon: item.value,
+        type: item.type,
       },
     ]);
     id++;

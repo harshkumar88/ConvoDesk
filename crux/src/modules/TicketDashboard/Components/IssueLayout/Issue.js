@@ -3,6 +3,7 @@ import styles from "../../css/issue.module.css";
 import { AiFillDelete } from "react-icons/ai";
 import { MdCreateNewFolder } from "react-icons/md";
 function Issue({
+  idx,
   label,
   value,
   type,
@@ -10,6 +11,8 @@ function Issue({
   changeHandler,
   deleteHandler,
   activeValue,
+  setState,
+  state,
 }) {
   const [issue, setIssue] = useState("");
   const [active, setActive] = useState();
@@ -19,12 +22,11 @@ function Issue({
     setActive(value);
   }, [label, value]);
   function onClickHandler() {
-    clickHandler(type, value);
-    setActive(value);
+    setState(idx);
   }
   function onChangeHandler(e) {
     const change = e.target.value;
-    setIssue(change);
+    changeHandler(change, idx, type);
   }
   function onSaveHandler() {
     changeHandler(issue, type, value, label);
@@ -33,11 +35,7 @@ function Issue({
     deleteHandler(type, value);
   }
   return (
-    <li
-      className={
-        active === activeValue ? styles.list_item_active : styles.list_item
-      }
-    >
+    <li className={idx === state ? styles.list_item_active : styles.list_item}>
       <input
         type="text"
         className={styles.list_text}
@@ -45,9 +43,7 @@ function Issue({
         onClick={onClickHandler}
         onChange={onChangeHandler}
       />
-      <span className={styles.list_icon} onClick={onSaveHandler}>
-        <MdCreateNewFolder />
-      </span>
+
       <span className={styles.list_icon} onClick={onDeleteHandler}>
         <AiFillDelete />
       </span>

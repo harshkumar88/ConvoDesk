@@ -1,48 +1,40 @@
-import { HiOutlineHome, HiUserGroup, HiUserAdd } from "react-icons/hi";
-
-import { FiLogOut } from "react-icons/fi";
-import { BsFillChatLeftTextFill } from "react-icons/bs";
-import { SiAndroidauto } from "react-icons/si";
-import { RiAdminFill } from "react-icons/ri";
-import {
-  FaUserCog,
-  FaUserFriends,
-  FaStopwatch,
-  FaListAlt,
-} from "react-icons/fa";
-import { IoMdAnalytics } from "react-icons/io";
-import { TbArticle } from "react-icons/tb";
-import { RxDashboard } from "react-icons/rx";
-
+import { ReactComponent as Home } from "../../assets/drawer/icon/Home.svg";
+import { ReactComponent as Agent } from "../../assets/drawer/icon/Agent.svg";
+import { ReactComponent as Supervisor } from "../../assets/drawer/icon/Supervisor.svg";
+import { ReactComponent as SmartAssign } from "../../assets/drawer/icon/Smart-assign.svg";
+import { ReactComponent as Articles } from "../../assets/drawer/icon/Articles.svg";
+import { ReactComponent as Admin } from "../../assets/drawer/icon/admin.svg";
+import { ReactComponent as Risk } from "../../assets/drawer/icon/Risk.svg";
+import { ReactComponent as RTM } from "../../assets/drawer/icon/RTM.svg";
 const nav_data = [
   {
     path: "/home",
     title: "Home",
-    icon: <HiOutlineHome />,
-    activeicon: <HiOutlineHome />,
+    icon: <Home />,
+    activeicon: <Home />,
     children: [],
   },
-  {
-    path: "/group",
-    title: "Group",
-    icon: <HiUserGroup />,
-    activeicon: <HiUserGroup />,
-    children: [],
-  },
+  // {
+  //   path: "/group",
+  //   title: "Group",
+  //   icon: <HiUserGroup />,
+  //   activeicon: <HiUserGroup />,
+  //   children: [],
+  // },
   {
     path: "/rtm",
     title: "RTM",
-    icon: <IoMdAnalytics />,
-    activeicon: <IoMdAnalytics />,
+    icon: <RTM />,
+    activeicon: <RTM />,
     children: [],
   },
-  {
-    path: "agent/dashboard",
-    title: "Agent DashBoard",
-    icon: <RxDashboard />,
-    activeicon: <RxDashboard />,
-    children: [],
-  },
+  // {
+  //   path: "agent/dashboard",
+  //   title: "Agent DashBoard",
+  //   icon: <Agent />,
+  //   activeicon: <Agent />,
+  //   children: [],
+  // },
   // {
   //   path: "agent/ticket/details",
   //   title: "Agent Ticket Details",
@@ -50,65 +42,65 @@ const nav_data = [
   //   activeicon: <IoMdAnalytics />,
   //   children: [],
   // },
-  {
-    path: "supervisor/dashboard",
-    title: "Supervisor DashBoard",
-    icon: <RxDashboard />,
-    activeicon: <RxDashboard />,
-    children: [],
-    role: "Supervisor",
-  },
-  {
-    path: "/risk/dashboard",
-    title: "Risk DashBoard",
-    icon: <BsFillChatLeftTextFill />,
-    activeicon: <BsFillChatLeftTextFill />,
-    children: [],
-    role: "",
-  },
-  {
-    path: "/automation/dashboard",
-    title: "Automation DashBoard",
-    icon: <BsFillChatLeftTextFill />,
-    activeicon: <BsFillChatLeftTextFill />,
-    children: [],
-    role: "",
-  },
-  {
-    path: "/ticket/dashboard",
-    title: "Ticket DashBoard",
-    icon: <BsFillChatLeftTextFill />,
-    activeicon: <BsFillChatLeftTextFill />,
-    children: [],
-    role: "",
-  },
+  // {
+  //   path: "supervisor/dashboard",
+  //   title: "Supervisor DashBoard",
+  //   icon: <Supervisor />,
+  //   activeicon: <Supervisor />,
+  //   children: [],
+  //   role: "Supervisor",
+  // },
+  // {
+  //   path: "/risk/dashboard",
+  //   title: "Risk DashBoard",
+  //   icon: <Risk />,
+  //   activeicon: <Risk />,
+  //   children: [],
+  //   role: "",
+  // },
+  // {
+  //   path: "/automation/dashboard",
+  //   title: "Automation DashBoard",
+  //   icon: <BsFillChatLeftTextFill />,
+  //   activeicon: <BsFillChatLeftTextFill />,
+  //   children: [],
+  //   role: "",
+  // },
+  // {
+  //   path: "/ticket/dashboard",
+  //   title: "Ticket DashBoard",
+  //   icon: <BsFillChatLeftTextFill />,
+  //   activeicon: <BsFillChatLeftTextFill />,
+  //   children: [],
+  //   role: "",
+  // },
 
   {
     path: "/smart-assign",
     title: "Smart Assign",
-    icon: <HiUserAdd />,
-    activeicon: <HiUserAdd />,
+    icon: <SmartAssign />,
+    activeicon: <SmartAssign />,
     children: [],
   },
-  {
-    path: "/canned/response",
-    title: "Canned Response",
-    icon: <BsFillChatLeftTextFill />,
-    activeicon: <BsFillChatLeftTextFill />,
-    children: [],
-  },
-  {
-    path: "/ai/response",
-    title: "AI Response",
-    icon: <BsFillChatLeftTextFill />,
-    activeicon: <BsFillChatLeftTextFill />,
-    children: [],
-  },
+  // {
+  //   path: "/canned/response",
+  //   title: "Canned Response",
+  //   icon: <BsFillChatLeftTextFill />,
+  //   activeicon: <BsFillChatLeftTextFill />,
+  //   children: [],
+  // },
+  // {
+  //   path: "/ai/response",
+  //   title: "AI Response",
+  //   icon: <BsFillChatLeftTextFill />,
+  //   activeicon: <BsFillChatLeftTextFill />,
+  //   children: [],
+  // },
   {
     path: "/articles",
     title: "Articles",
-    icon: <TbArticle />,
-    activeicon: <TbArticle />,
+    icon: <Articles />,
+    activeicon: <Articles />,
     children: [
       // {
       //   name: "create article",
@@ -121,49 +113,18 @@ const nav_data = [
   {
     path: "/admin",
     title: "Admin",
-    icon: <RiAdminFill />,
-    activeicon: <RiAdminFill />,
-    children: [
-      {
-        name: "Agents",
-        path: "/agents",
-        icon: <FaUserCog />,
-      },
-      {
-        name: "Users",
-        path: "/users",
-        icon: <FaUserFriends />,
-      },
-      {
-        name: "Business Hour",
-        path: "/business-hour",
-        icon: <FaStopwatch />,
-      },
-      {
-        name: "Automation",
-        path: "/automation",
-        icon: <SiAndroidauto />,
-      },
-      {
-        name: "Disposition",
-        path: "/disposition",
-        icon: <FaListAlt />,
-      },
-      {
-        name: "Agents Status",
-        path: "/agents/status",
-        icon: <FaListAlt />,
-      },
-    ],
-  },
-
-  {
-    path: "/logout",
-    title: "Logout",
-    icon: <FiLogOut />,
-    activeicon: <FiLogOut />,
+    icon: <Admin />,
+    activeicon: <Admin />,
     children: [],
   },
+
+  // {
+  //   path: "/logout",
+  //   title: "Logout",
+  //   icon: <FiLogOut />,
+  //   activeicon: <FiLogOut />,
+  //   children: [],
+  // },
 ];
 
 export { nav_data };
