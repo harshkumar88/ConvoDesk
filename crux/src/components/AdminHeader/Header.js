@@ -13,26 +13,7 @@ function AdminHeader() {
       <div className={styles.subheader}>
         <Label name="Admin" className={styles.ticket_info} />
       </div>
-      {/* <div className={styles.subheader}>
-        <NavLink className="btn" to={"/smart-assign"}>
-          Smart Assign
-        </NavLink>
-        <NavLink className="btn" to={"/agents"}>
-          Agents
-        </NavLink>
-        <NavLink className="btn" to={"/users"}>
-          Users
-        </NavLink>
-        <NavLink className="btn" to={"/business-hour"}>
-          Business Hour
-        </NavLink>
-        <NavLink className="btn" to={"/automation"}>
-          Automation
-        </NavLink>
-        <NavLink className="btn" to={"/disposition"}>
-          Disposition
-        </NavLink>
-      </div> */}
+
       <span className="logout_btn" onClick={() => navigate("/logout")}>
         <Logout />
       </span>

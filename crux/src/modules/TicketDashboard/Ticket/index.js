@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./css/style.module.css";
 import TicketAdd from "./Components/TicketAdd";
 import TicketEdit from "./Components/TicketEdit";
 import { data } from "../Components/seed";
-function Ticket({ ticketData, setTicketData }) {
-  const [ticketEditData, setTicketEditData] = useState(data);
+function Ticket({ ticketData, setTicketData, appContext }) {
+  const [ticketEditData, setTicketEditData] = useState([]);
+
+  useEffect(() => {
+    setTicketEditData(data);
+  }, [appContext.reload]);
 
   return (
     <div className={styles.container}>
@@ -14,29 +18,25 @@ function Ticket({ ticketData, setTicketData }) {
       )}
       {ticketEditData?.map((item, idx) => {
         return (
-          <TicketEdit
-            item={item}
-            idx={idx}
-            ticketEditData={ticketEditData}
-            setTicketEditData={setTicketEditData}
-          />
-        );
-      })}
-      {ticketData?.map((item, idx) => {
-        return (
           <React.Fragment key={idx}>
-            {item?.isNew ? (
-              <TicketAdd
-                item={item}
-                ticketData={ticketData}
-                setTicketData={setTicketData}
-                ticketEditData={ticketEditData}
-                setTicketEditData={setTicketEditData}
-              />
-            ) : null}
+            <TicketEdit
+              item={item}
+              idx={idx}
+              ticketEditData={ticketEditData}
+              setTicketEditData={setTicketEditData}
+            />
           </React.Fragment>
         );
       })}
+
+      {ticketData?.isNew && (
+        <TicketAdd
+          item={ticketData}
+          setTicketData={setTicketData}
+          ticketEditData={ticketEditData}
+          setTicketEditData={setTicketEditData}
+        />
+      )}
     </div>
   );
 }

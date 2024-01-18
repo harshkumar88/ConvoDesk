@@ -51,3 +51,13 @@
   font-size: 24px;
   cursor: pointer;
 }
+
+.ticket_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket_info h3 {
+  font-size: 16px !important;
+}

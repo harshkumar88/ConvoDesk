@@ -2,13 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
-function TicketAdd({
-  item,
-  ticketData,
-  setTicketData,
-  ticketEditData,
-  setTicketEditData,
-}) {
+function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({
     field_type: item?.type,
@@ -40,14 +34,7 @@ function TicketAdd({
         return;
       }
     }
-
-    let updatedData = ticketData?.map((info) => {
-      if (info.uid == item?.uid) {
-        return { ...item, isNew: false };
-      }
-      return info;
-    });
-
+    item.isNew = false;
     let ticket_data = [];
     ticketEditData?.map((info, index) => {
       let { choices, ...fieldData } = info;
@@ -67,16 +54,13 @@ function TicketAdd({
     console.log(ticket_payload, "finalData");
     setTicketEditData([...ticketEditData, { ...data, choices: choices }]);
     appContext.setAlert("Successfully Add", "alert_success");
-    setTicketData([...updatedData]);
+    setTicketData({ ...item });
   }
 
   //handles the delete of ticket item
   function handleDelete() {
-    let updatedData = ticketData?.filter((info) => {
-      return info.uid != item?.uid;
-    });
-
-    setTicketData([...updatedData]);
+    item.isNew = false;
+    setTicketData({ ...item });
   }
 
   return (

@@ -85,4 +85,65 @@ const fieldData = [
   { name: "MULTI_SELECT", value: "multi-select" },
 ];
 
+const payload = {
+  fields: [
+    {
+      key: "Text",
+      label: "Text",
+      field_type: "text",
+      parent_field: "",
+    },
+    {
+      key: "Issue",
+      label: "Issue",
+      field_type: "dependent",
+      parent_field: "",
+    },
+    {
+      field_type: "dependent",
+      parent_field: "",
+      label: "Test",
+      key: "s",
+    },
+    {
+      field_type: "text",
+      parent_field: "",
+      label: "Text Label",
+      key: "test",
+    },
+    {
+      field_type: "dependent",
+      parent_field: "",
+      label: "Dependent Label",
+      key: "testing",
+    },
+  ],
+
+  choices_data: {
+    key: "Dependent Label",
+    data: [
+      {
+        id: "6fe50e3f-ca4a-4548-8595-9fed2deae2e3",
+        key: "issue",
+        label: "test1",
+        choices: [
+          {
+            id: "76c71f60-a2d5-4c60-aafa-880caeb00ade",
+            key: "sub_issue",
+            label: "test2",
+            choices: [
+              {
+                id: "db6ab155-1038-403a-a831-a0c13db70dea",
+                key: "further_breakup",
+                label: "test3",
+                choices: [],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+};
+
 export { data, fieldData };

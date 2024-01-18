@@ -27,6 +27,17 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    for (let i = 0; i < ticketEditData?.length; i++) {
+      let ticket_info = ticketEditData[i];
+      if (ticket_info?.label == data.label) {
+        appContext.setAlert(
+          "Ticket Feild with same label is present",
+          "alert_error"
+        );
+        return;
+      }
+    }
+
     let ticketData = [];
     ticketEditData?.map((info, index) => {
       if (index != idx) {
@@ -44,7 +55,7 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
     if (data?.field_type == "dependent") {
       ticket_payload.choices_data = { key: data.label, data: choices };
     }
-
+    appContext.setAlert("Ticket Feild Updated Successfully", "alert_success");
     console.log(ticket_payload, "j");
     setOpen(false);
   }
