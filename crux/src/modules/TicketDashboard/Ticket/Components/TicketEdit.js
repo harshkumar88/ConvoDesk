@@ -14,7 +14,7 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
   useEffect(() => {
     let { choices, ...info } = item;
     setData(info);
-    setChoices(choices);
+    setChoices(choices || []);
   }, [item]);
 
   //handles form input values
@@ -29,12 +29,11 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
 
     for (let i = 0; i < ticketEditData?.length; i++) {
       let ticket_info = ticketEditData[i];
-      if (ticket_info?.label == data.label) {
-        appContext.setAlert(
-          "Ticket Feild with same label is present",
-          "alert_error"
-        );
-        return;
+      if (i != idx) {
+        if (ticket_info?.label == data.label || ticket_info?.key == data.key) {
+          appContext.setAlert("Ticket Feild is also present", "alert_error");
+          return;
+        }
       }
     }
 
@@ -49,11 +48,11 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
     ticketData.push(data);
 
     let ticket_payload = {
-      fields: ticketData,
+      ticket_fields: ticketData,
     };
 
     if (data?.field_type == "dependent") {
-      ticket_payload.choices_data = { key: data.label, data: choices };
+      ticket_payload.options = { key: data.key, choices: choices };
     }
     appContext.setAlert("Ticket Feild Updated Successfully", "alert_success");
     console.log(ticket_payload, "j");

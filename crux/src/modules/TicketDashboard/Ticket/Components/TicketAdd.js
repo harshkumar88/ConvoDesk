@@ -44,11 +44,11 @@ function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
     ticket_data.push(data);
 
     let ticket_payload = {
-      fields: ticket_data,
+      ticket_fields: ticket_data,
     };
 
     if (isActive) {
-      ticket_payload.choices_data = { key: data.label, data: choices };
+      ticket_payload.options = { key: data.key, choices: choices };
     }
 
     console.log(ticket_payload, "finalData");

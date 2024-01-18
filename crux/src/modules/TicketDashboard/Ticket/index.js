@@ -7,7 +7,7 @@ function Ticket({ ticketData, setTicketData, appContext }) {
   const [ticketEditData, setTicketEditData] = useState([]);
 
   useEffect(() => {
-    setTicketEditData(data);
+    setTicketEditData(data?.config?.ticket_fields);
   }, [appContext.reload]);
 
   return (
