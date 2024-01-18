@@ -1,104 +1,141 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "../css/style.module.css";
 import { ReactComponent as TicketIcon } from "../../../../assets/Automation/ticketicon.svg";
 import { IoMdTrash } from "react-icons/io";
-function TicketEdit({ item, ticketData, setTicketData }) {
+import { AppContext } from "../../../../App";
+import IssueContainer from "../../Components/IssueContainer";
+function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
+  const appContext = useContext(AppContext);
   const [data, setData] = useState({});
-  const [isActive, setActive] = useState(false); //toggle state
+  const [isActive, setActive] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const [choices, setChoices] = useState([]);
 
-  //handles the change of form input
+  useEffect(() => {
+    let { choices, ...info } = item;
+    setData(info);
+    setChoices(choices || []);
+  }, [item]);
+
+  //handles form input values
   function handleChange(e) {
     e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  //handles the add of new ticket item
+  //handles new item added
   function handleSubmit(e) {
     e.preventDefault();
-    let updatedData = ticketData?.map((info) => {
-      if (info.uid == data?.uid) {
-        return { ...data };
+
+    for (let i = 0; i < ticketEditData?.length; i++) {
+      let ticket_info = ticketEditData[i];
+      if (i != idx) {
+        if (ticket_info?.label == data.label || ticket_info?.key == data.key) {
+          appContext.setAlert("Ticket Feild is also present", "alert_error");
+          return;
+        }
       }
-      return info;
+    }
+
+    let ticketData = [];
+    ticketEditData?.map((info, index) => {
+      if (index != idx) {
+        let { choices, ...fieldData } = info;
+        ticketData.push(fieldData);
+      }
     });
 
-    setTicketData([...updatedData]);
+    ticketData.push(data);
+
+    let ticket_payload = {
+      ticket_fields: ticketData,
+    };
+
+    if (data?.field_type == "dependent") {
+      ticket_payload.options = { key: data.key, choices: choices };
+    }
+    appContext.setAlert("Ticket Feild Updated Successfully", "alert_success");
+    console.log(ticket_payload, "j");
+    setOpen(false);
   }
 
-  //handles the deletion of ticket item
+  //handles the delete of ticket item
   function handleDelete() {
-    let updatedData = ticketData?.filter((info) => {
-      return info.uid != data?.uid;
+    //send param to delete;
+    let updatedData = ticketEditData?.filter((info, index) => {
+      return index != idx;
     });
-
-    setTicketData([...updatedData]);
+    setTicketEditData([...updatedData]);
   }
-
-  //handles the active state toggle
-  function handleClick() {
-    setActive(false);
-  }
-
-  //effect for set data state with ticket item on item change
-  useEffect(() => {
-    setData({ ...item });
-  }, [item]);
-
-  //effect for toggle the  active state on ticket change
-  useEffect(() => {
-    setActive(false);
-  }, [ticketData]);
 
   return (
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>
         <div
           className={`${styles.item_flex} pointer`}
-          onClick={() => setActive(!isActive)}
+          onClick={() => setOpen(!isOpen)}
         >
           <div className={styles.item_flex_box}>
             <span className={styles.ticket_icon}>
               <TicketIcon />
             </span>
-            <span className={styles.icon_style}>{data?.label}</span>
-            <span className={styles.label_length}>{data?.label1}</span>
+            <span className={styles.icon_style}>{data?.field_type?.[0]}</span>
+            <span className={styles.label_length}>{data?.label}</span>
           </div>
           <span className={styles.delete_btn} onClick={handleDelete}>
             <IoMdTrash />
           </span>
         </div>
 
-        {isActive && (
+        {isOpen && (
           <>
-            <div className={styles.ticket_item}>
-              <div className={styles.item}>
-                <label className={styles.item_label}>Label for agents</label>
-                <input
-                  type="text"
-                  className={styles.item_input}
-                  value={data?.label1}
-                  name="label1"
-                  onChange={handleChange}
-                  required
-                />
+            <div className={styles.ticket_container}>
+              <div className={styles.ticket_item}>
+                <div className={styles.item}>
+                  <label className={styles.item_label}>Label</label>
+                  <input
+                    type="text"
+                    className={styles.item_input}
+                    required
+                    value={data?.label}
+                    name="label"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className={styles.item}>
+                  <label className={styles.item_label}>Key</label>
+                  <input
+                    type="text"
+                    className={styles.item_input}
+                    required
+                    value={data?.key}
+                    name="key"
+                    onChange={handleChange}
+                  />
+                </div>{" "}
               </div>
-              <div className={styles.item}>
-                <label className={styles.item_label}>Label for customer</label>
-                <input
-                  type="text"
-                  className={styles.item_input}
-                  value={data?.label2}
-                  name="label2"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+              {/* {data?.field_type == "dependent" && (
+                <div className={styles.choices_container}>
+                  <button
+                    className={styles.choice_btn}
+                    onClick={handleActive}
+                    type="button"
+                  >
+                    Add Choices
+                  </button>
+                </div>
+              )} */}
+
+              {data?.field_type == "dependent" && (
+                <IssueContainer choices={choices} setChoices={setChoices} />
+              )}
             </div>
+
             <div className={styles.ticket_btns}>
               <button
                 className={styles.cancel_btn}
                 type="button"
-                onClick={handleClick}
+                onClick={() => setOpen(false)}
               >
                 Cancel
               </button>

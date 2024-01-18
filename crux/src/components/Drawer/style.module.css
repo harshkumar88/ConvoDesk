@@ -44,7 +44,8 @@
   z-index: 5;
   color: #686868;
   /* font-weight: 700; */
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: 28px !important;
   color: white;
   background: transparent;
   border-radius: 4px;

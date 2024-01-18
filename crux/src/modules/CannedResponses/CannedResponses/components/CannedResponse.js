@@ -16,7 +16,10 @@ function CannedResponse({ data }) {
   }
   return (
     <div className="item-row">
-      <NavLink className={styles.row} to={`/canned/response/edit/${data.id}`}>
+      <NavLink
+        className={styles.row}
+        to={`/workflows/canned/response/edit/${data.id}`}
+      >
         <div className="item-col">
           <span className="item-heading">Title</span>
           <span className="item-value">{data.title}</span>

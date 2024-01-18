@@ -54,7 +54,6 @@ function Content({ data }) {
           </div>
         </div>{" "}
       </div>
-
       <div className={styles.details_container}>
         <div className={styles.row_1}>
           <div className={styles.subdiv}>
@@ -79,7 +78,6 @@ function Content({ data }) {
           </div>
         </div>
       </div>
-
       <div className={styles.details_container}>
         <div className={styles.row_1}>
           <div className={styles.subdiv}>
@@ -104,7 +102,6 @@ function Content({ data }) {
           </div>
         </div>
       </div>
-
       <div className={styles.details_container}>
         <div className={styles.row_1}>
           <div className={styles.subdiv}>

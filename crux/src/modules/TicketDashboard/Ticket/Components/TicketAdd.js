@@ -1,15 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
-function TicketAdd({ item, ticketData, setTicketData }) {
+import IssueContainer from "../../Components/IssueContainer";
+function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    field_type: item?.type,
+    parent_field: "",
+  });
+  const [isActive, setActive] = useState(false);
+  const [choices, setChoices] = useState([]);
 
-  //effect for set data state with ticket item
-  useEffect(() => {
-    setData({ ...item });
-  }, [item]);
-
+  function handleActive() {
+    setActive(!isActive);
+  }
   //handles form input values
   function handleChange(e) {
     e.preventDefault();
@@ -19,57 +23,95 @@ function TicketAdd({ item, ticketData, setTicketData }) {
   //handles new item added
   function handleSubmit(e) {
     e.preventDefault();
-    let updatedData = ticketData?.map((info) => {
-      if (info.uid == data?.uid) {
-        return { ...data, isNew: false };
-      }
-      return info;
-    });
-    appContext.setAlert("Successfully Add", "alert_success");
 
-    setTicketData([...updatedData]);
+    for (let i = 0; i < ticketEditData?.length; i++) {
+      let ticket_info = ticketEditData[i];
+      if (ticket_info.label == data.label) {
+        appContext.setAlert(
+          "Ticket Feild with same label is present",
+          "alert_error"
+        );
+        return;
+      }
+    }
+    item.isNew = false;
+    let ticket_data = [];
+    ticketEditData?.map((info, index) => {
+      let { choices, ...fieldData } = info;
+      ticket_data.push(fieldData);
+    });
+
+    ticket_data.push(data);
+
+    let ticket_payload = {
+      ticket_fields: ticket_data,
+    };
+
+    if (isActive) {
+      ticket_payload.options = { key: data.key, choices: choices };
+    }
+
+    console.log(ticket_payload, "finalData");
+    setTicketEditData([...ticketEditData, { ...data, choices: choices }]);
+    appContext.setAlert("Successfully Add", "alert_success");
+    setTicketData({ ...item });
   }
 
   //handles the delete of ticket item
   function handleDelete() {
-    let updatedData = ticketData?.filter((info) => {
-      return info.uid != data?.uid;
-    });
-
-    setTicketData([...updatedData]);
+    item.isNew = false;
+    setTicketData({ ...item });
   }
 
   return (
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>
         <div className={styles.item_flex_box}>
-          <span className={styles.icon_style}>{data?.label}</span>
-          <span>New {data?.value}</span>
+          <span className={styles.icon_style}>{item?.title[0]}</span>
+          <span>New {item?.type} Field</span>
         </div>
-        <div className={styles.ticket_item}>
-          <div className={styles.item}>
-            <label className={styles.item_label}>Label for agents</label>
-            <input
-              type="text"
-              className={styles.item_input}
-              required
-              value={data?.label1}
-              name="label1"
-              onChange={handleChange}
-            />
+        <div className={styles.ticket_container}>
+          <div className={styles.ticket_item}>
+            <div className={styles.item}>
+              <label className={styles.item_label}>Label</label>
+              <input
+                type="text"
+                className={styles.item_input}
+                required
+                value={data?.label}
+                name="label"
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.item}>
+              <label className={styles.item_label}>Key</label>
+              <input
+                type="text"
+                className={styles.item_input}
+                required
+                value={data?.key}
+                name="key"
+                onChange={handleChange}
+              />
+            </div>{" "}
           </div>
-          <div className={styles.item}>
-            <label className={styles.item_label}>Label for customer</label>
-            <input
-              type="text"
-              className={styles.item_input}
-              required
-              value={data?.label2}
-              name="label2"
-              onChange={handleChange}
-            />
-          </div>
+          {item?.type == "dependent" && !isActive && (
+            <div className={styles.choices_container}>
+              <button
+                className={styles.choice_btn}
+                onClick={handleActive}
+                type="button"
+              >
+                Add Choices
+              </button>
+            </div>
+          )}
+
+          {isActive && (
+            <IssueContainer choices={choices} setChoices={setChoices} />
+          )}
         </div>
+
         <div className={styles.ticket_btns}>
           <button
             className={styles.cancel_btn}

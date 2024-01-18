@@ -1,6 +1,4 @@
 .form {
-  /* display: flex;
-  flex-wrap: wrap; */
   color: #b9b9b9;
   margin: 1vh 1vw;
   padding: 1.5vh 1vw;
@@ -10,10 +8,6 @@
   font-size: 0.9rem;
   gap: 10px;
   width: calc(35vw + 150px);
-  /* box-sizing: content-box;
-  max-width: calc(40vw + 200px); */
-  /* height: 28vh;
-  overflow-y: scroll; */
 }
 .heading {
   text-align: center;

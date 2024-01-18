@@ -1,31 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./css/style.module.css";
 import TicketAdd from "./Components/TicketAdd";
 import TicketEdit from "./Components/TicketEdit";
-function Ticket({ ticketData, setTicketData }) {
+import { data } from "../Components/seed";
+function Ticket({ ticketData, setTicketData, appContext }) {
+  const [ticketEditData, setTicketEditData] = useState([]);
+
+  useEffect(() => {
+    setTicketEditData(data?.config?.ticket_fields);
+  }, [appContext.reload]);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>Ticket Fields</div>
-      {ticketData?.length == 0 && <h1>No Ticket Found</h1>}
-      {ticketData?.map((item, idx) => {
+      {ticketData?.length == 0 && ticketEditData?.length == 0 && (
+        <h1>No Ticket Found</h1>
+      )}
+      {ticketEditData?.map((item, idx) => {
         return (
           <React.Fragment key={idx}>
-            {item?.isNew ? (
-              <TicketAdd
-                item={item}
-                ticketData={ticketData}
-                setTicketData={setTicketData}
-              />
-            ) : (
-              <TicketEdit
-                item={item}
-                ticketData={ticketData}
-                setTicketData={setTicketData}
-              />
-            )}
+            <TicketEdit
+              item={item}
+              idx={idx}
+              ticketEditData={ticketEditData}
+              setTicketEditData={setTicketEditData}
+            />
           </React.Fragment>
         );
       })}
+
+      {ticketData?.isNew && (
+        <TicketAdd
+          item={ticketData}
+          setTicketData={setTicketData}
+          ticketEditData={ticketEditData}
+          setTicketEditData={setTicketEditData}
+        />
+      )}
     </div>
   );
 }

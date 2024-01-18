@@ -1,41 +1,27 @@
-import { ReactComponent as EarningIcon } from "../../assets/Earnings/icon/Earning.svg";
-import { ReactComponent as HomeIcon } from "../../assets/drawer/icon/home.svg";
-import { ReactComponent as LogoutIcon } from "../../assets/drawer/icon/logout.svg";
-
-import { ReactComponent as ActiveHomeIcon } from "../../assets/drawer/activeIcon/home.svg";
-import { ReactComponent as ActiveEarningIcon } from "../../assets/Earnings/activeIcon/Earning.svg";
-import { ReactComponent as ActiveLogoutIcon } from "../../assets/drawer/activeIcon/logout.svg";
-
 const nav_data = [
   {
-    path: "admin/partner/payout",
-    title: "Partner Payout",
-    icon: <EarningIcon />,
-    activeicon: <ActiveEarningIcon />,
+    path: "/teams/agents",
+    title: "Team",
+    icon: "https://fassets.freshdesk.com/production/a/assets/images/new-admin/agents-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    activeicon:
+      "https://fassets.freshdesk.com/production/a/assets/images/new-admin/agents-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    subTitle: "Define agents' access levels and working hours",
   },
   {
-    path: "/home",
-    title: "Partner Support",
-    icon: <HomeIcon />,
-    activeicon: <ActiveHomeIcon />,
+    path: "/workflows/ticket/dashboard",
+    title: "Workflows",
+    icon: "https://fassets.freshdesk.com/production/a/assets/images/new-admin/ticket-fields-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    activeicon:
+      "https://fassets.freshdesk.com/production/a/assets/images/new-admin/ticket-fields-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    subTitle: "Set up your ticket routing and resolution process",
   },
   {
-    path: "/admin/incentives",
-    title: "Partner Incentives",
-    icon: <HomeIcon />,
-    activeicon: <ActiveHomeIcon />,
-  },
-  {
-    path: "/admin/polygons",
-    title: "Polygons",
-    icon: <HomeIcon />,
-    activeicon: <ActiveHomeIcon />,
-  },
-  {
-    path: "/logout",
-    title: "Logout",
-    icon: <LogoutIcon />,
-    activeicon: <ActiveLogoutIcon />,
+    path: "/analytics/supervisor/dashboard",
+    title: "Analytics",
+    icon: "https://fassets.freshdesk.com/production/a/assets/images/new-admin/multiple-products-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    activeicon:
+      "https://fassets.freshdesk.com/production/a/assets/images/new-admin/multiple-products-d57b27355779929be90613ee0065a89204701426b120b566450cfffc7c806394.svg",
+    subTitle: "Set up your ticket routing and resolution process",
   },
 ];
 

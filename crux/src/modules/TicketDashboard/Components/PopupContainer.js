@@ -3,7 +3,7 @@ import { AppContext } from "../../../App";
 import PopUp from "../../../utils/Popup";
 import Select from "react-select";
 import styles from "../css/style.module.css";
-import { post_data } from "../../../ReactLib/networkhandler";
+import { post_data } from "../../../networkHandler";
 import { API_URL } from "../../../config";
 function PopupContainer({
   item,

@@ -11,25 +11,8 @@ function DailyDetails({ overallData, chatData, callData, agent_id }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header_label}>
-        {/* <span>Daily details</span> */}
-        {/* <Calendar dateRange={dateRange} setDateRange={setDateRange} /> */}
-      </div>
-      {/* <div className={styles.performance_container}>
-        <label>🎉 Best performance 🎉</label>
-        <label className={styles.performance_keys}>
-          <span>Chats: </span>
-          <span>79</span>
-        </label>
-        <label className={styles.performance_keys}>
-          <span>Calls: </span>
-          <span>54</span>
-        </label>
-        <label className={styles.performance_keys}>
-          <span>Total tickets: </span>
-          <span>133</span>
-        </label>
-      </div> */}
+      <div className={styles.header_label}></div>
+
       <div className={styles.overview_container}>
         <Card
           svg={<BarGraph />}

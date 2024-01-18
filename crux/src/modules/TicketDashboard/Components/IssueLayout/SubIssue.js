@@ -50,9 +50,7 @@ function Subissue({
         onClick={onClickHandler}
         onChange={onChangeHandler}
       />
-      <span className={styles.list_icon} onClick={onSaveHandler}>
-        <MdCreateNewFolder />
-      </span>
+
       <span className={styles.list_icon} onClick={onDeleteHandler}>
         <AiFillDelete />
       </span>

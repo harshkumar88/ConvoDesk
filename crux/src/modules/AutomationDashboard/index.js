@@ -11,7 +11,7 @@ function AutomationDashboard() {
 
   //handle redirect to create rule page
   function handleAddRule() {
-    navigate(`/automation/newrule/${searchType}`);
+    navigate(`/workflows/automation/newrule/${searchType}`);
   }
   return (
     <div className={styles.container}>

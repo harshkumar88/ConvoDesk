@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AppContext } from "../../App";
 import { nav_data } from "./NavData";
 import styles from "./style.module.css";
@@ -12,21 +12,16 @@ function AdminDrawer(props) {
   const onToggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+  const location = useLocation();
 
   return (
     <>
       <div className={`${props.className} ${styles.drawer}`} open={showSidebar}>
-        <img
-          className={styles.img}
-          alt="otipy_img"
-          src={require("../../assets/boy.png")}
-        />
-
-        {nav_data.map(function (item, idx) {
+        {nav_data?.map(function (item, idx) {
           return appContext.drawer ? (
             <NavLink
-              className={({ isActive }) =>
-                isActive
+              className={
+                location.pathname.includes(item.title.toLowerCase())
                   ? `${styles.drawer_tab} ${styles.active}`
                   : styles.drawer_tab
               }
@@ -37,10 +32,17 @@ function AdminDrawer(props) {
               }}
               key={idx}
             >
-              {item.title.toLowerCase() == appContext.page.toLowerCase()
-                ? item.activeicon
-                : item.icon}
-              <span>{item.title}</span>
+              <div className={styles.flex}>
+                <span>
+                  <img src={item.icon} />
+                </span>
+                <div className={styles.flex_col}>
+                  <span className={styles.title_style}>{item.title}</span>
+                  <span className={styles.sub_title_style}>
+                    {item.subTitle}
+                  </span>
+                </div>
+              </div>
             </NavLink>
           ) : (
             <Collapse item={item} idx={idx} setActive={setActive} />

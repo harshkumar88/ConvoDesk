@@ -25,7 +25,9 @@ function List({ item, idx, searchType }) {
           <div className={styles.item}>
             <span
               className={styles.heading}
-              onClick={() => navigate(`/automation/editrule/5/${searchType}`)}
+              onClick={() =>
+                navigate(`/workflows/automation/editrule/5/${searchType}`)
+              }
             >
               {idx + 1}.&nbsp; {item?.heading}
             </span>
@@ -51,7 +53,7 @@ function List({ item, idx, searchType }) {
               <div className={styles.dropdown}>
                 <span
                   onClick={() =>
-                    navigate(`/automation/editrule/5/${searchType}`)
+                    navigate(`/workflows/automation/editrule/5/${searchType}`)
                   }
                 >
                   <Edit />

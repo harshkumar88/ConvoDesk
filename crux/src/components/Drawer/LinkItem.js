@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AppContext } from "../../App";
 import Card from "./Card";
 import styles from "./style.module.css";
@@ -8,7 +8,7 @@ function LinkItem({ data }) {
   const [activeLink, setActiveLink] = useState(false);
   const [active, setActive] = useState(false);
   const appContext = useContext(AppContext);
-
+  const location = useLocation();
   function focusHandler() {
     setActiveLink(true);
   }
@@ -16,6 +16,13 @@ function LinkItem({ data }) {
     setActiveLink(false);
   }
 
+  function checkIncludes() {
+    return (
+      location.pathname.includes("teams") ||
+      location.pathname.includes("workflows") ||
+      location.pathname.includes("analytics")
+    );
+  }
   return (
     <li
       className={styles.link_li}
@@ -24,7 +31,9 @@ function LinkItem({ data }) {
     >
       <NavLink
         className={({ isActive }) =>
-          isActive ? `${styles.drawer_tab} ${styles.active}` : styles.drawer_tab
+          isActive || (data.title == "Admin" && checkIncludes())
+            ? `${styles.drawer_tab} ${styles.active}`
+            : styles.drawer_tab
         }
         to={data.path}
         onClick={function () {

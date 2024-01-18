@@ -7,9 +7,11 @@ import { get_agent_name, get_time } from "../../../../ReactLib/auth";
 import { get_data } from "../../../../ReactLib/networkhandler";
 import { AppContext } from "../../../../App";
 import { API_URL } from "../../../../config";
-
+import { useNavigate } from "react-router-dom";
+import { ReactComponent as Logout } from "../../../../assets/drawer/icon/Logout.svg";
 function SideBar({ show, setShow }) {
   const appContext = useContext(AppContext);
+  const navigate = useNavigate();
   const [details, setDetails] = useState({});
   let [staticData, setStaticData] = useState([]);
   let [loader, setLoader] = useState(false);
@@ -87,6 +89,9 @@ function SideBar({ show, setShow }) {
                 {localStorage.getItem("agent-email")}
               </p>
             </div>
+            <span className="logout_btn" onClick={() => navigate("/logout")}>
+              <Logout />
+            </span>
           </div>{" "}
           <hr className={styles.grey_hr} />
           {loader ? (

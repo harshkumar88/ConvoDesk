@@ -26,7 +26,6 @@ function TicketDetails({
 
   function getAgentName(id) {
     let agent_data = appContext?.filters?.agent?.choices || [];
-
     for (let i of agent_data) {
       if (i.value == id) return i.label;
     }
@@ -84,7 +83,9 @@ function TicketDetails({
           return (
             <div
               key={idx}
-              onClick={() => navigate(`/agent/dashboard/${item.agent_id}`)}
+              onClick={() =>
+                navigate(`/analytics/agent/dashboard/${item.agent_id}`)
+              }
               className={styles.cursor_pointer}
             >
               <div className={styles.list_info}>

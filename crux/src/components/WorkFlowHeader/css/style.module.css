@@ -1,0 +1,167 @@
+.team_container {
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 15vh;
+  z-index: 100;
+  box-shadow: -4px 9px 6px 1px #ebeff3;
+}
+
+.component_container {
+  flex-grow: 1;
+}
+.team_label {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.tab_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.5vh 1vw;
+
+  padding: 1vh 0;
+}
+
+.tab {
+  flex: 1;
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  border-radius: 5px;
+  z-index: 5;
+  /* font-weight: 600; */
+  outline: none;
+  border: none;
+  justify-content: center;
+  color: #12344d;
+  /* border: 1px solid #12344d; */
+  cursor: pointer;
+  background: none;
+}
+
+.tab:hover {
+  transition: all 0.2s ease-in-out;
+  background: #f1f5f5;
+  color: #12344d;
+}
+.active {
+  transition: all 0.2s ease-in-out;
+  background: #f1f5f5;
+  color: #12344d;
+}
+
+.text_container {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.sub_title {
+  font-size: 12px;
+  text-align: left;
+}
+.team_container {
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 15vh;
+}
+
+.component_container {
+  flex-grow: 1;
+}
+.team_label {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.tab_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.5vh 1vw;
+
+  padding: 1vh 0;
+}
+
+.tab {
+  flex: 1;
+  margin: 0.5vh 0vw;
+  padding: 0.5vh 0.5vw;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  border-radius: 5px;
+  z-index: 5;
+  /* font-weight: 600; */
+  outline: none;
+  border: none;
+  justify-content: center;
+  color: #12344d;
+  /* border: 1px solid #12344d; */
+  cursor: pointer;
+  background: none;
+}
+
+.tab:hover {
+  transition: all 0.2s ease-in-out;
+  background: #f1f5f5;
+  color: #12344d;
+  box-shadow: -4px 9px 6px 1px #ebeff3;
+}
+.active {
+  transition: all 0.2s ease-in-out;
+  background: #f1f5f5;
+  color: #12344d;
+  box-shadow: -4px 9px 6px 1px #ebeff3;
+}
+
+.text_container {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.sub_title {
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.5; /* Adjust as needed */
+  max-height: 3em; /* Set the maximum height equivalent to 2 lines */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: show ellipsis for overflow content */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Set the desired number of lines */
+}
+.icon_container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+/* @media screen and (max-width: 1300px) {
+  .team_label {
+    font-size: 17px !important;
+  }
+  .title {
+    font-size: 13px !important;
+  }
+  .sub_title {
+    font-size: 10px !important;
+  }
+} */

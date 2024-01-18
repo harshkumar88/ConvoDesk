@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
+  gap: 30px;
   /* margin-top: 2vh; */
   padding: 1.5vh 1vw;
-  background-color: #f5f7f9;
+  /* background-color: #f5f7f9; */
   cursor: default !important;
 }
 .issue_head {
@@ -30,7 +30,8 @@
   flex-direction: column;
   flex: 1 33%;
   box-shadow: inset 10px 0 10px -8px #ebeff3;
-  height: 70vh;
+  /* height: 70vh; */
+  max-height: 40vh;
   overflow-y: auto;
 }
 

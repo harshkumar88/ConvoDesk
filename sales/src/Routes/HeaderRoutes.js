@@ -4,6 +4,7 @@ import { AppContext } from "../App";
 import Header from "../components/Header/Header";
 import { API_URL } from "../config";
 import { get_data } from "../ReactLib/networkhandler";
+import SwitchHeader from "../ReactLib/SwitchHeader";
 
 function HeaderRoutes(props) {
   const appContext = useContext(AppContext);
@@ -32,6 +33,7 @@ function HeaderRoutes(props) {
   }
   return (
     <>
+      <SwitchHeader />
       <Header />
       <Outlet />
     </>

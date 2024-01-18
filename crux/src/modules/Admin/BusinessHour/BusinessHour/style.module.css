@@ -63,3 +63,9 @@
 .item_row * {
   flex: 1;
 }
+
+.btncontainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1vh 2vw;
+}

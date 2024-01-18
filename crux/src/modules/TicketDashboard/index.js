@@ -5,7 +5,7 @@ import SideBar from "./SideBar/index";
 import Ticket from "./Ticket/index";
 function TicketDashboard() {
   const appContext = useContext(AppContext);
-  const [ticketData, setTicketData] = useState([]); //store ticket data
+  const [ticketData, setTicketData] = useState({}); //store ticket data
   const [key, setKey] = useState(0); //unique index state
   const [loader, setLoader] = useState(true);
 
@@ -17,25 +17,18 @@ function TicketDashboard() {
 
   //handle add new ticket
   function handleTicketItem(item) {
-    const data = ticketData?.find((item) => {
-      return item?.isNew;
-    });
-    if (data) {
+    if (ticketData?.isNew) {
       return;
     }
 
     let id = key;
-    setTicketData([
-      ...ticketData,
-      {
-        uid: id,
-        isNew: true,
-        label1: "",
-        label2: "",
-        label: item.label,
-        value: item.value,
-      },
-    ]);
+    setTicketData({
+      uid: id,
+      isNew: true,
+      title: item.value,
+      icon: item.name,
+      type: item.value,
+    });
     id++;
     setKey(id);
   }
@@ -53,6 +46,7 @@ function TicketDashboard() {
             ticketData={ticketData}
             setTicketData={setTicketData}
             callbackfn={handleTicketItem}
+            appContext={appContext}
           />
         </>
       )}
