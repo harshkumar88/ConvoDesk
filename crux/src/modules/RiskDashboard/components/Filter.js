@@ -43,7 +43,7 @@ function Filter({
           <div className={styles.select_div}>
             <Select
               isClearable={true}
-              placeholder="Select Issue"
+              placeholder="Select "
               options={allFilters?.issue?.choices}
               value={allFilters?.issue?.choices.filter(function (item, idx) {
                 return item?.value == ticketFilter?.issue;
@@ -67,7 +67,7 @@ function Filter({
           <div className={styles.select_div}>
             <Select
               isClearable={true}
-              placeholder="Select Sub Issue"
+              placeholder="Select "
               options={allFilters?.sub_issue?.choices.filter(
                 (item) => item.additional_key === ticketFilter?.issue
               )}
@@ -95,7 +95,7 @@ function Filter({
           <div className={styles.select_div}>
             <Select
               isClearable={true}
-              placeholder=" Further Breakup"
+              placeholder=" Select"
               options={allFilters?.further_breakup?.choices.filter(
                 (item) => item.additional_key === ticketFilter?.sub_issue
               )}
@@ -120,7 +120,7 @@ function Filter({
             <Select
               isMulti
               isClearable={true}
-              placeholder="Select Agent"
+              placeholder="Select "
               options={allFilters?.agent?.choices}
               onChange={function (e) {
                 setTicketFilter((current) => {
@@ -142,7 +142,7 @@ function Filter({
             <Select
               isMulti
               isClearable={true}
-              placeholder="Select Group"
+              placeholder="Select "
               options={allFilters?.group?.choices}
               onChange={function (e) {
                 setTicketFilter((current) => {
@@ -185,7 +185,7 @@ function Filter({
           <div className={styles.select_div}>
             <Select
               isClearable={true}
-              placeholder="Risk Action"
+              placeholder="Select"
               options={risk_action_choices}
               onChange={function (e) {
                 setRiskAction(e?.value);
@@ -199,7 +199,7 @@ function Filter({
           <div className={styles.select_div}>
             <Select
               isClearable={true}
-              placeholder="Source Refund"
+              placeholder="Select"
               options={source_refund_choices}
               onChange={function (e) {
                 setSourceRefund(e?.value);

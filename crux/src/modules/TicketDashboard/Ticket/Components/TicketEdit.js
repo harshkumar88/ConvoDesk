@@ -62,11 +62,13 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
 
   //handles the delete of ticket item
   function handleDelete() {
+    //send param to delete;
     let updatedData = ticketEditData?.filter((info, index) => {
       return index != idx;
     });
     setTicketEditData([...updatedData]);
   }
+
   return (
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>

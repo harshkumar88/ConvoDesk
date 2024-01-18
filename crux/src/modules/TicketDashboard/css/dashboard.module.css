@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .ticket_container {
+  /* .ticket_container {
     flex-direction: column;
-  }
+  } */
 }
