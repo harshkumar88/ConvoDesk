@@ -5,6 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { AppContext } from "../App";
 import { isAgentLoggedIn, isPartnerLoggedIn } from "../ReactLib/auth";
 import { Suspense } from "react";
+import Header from "../ReactLib/SwitchHeader";
 
 function PrivateRoutes() {
   const appContext = useContext(AppContext);

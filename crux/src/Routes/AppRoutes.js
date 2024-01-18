@@ -38,6 +38,7 @@ import AdminDetailRoutes from "./AdminRoutes/AdminDetailRoutes";
 import TeamsRoute from "./AdminRoutes/Components/TeamsRoute";
 import WorkFlowRoute from "./AdminRoutes/Components/WorkflowRoute";
 import AnalyticsRoute from "./AdminRoutes/Components/AnalyticsRoute";
+import Header from "../ReactLib/SwitchHeader";
 
 const Home = lazy(() => import("../modules/Tickets"));
 
@@ -72,7 +73,6 @@ function AppRoutes() {
           <Route path="/*" element={<Navigate to={"/home"} replace={true} />} />
         </Route>
       </Route>
-
       {/* Admin Routes */}
       <Route path="/" element={<AdminRoutes />}>
         <Route path="/" element={<AdminPanelRoutes />}>
