@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../../App";
 import ConditionList from "./Components/ConditionList";
 import EventList from "./Components/EventList";
+import { post_data } from "../../../ReactLib/networkhandler";
 
 function NewRule() {
   const appContext = useContext(AppContext);
@@ -146,9 +147,19 @@ function NewRule() {
       ...finalPayload,
     });
     localStorage.setItem("automation", JSON.stringify(finalPayload));
-    appContext.setAlert("Successfully added rule", "alert_success");
-    navigate("/automation/dashboard");
+    handleAutomationCreation(finalPayload);
+
+    navigate("/workflows/automation/dashboard");
     console.log(finalPayload, "final data");
+  }
+
+  async function handleAutomationCreation(ticket_payload) {
+    const data = await post_data(
+      `https://qa1.crofarm.com/convo/automation/v1/`,
+      ticket_payload,
+      appContext,
+      true
+    );
   }
 
   //handling new condition filter
@@ -219,7 +230,7 @@ function NewRule() {
         </div>
       )}
       <div className={styles.header_label}>
-        <label>On tickets with these properties:</label>{" "}
+        <label>Perform these Conditions:</label>{" "}
         {countConditions?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>

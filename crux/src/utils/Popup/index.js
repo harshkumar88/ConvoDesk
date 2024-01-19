@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 
 function PopUp(props) {
-  const { closeState, handleOpen, btnStyling } = props;
+  const { closeState, handleOpen, btnStyling, header } = props;
   let [display, setDisplay] = useState(false);
   const formRef = useRef(null);
   useEffect(
@@ -49,6 +49,7 @@ function PopUp(props) {
         <div className={styles.overlay} onClick={handleClick}>
           <div className={styles.modal} ref={formRef}>
             <div className={styles.container}>
+              {header ? header : null}
               <span
                 className={styles.icon}
                 onClick={close}

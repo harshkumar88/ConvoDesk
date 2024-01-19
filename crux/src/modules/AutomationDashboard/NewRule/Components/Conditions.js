@@ -51,11 +51,22 @@ function Conditions({
           <div className={styles.arrow_wrapper}>
             <Select
               options={ticketOptions}
-              placeholder="Choose key"
+              placeholder="key"
               className={styles.condition_select1}
               onChange={(e) => handleTypeChange("key", e.value)}
               value={ticketOptions?.filter((info) => info.value == item?.key)}
               required
+            />
+
+            <Select
+              options={ticketOptions}
+              placeholder="Operator"
+              className={styles.condition_select2}
+              value={ticketOptions?.filter(
+                (info) => info.value == item?.operator
+              )}
+              required
+              onChange={(e) => handleTypeChange("operator", e.value)}
             />
             {!hide ? (
               <span
@@ -73,22 +84,13 @@ function Conditions({
               </span>
             )}
           </div>
+
           {!hide && (
             <div className={styles.condition_item2}>
               <Select
                 options={ticketOptions}
-                placeholder="Operator"
-                className={styles.condition_select2}
-                value={ticketOptions?.filter(
-                  (info) => info.value == item?.operator
-                )}
-                required
-                onChange={(e) => handleTypeChange("operator", e.value)}
-              />
-              <Select
-                options={ticketOptions}
                 placeholder="value"
-                className={styles.condition_select1}
+                className={styles.condition_select_full}
                 value={ticketOptions?.filter(
                   (info) => info.value == item?.value
                 )}

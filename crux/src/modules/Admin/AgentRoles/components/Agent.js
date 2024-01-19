@@ -94,10 +94,10 @@ function Agent({ data, allRoles, supervisorData }) {
           //   className="select"
           closeMenuOnSelect={false}
           isMulti
-          options={allRoles.map(function (item, idx) {
+          options={allRoles?.map(function (item, idx) {
             return { label: item.name, value: item.id };
           })}
-          value={roles.map(function (item, idx) {
+          value={roles?.map(function (item, idx) {
             return { label: item.role_name, value: item.role_id };
           })}
           onBlur={handleSubmit}
@@ -153,10 +153,10 @@ function Agent({ data, allRoles, supervisorData }) {
               <Select
                 styles={customStyles}
                 className={styles.dropdown_input}
-                options={supervisorData.map((item) => {
+                options={supervisorData?.map((item) => {
                   return { label: item.name, value: item.id };
                 })}
-                value={supervisorData.map((item) => {
+                value={supervisorData?.map((item) => {
                   if (item.id == updateAgent.supervisor_id)
                     return { label: item.name, value: item.id };
                 })}

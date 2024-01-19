@@ -1,11 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "../NewRule/css/style.module.css";
 import Actions from "../NewRule/Components/Actions";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../../App";
 import ConditionList from "../NewRule/Components/ConditionList";
 import EventList from "../NewRule/Components/EventList";
+import {
+  get_data,
+  patch_data,
+  post_data,
+} from "../../../ReactLib/networkhandler";
+
 function EditRule() {
+  const { id, type } = useParams();
+  const navigate = useNavigate();
   const appContext = useContext(AppContext);
   const [conditions, setConditions] = useState({
     match_type: "any",
@@ -19,13 +27,23 @@ function EditRule() {
   const [actions, setActions] = useState([]);
   const [key, setKey] = useState(0);
   const [error, setError] = useState(false);
-  const { type } = useParams();
   const [payload, setPayload] = useState({});
   const [filterType, setFilterType] = useState("or");
   const [countConditions, setCountConditions] = useState([1]);
+
   useEffect(() => {
-    let automationData = JSON.parse(localStorage.getItem("automation", {}));
-    setPayload(automationData);
+    fetchAutomationData();
+  }, [appContext.reload]);
+
+  async function fetchAutomationData() {
+    const data = await get_data(
+      `https://qa1.crofarm.com/convo/automation/${id}/v1/`,
+      appContext
+    );
+
+    console.log(data?.data);
+    let automationData = data?.data;
+    setPayload(data?.data);
     let uuid = key;
     let actionData = automationData?.actions;
     let filterActionData = actionData?.map((item) => {
@@ -40,13 +58,13 @@ function EditRule() {
     if (automationData?.conditions?.length > 1) {
       setCountConditions([...countConditions, 2]);
     }
-  }, []);
+  }
 
   function handleActionValidation() {
-    if (actions.length == 0) {
+    if (actions?.length == 0) {
       return true;
     }
-    for (let i = 0; i < actions.length; i++) {
+    for (let i = 0; i < actions?.length; i++) {
       let item = actions[i];
       if (item?.type == "property") {
         if (!item.property || !item.property.value || !item.property.key) {
@@ -79,7 +97,7 @@ function EditRule() {
   }
 
   function handleAddConditionValidation(data) {
-    if (!data.match_type) {
+    if (!data?.match_type) {
       return false;
     }
     for (let i = 0; i < data?.properties?.length; i++) {
@@ -145,12 +163,6 @@ function EditRule() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // let checkAction =
-    //   handleActionValidation() && handleAddConditionValidation();
-    // if (!checkAction) {
-    //   appContext.setAlert("please fill all fields", "alert_error");
-    //   return;
-    // }
 
     let finalPayload = {
       ...payload,
@@ -165,7 +177,19 @@ function EditRule() {
       event: event,
     });
     localStorage.setItem("automation", JSON.stringify(finalPayload));
+    handleAutomationUpdate(finalPayload);
+
+    navigate("/workflows/automation/dashboard");
     console.log(finalPayload, "final data");
+  }
+
+  async function handleAutomationUpdate(ticket_payload) {
+    const data = await patch_data(
+      `https://qa1.crofarm.com/convo/automation/${id}/v1/`,
+      ticket_payload,
+      appContext,
+      true
+    );
   }
 
   function handleAddFilter() {
@@ -178,6 +202,7 @@ function EditRule() {
     setCountConditions([...countConditions, 2]);
     setConditions({ ...conditions, match_type: "any", properties: [{}] });
   }
+
   function handleConditionData(type, idx) {
     let info = conditions;
     info = { ...info, match_type: type };
@@ -203,7 +228,7 @@ function EditRule() {
         />
       </div>
 
-      {type == "update" && (
+      {type == "updation" && (
         <div className={styles.header_label}>
           <label>Involves any of these events:</label>{" "}
           {countEvents?.map((item, idx) => {
@@ -217,56 +242,6 @@ function EditRule() {
                   countIndex={idx}
                   error={error}
                 />
-                {/* {item == 1 && (
-                <div className={styles.add_filter}>
-                  {countConditions.length == 1 ? (
-                    <p
-                      className={styles.add_filter_label}
-                      onClick={handleAddFilter}
-                    >
-                      <span className={styles.plus_icon}>+</span>
-                      Add new filter
-                    </p>
-                  ) : (
-                    <p className={styles.add_filter_label2}>
-                      <div className={styles.line}>
-                        - - - -
-                        <span style={{ visibility: "hidden" }}>- - - </span>- -
-                        -
-                      </div>
-                      <span className={styles.filter_type}>
-                        {" "}
-                        <span
-                          className={
-                            filterType == "and"
-                              ? `${styles.operator_item} ${styles.active_operator}`
-                              : styles.operator_item
-                          }
-                          onClick={() => {
-                            setFilterType("and");
-                            setPayload({ ...payload, condition_type: "and" });
-                          }}
-                        >
-                          AND
-                        </span>
-                        <span
-                          className={
-                            filterType == "or"
-                              ? `${styles.operator_item} ${styles.active_operator}`
-                              : styles.operator_item
-                          }
-                          onClick={() => {
-                            setFilterType("or");
-                            setPayload({ ...payload, condition_type: "or" });
-                          }}
-                        >
-                          OR
-                        </span>
-                      </span>
-                    </p>
-                  )}
-                </div>
-              )} */}
               </React.Fragment>
             );
           })}
@@ -284,56 +259,6 @@ function EditRule() {
                 setConditions={setConditions}
                 countIndex={idx}
               />
-              {/* {item == 1 && (
-                <div className={styles.add_filter}>
-                  {countConditions.length == 1 ? (
-                    <p
-                      className={styles.add_filter_label}
-                      onClick={handleAddFilter}
-                    >
-                      <span className={styles.plus_icon}>+</span>
-                      Add new filter
-                    </p>
-                  ) : (
-                    <p className={styles.add_filter_label2}>
-                      <div className={styles.line}>
-                        - - - -
-                        <span style={{ visibility: "hidden" }}>- - - </span>- -
-                        -
-                      </div>
-                      <span className={styles.filter_type}>
-                        {" "}
-                        <span
-                          className={
-                            filterType == "and"
-                              ? `${styles.operator_item} ${styles.active_operator}`
-                              : styles.operator_item
-                          }
-                          onClick={() => {
-                            setFilterType("and");
-                            setPayload({ ...payload, condition_type: "and" });
-                          }}
-                        >
-                          AND
-                        </span>
-                        <span
-                          className={
-                            filterType == "or"
-                              ? `${styles.operator_item} ${styles.active_operator}`
-                              : styles.operator_item
-                          }
-                          onClick={() => {
-                            setFilterType("or");
-                            setPayload({ ...payload, condition_type: "or" });
-                          }}
-                        >
-                          OR
-                        </span>
-                      </span>
-                    </p>
-                  )}
-                </div>
-              )} */}
             </React.Fragment>
           );
         })}

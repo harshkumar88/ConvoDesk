@@ -15,12 +15,15 @@ function AgentRoles(props) {
   useEffect(
     function () {
       appContext.setTitle("Agents");
-      get_data(`${API_URL}/crux/users/agent/role/v1/`, appContext).then(
-        function (data) {
-          setData(data);
+      get_data(
+        `https://qa1.crofarm.com/convo/users/agent/all/v1/`,
+        appContext
+      ).then(function (data) {
+        if (data) {
+          setData(data?.data);
           setLoader(false);
         }
-      );
+      });
       get_data(`${API_URL}/crux/group/v1/`, appContext).then(function (data) {
         setGroups(data.data);
       });
@@ -35,15 +38,15 @@ function AgentRoles(props) {
       <Navbar
         groups={groups}
         roles={data.roles}
-        allAgents={data.agents}
+        allAgents={data}
         context={context}
       />
 
       <div className="item-row-container">
-        {data.agents.length > 0 ? (
+        {data?.length > 0 ? (
           query ? (
-            data.agents
-              .filter((item) =>
+            data
+              ?.filter((item) =>
                 item?.name.toLowerCase().includes(query.toLowerCase())
               )
               .map((item, idx) => (
@@ -51,16 +54,16 @@ function AgentRoles(props) {
                   data={item}
                   allRoles={data.roles}
                   key={idx}
-                  supervisorData={data.agents}
+                  supervisorData={data}
                 />
               ))
           ) : (
-            data.agents.map((item, idx) => (
+            data?.map((item, idx) => (
               <Agent
                 data={item}
                 allRoles={data.roles}
                 key={idx}
-                supervisorData={data.agents}
+                supervisorData={data}
               />
             ))
           )

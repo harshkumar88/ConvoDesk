@@ -17,7 +17,7 @@
   padding: 2vh 2vw;
   background-color: #fff;
   box-shadow: 0 0 1px 0 #acb6be, 0 2px 6px 0 rgba(22, 29, 37, 0.05);
-  padding-bottom: 4vh;
+  padding-bottom: 2vh;
   display: flex;
   justify-content: space-between;
 }
@@ -36,7 +36,11 @@
 .pipe {
   display: flex;
   justify-content: space-between;
-  flex: 0.7;
+  flex: 1;
+}
+
+.pipe_info {
+  flex: 0.2;
 }
 .details_value {
   flex: 1;
@@ -201,9 +205,13 @@ input:checked + .slider:before {
   display: flex;
   flex: 1 1;
   flex-direction: column;
+  align-items: center !important;
 }
 .toggle {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
 }
 .allow {
   color: #2da723;
@@ -213,4 +221,46 @@ input:checked + .slider:before {
 }
 .hidden {
   visibility: hidden;
+}
+
+.no_data {
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.delete_container {
+  padding: 0vh 1vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  height: 15vh;
+}
+
+.delete_label {
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+.delete_text {
+  font-size: 20px;
+}
+.delete_btn {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  margin: auto;
+  padding: 0.7vh 1vw;
+  background-color: #264966;
+  border: 1px solid #12344d;
+  background-image: linear-gradient(to bottom, #264966, #12344d);
+  color: white;
+  border-radius: 5px;
 }

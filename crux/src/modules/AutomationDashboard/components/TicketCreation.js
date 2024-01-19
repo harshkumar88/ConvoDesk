@@ -1,10 +1,9 @@
 import React from "react";
 import List from "./List";
-import { TicketCreation as data } from "./seed";
-function TicketCreation({ searchType }) {
+function TicketCreation({ searchType, automationData }) {
   return (
     <>
-      {data?.map((item, idx) => {
+      {automationData?.map((item, idx) => {
         return (
           <React.Fragment key={idx}>
             <List item={item} idx={idx} searchType={searchType} />

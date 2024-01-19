@@ -102,7 +102,7 @@ function AddAgent({ groups, allAgents, roles }) {
             className={`${styles.select} ${styles.multiselect}`}
             closeMenuOnSelect={false}
             isMulti
-            options={groups.map(function (item, idx) {
+            options={groups?.map(function (item, idx) {
               return { label: item.name, value: item.id };
             })}
             onChange={function (e) {
@@ -137,7 +137,7 @@ function AddAgent({ groups, allAgents, roles }) {
             className={`${styles.select} ${styles.multiselect}`}
             closeMenuOnSelect={false}
             isMulti
-            options={roles.map(function (item, idx) {
+            options={roles?.map(function (item, idx) {
               return { label: item.name, value: item.id };
             })}
             onChange={function (e) {

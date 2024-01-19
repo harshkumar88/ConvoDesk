@@ -38,8 +38,6 @@ import AdminDetailRoutes from "./AdminRoutes/AdminDetailRoutes";
 import TeamsRoute from "./AdminRoutes/Components/TeamsRoute";
 import WorkFlowRoute from "./AdminRoutes/Components/WorkflowRoute";
 import AnalyticsRoute from "./AdminRoutes/Components/AnalyticsRoute";
-import Header from "../ReactLib/SwitchHeader";
-
 const Home = lazy(() => import("../modules/Tickets"));
 
 function AppRoutes() {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./css/style.module.css";
 import TicketAdd from "./Components/TicketAdd";
 import TicketEdit from "./Components/TicketEdit";
-import { get_data_Without_auth } from "../../../ReactLib/networkhandler";
+import { get_data } from "../../../ReactLib/networkhandler";
 function Ticket({ ticketData, setTicketData, appContext }) {
   const [ticketEditData, setTicketEditData] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -13,7 +13,7 @@ function Ticket({ ticketData, setTicketData, appContext }) {
   }, [appContext.reload]);
 
   async function getTicketData() {
-    const data = await get_data_Without_auth(
+    const data = await get_data(
       `https://qa1.crofarm.com/convo/config/v1/`,
       appContext
     );
@@ -31,7 +31,7 @@ function Ticket({ ticketData, setTicketData, appContext }) {
       ) : (
         <>
           <div className={styles.header}>Ticket Fields</div>
-          {ticketData?.length == 0 && ticketEditData?.length == 0 && (
+          {!ticketData?.isNew && ticketEditData?.length == 0 && (
             <h1>No Ticket Found</h1>
           )}
           {ticketEditData?.map((item, idx) => {

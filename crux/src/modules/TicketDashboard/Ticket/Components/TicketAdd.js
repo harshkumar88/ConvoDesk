@@ -2,7 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
-import { post_data_without_auth } from "../../../../ReactLib/networkhandler";
+import {
+  post_data,
+  post_data_without_auth,
+} from "../../../../ReactLib/networkhandler";
 function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({
@@ -54,7 +57,7 @@ function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
   }
 
   async function postTicketData(ticket_payload) {
-    const data = await post_data_without_auth(
+    const data = await post_data(
       `https://qa1.crofarm.com/convo/config/ticket/v1/`,
       ticket_payload,
       appContext,

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./css/style.module.css";
 import SideItem from "./Components/SideItem";
 import { fieldData } from "../Components/seed";
-import { get_data_Without_auth } from "../../../ReactLib/networkhandler";
+import { get_data } from "../../../ReactLib/networkhandler";
 import { AppContext } from "../../../App";
 function SideBar({ callbackfn }) {
   const [sideData, setSideData] = useState([]);
@@ -13,7 +13,7 @@ function SideBar({ callbackfn }) {
   }, []);
 
   async function getConstantData() {
-    const data = await get_data_Without_auth(
+    const data = await get_data(
       `https://qa1.crofarm.com/convo/config/constants/v1/`,
       appContext
     );
