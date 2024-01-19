@@ -1,0 +1,12 @@
+[submodule "crux/src/ReactLib"]
+	path = crux/src/ReactLib
+	url = https://github.com/harshkumar88/ReactLib.git
+[submodule "sales/src/ReactLib"]
+	path = sales/src/ReactLib
+	url = https://github.com/harshkumar88/ReactLib.git
+[submodule "chat/src/ReactLib"]
+	path = chat/src/ReactLib
+	url = https://github.com/harshkumar88/ReactLib.git
+[submodule "login/src/ReactLib"]
+	path = login/src/ReactLib
+	url = https://github.com/harshkumar88/ReactLib.git

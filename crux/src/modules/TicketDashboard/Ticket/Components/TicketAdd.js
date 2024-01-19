@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import styles from "../css/style.module.css";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
+import { post_data_without_auth } from "../../../../ReactLib/networkhandler";
 function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({
@@ -26,11 +27,8 @@ function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
 
     for (let i = 0; i < ticketEditData?.length; i++) {
       let ticket_info = ticketEditData[i];
-      if (ticket_info.label == data.label) {
-        appContext.setAlert(
-          "Ticket Feild with same label is present",
-          "alert_error"
-        );
+      if (ticket_info.label == data.label || ticket_info.key == data.key) {
+        appContext.setAlert("Ticket Feild is already present", "alert_error");
         return;
       }
     }
@@ -41,6 +39,7 @@ function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
       ticket_data.push(fieldData);
     });
 
+    setTicketData({ ...item });
     ticket_data.push(data);
 
     let ticket_payload = {
@@ -51,10 +50,17 @@ function TicketAdd({ item, setTicketData, ticketEditData, setTicketEditData }) {
       ticket_payload.options = { key: data.key, choices: choices };
     }
 
-    console.log(ticket_payload, "finalData");
-    setTicketEditData([...ticketEditData, { ...data, choices: choices }]);
+    postTicketData(ticket_payload);
+  }
+
+  async function postTicketData(ticket_payload) {
+    const data = await post_data_without_auth(
+      `https://qa1.crofarm.com/convo/config/ticket/v1/`,
+      ticket_payload,
+      appContext,
+      true
+    );
     appContext.setAlert("Successfully Add", "alert_success");
-    setTicketData({ ...item });
   }
 
   //handles the delete of ticket item

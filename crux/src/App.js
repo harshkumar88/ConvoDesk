@@ -115,7 +115,7 @@ function App() {
     setResponse(res);
     setTimeout(function () {
       setClass("alert");
-    }, 1000);
+    }, 1500);
   }
   function tryNote() {
     setNote(Math.round(Math.random() * 100000));

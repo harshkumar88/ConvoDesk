@@ -10,7 +10,6 @@ function SideBar({ callbackfn }) {
 
   useEffect(() => {
     getConstantData();
-    // setSideData(fieldData);
   }, []);
 
   async function getConstantData() {
@@ -18,8 +17,7 @@ function SideBar({ callbackfn }) {
       `https://qa1.crofarm.com/convo/config/constants/v1/`,
       appContext
     );
-    console.log(data, "j");
-    setSideData(fieldData);
+    setSideData(data?.data?.field_types);
   }
 
   //call parent fxn to add new ticket

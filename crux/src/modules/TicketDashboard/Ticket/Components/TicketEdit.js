@@ -4,6 +4,7 @@ import { ReactComponent as TicketIcon } from "../../../../assets/Automation/tick
 import { IoMdTrash } from "react-icons/io";
 import { AppContext } from "../../../../App";
 import IssueContainer from "../../Components/IssueContainer";
+import { post_data_without_auth } from "../../../../ReactLib/networkhandler";
 function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
   const appContext = useContext(AppContext);
   const [data, setData] = useState({});
@@ -54,28 +55,47 @@ function TicketEdit({ item, idx, ticketEditData, setTicketEditData }) {
     if (data?.field_type == "dependent") {
       ticket_payload.options = { key: data.key, choices: choices };
     }
-    appContext.setAlert("Ticket Feild Updated Successfully", "alert_success");
-    console.log(ticket_payload, "j");
+
+    postTicketData(ticket_payload);
     setOpen(false);
+  }
+
+  async function postTicketData(ticket_payload) {
+    const data = await post_data_without_auth(
+      `https://qa1.crofarm.com/convo/config/ticket/v1/`,
+      ticket_payload,
+      appContext,
+      true
+    );
+    appContext.setAlert("Successfully Update", "alert_success");
   }
 
   //handles the delete of ticket item
   function handleDelete() {
-    //send param to delete;
-    let updatedData = ticketEditData?.filter((info, index) => {
-      return index != idx;
+    setOpen(false);
+    let ticketData = [];
+    ticketEditData?.map((info, index) => {
+      if (index != idx) {
+        let { choices, ...fieldData } = info;
+        ticketData.push(fieldData);
+      }
     });
-    setTicketEditData([...updatedData]);
+
+    let ticket_payload = {
+      ticket_fields: ticketData,
+    };
+
+    postTicketData(ticket_payload);
   }
 
   return (
     <form className={styles.ticket_wrapper} onSubmit={handleSubmit}>
       <div className={styles.ticket_box}>
-        <div
-          className={`${styles.item_flex} pointer`}
-          onClick={() => setOpen(!isOpen)}
-        >
-          <div className={styles.item_flex_box}>
+        <div className={`${styles.item_flex} pointer`}>
+          <div
+            className={styles.item_flex_box}
+            onClick={() => setOpen(!isOpen)}
+          >
             <span className={styles.ticket_icon}>
               <TicketIcon />
             </span>

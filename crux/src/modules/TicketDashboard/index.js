@@ -7,12 +7,10 @@ function TicketDashboard() {
   const appContext = useContext(AppContext);
   const [ticketData, setTicketData] = useState({}); //store ticket data
   const [key, setKey] = useState(0); //unique index state
-  const [loader, setLoader] = useState(true);
 
   //effect on reload
   useEffect(() => {
     appContext.setTitle("Ticket Fields");
-    setLoader(false);
   }, [appContext.reload]);
 
   //handle add new ticket
@@ -35,21 +33,13 @@ function TicketDashboard() {
 
   return (
     <div className={styles.ticket_container}>
-      {loader ? (
-        <div className="loader_container">
-          <div className="loader"></div>
-        </div>
-      ) : (
-        <>
-          <SideBar callbackfn={handleTicketItem} />
-          <Ticket
-            ticketData={ticketData}
-            setTicketData={setTicketData}
-            callbackfn={handleTicketItem}
-            appContext={appContext}
-          />
-        </>
-      )}
+      <SideBar callbackfn={handleTicketItem} />
+      <Ticket
+        ticketData={ticketData}
+        setTicketData={setTicketData}
+        callbackfn={handleTicketItem}
+        appContext={appContext}
+      />
     </div>
   );
 }

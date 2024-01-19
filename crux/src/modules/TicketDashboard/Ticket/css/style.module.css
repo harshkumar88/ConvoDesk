@@ -67,6 +67,7 @@
   padding: 0.7vh 0.5vw;
   align-items: center;
   overflow: hidden;
+  flex: 1;
 }
 
 .ticket_icon {
@@ -92,6 +93,7 @@
   font-size: 18px;
   visibility: hidden;
   margin-right: 2vw;
+  z-index: 100;
 }
 
 .item_flex:hover .delete_btn {
