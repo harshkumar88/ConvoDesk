@@ -10,10 +10,11 @@ import {
   patch_data,
   post_data,
 } from "../../../ReactLib/networkhandler";
-
+import { getTicketFields } from "../NewRule/Components/Constants";
 function EditRule() {
   const { id, type } = useParams();
   const navigate = useNavigate();
+  const [automationData, setAutomationData] = useState([]);
   const appContext = useContext(AppContext);
   const [conditions, setConditions] = useState({
     match_type: "any",
@@ -32,8 +33,14 @@ function EditRule() {
   const [countConditions, setCountConditions] = useState([1]);
 
   useEffect(() => {
+    fetchTicketConstants();
     fetchAutomationData();
   }, [appContext.reload]);
+
+  async function fetchTicketConstants() {
+    const automation_data = await getTicketFields();
+    setAutomationData(automation_data);
+  }
 
   async function fetchAutomationData() {
     const data = await get_data(
@@ -41,19 +48,24 @@ function EditRule() {
       appContext
     );
 
-    console.log(data?.data);
     let automationData = data?.data;
     setPayload(data?.data);
     let uuid = key;
     let actionData = automationData?.actions;
     let filterActionData = actionData?.map((item) => {
       uuid++;
-      return { ...item, uid: uuid };
+      if (item?.webhook && item?.properties) {
+        return { ...item, type: item?.type, uid: uuid };
+      } else if (item?.webhook) {
+        return { webhook: item?.webhook, type: item?.type, uid: uuid };
+      } else {
+        return { properties: item?.properties, type: item?.type, uid: uuid };
+      }
     });
     setKey(uuid);
     setActions(filterActionData);
-    setConditions(automationData?.condition);
-    setEvent(automationData?.event);
+    setConditions(automationData?.conditions);
+    setEvent(automationData?.events);
     setFilterType(automationData?.condition_type);
     if (automationData?.conditions?.length > 1) {
       setCountConditions([...countConditions, 2]);
@@ -67,7 +79,11 @@ function EditRule() {
     for (let i = 0; i < actions?.length; i++) {
       let item = actions[i];
       if (item?.type == "property") {
-        if (!item.property || !item.property.value || !item.property.key) {
+        if (
+          !item.properties ||
+          !item.properties.value ||
+          !item.properties.key
+        ) {
           return false;
         }
       } else if (item?.type == "webhook") {
@@ -165,21 +181,20 @@ function EditRule() {
     e.preventDefault();
 
     let finalPayload = {
-      ...payload,
+      name: payload?.name,
       actions: actions,
-      condition: conditions,
-      event: event,
+      conditions: conditions,
     };
+
+    if (type == "updation") {
+      finalPayload = { ...finalPayload, events: event };
+    }
     setPayload({
-      ...payload,
-      actions: actions,
-      condition: conditions,
-      event: event,
+      ...finalPayload,
     });
     localStorage.setItem("automation", JSON.stringify(finalPayload));
     handleAutomationUpdate(finalPayload);
 
-    navigate("/workflows/automation/dashboard");
     console.log(finalPayload, "final data");
   }
 
@@ -190,6 +205,7 @@ function EditRule() {
       appContext,
       true
     );
+    navigate("/workflows/automation/dashboard");
   }
 
   function handleAddFilter() {
@@ -258,6 +274,7 @@ function EditRule() {
                 conditions={conditions}
                 setConditions={setConditions}
                 countIndex={idx}
+                automationData={automationData}
               />
             </React.Fragment>
           );
@@ -275,6 +292,7 @@ function EditRule() {
                     actions={actions}
                     idx={idx}
                     setActions={setActions}
+                    automationData={automationData}
                   />
                 </React.Fragment>
               );

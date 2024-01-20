@@ -19,7 +19,7 @@ const DynamicPayload = ({
 
   useEffect(() => {
     if (item?.webhook && item?.webhook?.[label]) {
-      let jsonData = JSON.stringify(item?.webhook?.[label]);
+      let jsonData = JSON.parse(item?.webhook?.[label]);
       if (jsonData) {
         setJsonPayload(jsonData);
       }

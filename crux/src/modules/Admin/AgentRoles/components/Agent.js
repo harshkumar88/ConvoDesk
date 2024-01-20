@@ -182,13 +182,6 @@ function Agent({ data, allRoles, supervisorData }) {
           </form>
         </PopUp>
       </div>
-      {/* <div className="item-col">
-        <div className="btn-container">
-          <button className="dark-btn" onClick={handleSubmit}>
-            Save Role
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 }

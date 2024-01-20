@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../App";
 import { API_URL } from "../../../config";
-import { get_data } from "../../../ReactLib/networkhandler";
+import {
+  get_data,
+  get_data_Without_auth,
+} from "../../../ReactLib/networkhandler";
 import Agent from "./components/Agent";
 import Navbar from "./components/Navbar";
 
@@ -24,7 +27,10 @@ function AgentRoles(props) {
           setLoader(false);
         }
       });
-      get_data(`${API_URL}/crux/group/v1/`, appContext).then(function (data) {
+      get_data(
+        `https://qa1.crofarm.com/convo/users/group/all/v1/`,
+        appContext
+      ).then(function (data) {
         setGroups(data.data);
       });
     },
@@ -72,9 +78,6 @@ function AgentRoles(props) {
             No Agents found in last
           </h1>
         )}
-        {/* {data.agents.map(function (item, idx) {
-          return <Agent data={item} allRoles={data.roles} key={idx} />;
-        })} */}
       </div>
     </>
   );

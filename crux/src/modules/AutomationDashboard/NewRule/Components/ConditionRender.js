@@ -9,15 +9,14 @@ import SingleSelect from "./FieldComponents/SingleSelect";
 import MultiSelect from "./FieldComponents/MultiSelect";
 import MultiWithCreatable from "./FieldComponents/MultiWithCreatable";
 import SingleWithCreatable from "./FieldComponents/SingleWithCreatable";
-function Conditions({
+
+function ConditionRender({
   item,
-  conditions,
-  idx,
-  selectedOption,
-  setConditions,
-  index,
   automationData,
   handleAddCondition,
+  conditions,
+  setConditions,
+  idx,
 }) {
   const [fieldType, setFieldType] = useState("");
   const [constantsMapping, setConstantsMapping] = useState({});
@@ -42,7 +41,7 @@ function Conditions({
     setFieldType(automation_data?.field_type || "");
     setChoices(automation_data?.choices || []);
     setLoader(false);
-  }, [automationData]);
+  }, [automationData, item]);
 
   //handle deletion of condition
   function handleConditionDelete() {
@@ -111,78 +110,64 @@ function Conditions({
       );
     }
   }
+  return (
+    <div className={styles.action_delete}>
+      <div>
+        <div className={styles.arrow_wrapper}>
+          <Select
+            options={ticketFields?.map((info) => {
+              return { ...info, value: info.key };
+            })}
+            placeholder="key"
+            className={styles.condition_select1}
+            onChange={(e) => {
+              item.operator = "";
+              setFieldType(e.field_type);
+              handleTypeChange("key", e.value);
+              setChoices(e?.choices || []);
+            }}
+            value={ticketFields?.filter((info) => info.key == item?.key)}
+            required
+          />
 
-  useEffect(() => {
-    console.log(conditions, "djkdjkdjk");
-  }, [conditions]);
-  return loader ? (
-    idx == 0 && <>Load</>
-  ) : (
-    <div
-      className={styles.condition_box}
-      key={idx}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <div className={styles.delete_wrapper}>
-        <div className={styles.action_delete}>
-          <div>
-            <div className={styles.arrow_wrapper}>
-              <Select
-                options={ticketFields?.map((info) => {
-                  return { ...info, value: info.key };
-                })}
-                placeholder="key"
-                className={styles.condition_select1}
-                onChange={(e) => {
-                  item.operator = "";
-                  setFieldType(e.field_type);
-                  handleTypeChange("key", e.value);
-                  setChoices(e?.choices || []);
-                }}
-                value={ticketFields?.filter((info) => info.key == item?.key)}
-                required
-              />
-
-              <Select
-                options={constantsMapping?.operator_choices?.filter((info) => {
-                  return constantsMapping?.field_opertaor_mapping?.[
-                    fieldType
-                  ]?.includes(info.value);
-                })}
-                placeholder="Operator"
-                className={styles.condition_select2}
-                value={constantsMapping?.operator_choices?.filter(
-                  (info) => info.value == item?.operator
-                )}
-                required
-                onChange={(e) => handleTypeChange("operator", e.value)}
-              />
-              {!hide ? (
-                <span
-                  className={styles.wrapper_span}
-                  onClick={() => setHide(!hide)}
-                >
-                  <IoMdArrowDropdown />
-                </span>
-              ) : (
-                <span
-                  className={styles.wrapper_span}
-                  onClick={() => setHide(!hide)}
-                >
-                  <IoMdArrowDropup />
-                </span>
-              )}
-            </div>
-
-            {!hide && item?.operator ? (
-              <div className={styles.condition_item2}>
-                {renderComponentSwitch()}
-              </div>
-            ) : null}
-          </div>
+          <Select
+            options={constantsMapping?.operator_choices?.filter((info) => {
+              return constantsMapping?.field_opertaor_mapping?.[
+                fieldType
+              ]?.includes(info.value);
+            })}
+            placeholder="Operator"
+            className={styles.condition_select2}
+            value={constantsMapping?.operator_choices?.filter(
+              (info) => info.value == item?.operator
+            )}
+            required
+            onChange={(e) => handleTypeChange("operator", e.value)}
+          />
+          {!hide ? (
+            <span
+              className={styles.wrapper_span}
+              onClick={() => setHide(!hide)}
+            >
+              <IoMdArrowDropdown />
+            </span>
+          ) : (
+            <span
+              className={styles.wrapper_span}
+              onClick={() => setHide(!hide)}
+            >
+              <IoMdArrowDropup />
+            </span>
+          )}
         </div>
-        {conditions?.properties?.length == 1 && idx == 0
+
+        {!hide && item?.operator ? (
+          <div className={styles.condition_item2}>
+            {renderComponentSwitch()}
+          </div>
+        ) : null}
+
+        {conditions?.property_cluster?.length == 1 && idx == 0
           ? null
           : hover && (
               <span
@@ -193,12 +178,8 @@ function Conditions({
               </span>
             )}
       </div>
-
-      {conditions?.properties?.length > 1 && idx != 0 && (
-        <span className={styles.operator}>{selectedOption}</span>
-      )}
     </div>
   );
 }
 
-export default Conditions;
+export default ConditionRender;

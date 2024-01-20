@@ -8,12 +8,13 @@ function ConditionList({
   handleAddCondition,
   countIndex,
   error,
+  automationData,
 }) {
   const [selectedOption, setSelectedOption] = useState("any");
 
   useEffect(() => {
     setSelectedOption(conditions?.match_type);
-  }, [conditions]);
+  }, [conditions, automationData]);
 
   return (
     <div className={styles.condition_container}>
@@ -62,6 +63,8 @@ function ConditionList({
                 idx={idx}
                 selectedOption={selectedOption}
                 setConditions={setConditions}
+                automationData={automationData}
+                handleAddCondition={handleAddCondition}
               />
             </React.Fragment>
           );

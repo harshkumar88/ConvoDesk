@@ -5,11 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../../App";
 import ConditionList from "./Components/ConditionList";
 import EventList from "./Components/EventList";
-import { post_data } from "../../../ReactLib/networkhandler";
+import { post_data, get_data } from "../../../ReactLib/networkhandler";
+import { getTicketFields } from "./Components/Constants";
 
 function NewRule() {
   const appContext = useContext(AppContext);
   const navigate = useNavigate();
+  const [automationData, setAutomationData] = useState([]);
   const [conditions, setConditions] = useState({
     match_type: "any",
     properties: [{}],
@@ -31,9 +33,14 @@ function NewRule() {
   // const [filterType, setFilterType] = useState("or");
   const [countConditions, setCountConditions] = useState([1]);
   useEffect(() => {
+    fetchTicketConstants();
     handleAddAction();
-  }, []);
+  }, [appContext.reload]);
 
+  async function fetchTicketConstants() {
+    const automation_data = await getTicketFields();
+    setAutomationData(automation_data);
+  }
   //handling action validation
   function handleActionValidation() {
     if (actions.length == 0) {
@@ -140,8 +147,8 @@ function NewRule() {
     let finalPayload = {
       ...payload,
       actions: actions,
-      condition: conditions,
-      event: event,
+      conditions: conditions,
+      events: event,
     };
     setPayload({
       ...finalPayload,
@@ -149,7 +156,6 @@ function NewRule() {
     localStorage.setItem("automation", JSON.stringify(finalPayload));
     handleAutomationCreation(finalPayload);
 
-    navigate("/workflows/automation/dashboard");
     console.log(finalPayload, "final data");
   }
 
@@ -160,6 +166,7 @@ function NewRule() {
       appContext,
       true
     );
+    navigate("/workflows/automation/dashboard");
   }
 
   //handling new condition filter
@@ -241,6 +248,7 @@ function NewRule() {
                 setConditions={setConditions}
                 countIndex={idx}
                 error={error}
+                automationData={automationData}
               />
             </React.Fragment>
           );
@@ -259,6 +267,7 @@ function NewRule() {
                     actions={actions}
                     idx={idx}
                     setActions={setActions}
+                    automationData={automationData}
                   />
                 </React.Fragment>
               );

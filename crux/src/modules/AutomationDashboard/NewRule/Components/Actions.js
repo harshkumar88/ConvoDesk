@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../css/style.module.css";
 import Select from "react-select";
 import { FaTrash } from "react-icons/fa";
@@ -6,21 +6,24 @@ import Webhook from "./Webhook";
 import Property from "./Property";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
-function Actions({ item, actions, idx, handleActionDelete, setActions }) {
+function Actions({
+  item,
+  actions,
+  idx,
+  handleActionDelete,
+  setActions,
+  automationData,
+}) {
   let [hide, setHide] = useState(false);
-  const propertyOptions = [
-    {
-      label: "Property",
-      value: "property",
-    },
-    {
-      label: "Webhook",
-      value: "webhook",
-    },
-  ];
+  const [propertyOptions, setPropertyOptions] = useState([]);
 
-  const ticketOptions = [{ label: "Ticket", value: "Tickets" }];
+  const [ticketOptions, setTicketOptions] = useState([]);
   const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    setPropertyOptions(automationData?.constants?.action_choices);
+    setTicketOptions(automationData?.constants?.webhook_method_choices);
+  }, [item, automationData]);
 
   //handles the type of action
   function handleTypeChange(e) {
@@ -30,6 +33,7 @@ function Actions({ item, actions, idx, handleActionDelete, setActions }) {
       }
       return data;
     });
+
     setActions([...actionList]);
   }
 
@@ -85,6 +89,7 @@ function Actions({ item, actions, idx, handleActionDelete, setActions }) {
                   actions={actions}
                   item={item}
                   setActions={setActions}
+                  automationData={automationData}
                 />
               ) : item?.type == "webhook" ? (
                 <Webhook

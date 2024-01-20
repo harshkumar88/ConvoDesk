@@ -42,7 +42,7 @@
 .condition_container {
   display: flex;
   flex-direction: column;
-  z-index: 0;
+  /* z-index: 0; */
 }
 .radio_item {
   display: flex;
@@ -157,7 +157,7 @@
   border: 1px solid #2c5cc5;
 }
 .condition_select1 {
-  width: 200px;
+  width: 250px;
 }
 
 .condition_select_full {
@@ -168,6 +168,9 @@
   width: 250px;
 }
 
+.condition_select4 {
+  width: 350px !important;
+}
 .condition_select3 {
   width: 250px;
   visibility: hidden;
@@ -315,4 +318,10 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.action_flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }

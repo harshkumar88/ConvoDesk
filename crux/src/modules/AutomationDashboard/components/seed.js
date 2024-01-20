@@ -133,4 +133,42 @@ const TicketUpdate = [
   },
 ];
 
+const operator_choices = [
+  {
+    label: "EQUALS",
+    value: "equal",
+    type: "single select",
+  },
+  {
+    label: "NOT_EQUALS",
+    value: "not_equal",
+    type: "multi select",
+  },
+  {
+    label: "ANY",
+    value: "any",
+    type: "mutli select",
+  },
+  {
+    label: "CONTAINS",
+    value: "contains",
+    type: "multi select create",
+  },
+  {
+    label: "NOT_CONTAINS",
+    value: "not_contains",
+    type: "multi select create",
+  },
+  {
+    label: "LTE",
+    value: "lte",
+    type: "nuber",
+  },
+  {
+    label: "GTE",
+    value: "gte",
+    type: "number",
+  },
+];
+
 export { TicketCreation, TicketTrigger, TicketUpdate };
