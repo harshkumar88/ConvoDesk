@@ -19,6 +19,7 @@ function PropertyIssueRender({
         placeholder="key"
         className={styles.condition_select1}
         onChange={(e) => {
+          if (item.properties) item.properties.value = null;
           setFieldType(e.field_type);
           handleTypeChange("key", e.value);
         }}

@@ -14,7 +14,7 @@ function ConditionIssueRender({
   renderComponentSwitch,
 }) {
   return (
-    <div>
+    <>
       <div className={styles.arrow_wrapper}>
         <Select
           options={ticketFields?.map((info) => {
@@ -55,7 +55,7 @@ function ConditionIssueRender({
           {renderComponentSwitch(item, handleTypeChange, choices, "issue")}
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
 

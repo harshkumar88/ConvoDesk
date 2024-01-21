@@ -78,10 +78,10 @@ function NewRule() {
 
   //handling new action
   function handleAddAction() {
-    let checkAction = handleActionValidation();
-    if (!checkAction) {
-      return;
-    }
+    // let checkAction = handleActionValidation();
+    // if (!checkAction) {
+    //   return;
+    // }
     let uuid = key;
     setActions([...actions, { uid: uuid + 1 }]);
     setKey(uuid + 1);
@@ -121,10 +121,10 @@ function NewRule() {
   //handling new condition
   function handleAddCondition(idx, matchType) {
     let info = conditions;
-    let checkAction = handleAddConditionValidation(info);
-    if (!checkAction) {
-      return;
-    }
+    // let checkAction = handleAddConditionValidation(info);
+    // if (!checkAction) {
+    //   return;
+    // }
     info = { match_type: matchType, properties: [...info.properties, {}] };
     let data = conditions;
     data = info;
@@ -135,10 +135,10 @@ function NewRule() {
   function handleAddEvent(idx, matchType) {
     let info = event;
 
-    let checkAction = handleAddEventValidation(info);
-    if (!checkAction) {
-      return;
-    }
+    // let checkAction = handleAddEventValidation(info);
+    // if (!checkAction) {
+    //   return;
+    // }
     info = { match_type: matchType, properties: [...info.properties, {}] };
 
     setEvent({ ...info });
@@ -283,6 +283,7 @@ function NewRule() {
                   setEvent={setEvent}
                   countIndex={idx}
                   error={error}
+                  automationData={automationData}
                 />
               </React.Fragment>
             );
@@ -311,7 +312,7 @@ function NewRule() {
       <div className={styles.header_label}>
         <label>Perform these actions:</label>
         <div className={styles.condition_container}>
-          <div>
+          <div className={styles.action_container}>
             {actions?.map((item, idx) => {
               return (
                 <React.Fragment key={idx}>

@@ -29,9 +29,9 @@ function ConditionList({
               handleConditionData("any", countIndex);
             }}
             className={styles.pointer}
-            id="or"
+            id="orr"
           />
-          <label htmlFor="or" className={styles.pointer}>
+          <label htmlFor="orr" className={styles.pointer}>
             Match ANY of the below
           </label>
         </div>
@@ -45,14 +45,14 @@ function ConditionList({
               handleConditionData("all", countIndex);
             }}
             className={styles.pointer}
-            id="and"
+            id="andd"
           />
-          <label htmlFor="and" className={styles.pointer}>
+          <label htmlFor="andd" className={styles.pointer}>
             Match ALL of the below
           </label>
         </div>
       </div>
-      <div>
+      <div className={styles.w_full}>
         {conditions?.properties?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>

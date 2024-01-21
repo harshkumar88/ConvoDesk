@@ -121,31 +121,34 @@ function Property({
   }, [actions]);
   return (
     <div className={styles.action_flex}>
-      <PropertyIssueRender
-        actions={actions}
-        ticketFields={ticketFields}
-        item={item}
-        setFieldType={setFieldType}
-        choices={issueChoices}
-        handleTypeChange={handleTypeChange}
-        renderComponentSwitch={renderComponentSwitch}
-      />
-      {item?.properties?.property &&
-        fieldType == "dependent" &&
-        checkValidValue(item?.properties?.value) && (
-          <PropertySubIssueRender
-            actions={actions}
-            setActions={setActions}
-            ticketFields={ticketFields}
-            issueData={item}
-            item={item?.properties?.property}
-            setFieldType={setFieldType}
-            choices={subIssueChoices}
-            handleTypeChange={handleTypeChange}
-            renderComponentSwitch={renderComponentSwitch}
-          />
-        )}
-
+      <div className={styles.action_flex}>
+        <PropertyIssueRender
+          actions={actions}
+          ticketFields={ticketFields}
+          item={item}
+          setFieldType={setFieldType}
+          choices={issueChoices}
+          handleTypeChange={handleTypeChange}
+          renderComponentSwitch={renderComponentSwitch}
+        />
+      </div>
+      <div className={styles.action_flex}>
+        {item?.properties?.property &&
+          fieldType == "dependent" &&
+          checkValidValue(item?.properties?.value) && (
+            <PropertySubIssueRender
+              actions={actions}
+              setActions={setActions}
+              ticketFields={ticketFields}
+              issueData={item}
+              item={item?.properties?.property}
+              setFieldType={setFieldType}
+              choices={subIssueChoices}
+              handleTypeChange={handleTypeChange}
+              renderComponentSwitch={renderComponentSwitch}
+            />
+          )}
+      </div>
       {item?.properties?.property?.property &&
         fieldType == "dependent" &&
         checkValidValue(item?.properties?.property?.value) && (

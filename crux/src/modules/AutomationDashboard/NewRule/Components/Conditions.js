@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/style.module.css";
+import Select from "react-select";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
@@ -157,24 +158,9 @@ function Conditions({
     >
       <div className={styles.delete_wrapper}>
         <div className={styles.action_delete}>
-          <div>
+          <div className={styles.wrapper}>
             {!hide ? (
-              <span
-                className={styles.wrapper_span}
-                onClick={() => setHide(!hide)}
-              >
-                <IoMdArrowDropdown />
-              </span>
-            ) : (
-              <span
-                className={styles.wrapper_span}
-                onClick={() => setHide(!hide)}
-              >
-                <IoMdArrowDropup />
-              </span>
-            )}
-            {!hide && (
-              <div>
+              <div className={styles.open_wrapper}>
                 <ConditionIssueRender
                   item={item}
                   ticketFields={ticketFields}
@@ -228,7 +214,37 @@ function Conditions({
                     />
                   )}
               </div>
+            ) : (
+              <div className={styles.open_wrapper}>
+                <Select
+                  options={ticketFields?.map((info) => {
+                    return { ...info, value: info.key };
+                  })}
+                  placeholder="key"
+                  className={styles.condition_select1}
+                  value={ticketFields?.filter((info) => info.key == item?.key)}
+                  isDisabled={true}
+                />
+              </div>
             )}
+
+            <div>
+              {!hide ? (
+                <span
+                  className={styles.wrapper_span}
+                  onClick={() => setHide(!hide)}
+                >
+                  <IoMdArrowDropdown />
+                </span>
+              ) : (
+                <span
+                  className={styles.wrapper_span}
+                  onClick={() => setHide(!hide)}
+                >
+                  <IoMdArrowDropup />
+                </span>
+              )}
+            </div>
           </div>
           {conditions?.properties?.length == 1 && idx == 0
             ? null

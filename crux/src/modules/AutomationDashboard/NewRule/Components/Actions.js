@@ -54,32 +54,38 @@ function Actions({
     >
       <div className={styles.delete_wrapper}>
         <div className={styles.action_delete}>
-          <div className={styles.arrow_wrapper}>
-            <Select
-              options={propertyOptions}
-              placeholder="Type"
-              className={styles.condition_select1}
-              onChange={handleTypeChange}
-              required
-              value={propertyOptions?.filter(
-                (info) => info.value == item?.type
+          <div className={styles.wrapper}>
+            <div className={styles.open_wrapper}>
+              <div className={styles.arrow_wrapper}>
+                <Select
+                  options={propertyOptions}
+                  placeholder="Type"
+                  className={styles.condition_select1}
+                  onChange={handleTypeChange}
+                  required
+                  value={propertyOptions?.filter(
+                    (info) => info.value == item?.type
+                  )}
+                />
+              </div>
+            </div>
+            <div>
+              {!hide ? (
+                <span
+                  className={styles.wrapper_span}
+                  onClick={() => setHide(!hide)}
+                >
+                  <IoMdArrowDropdown />
+                </span>
+              ) : (
+                <span
+                  className={styles.wrapper_span}
+                  onClick={() => setHide(!hide)}
+                >
+                  <IoMdArrowDropup />
+                </span>
               )}
-            />
-            {!hide ? (
-              <span
-                className={styles.wrapper_span}
-                onClick={() => setHide(!hide)}
-              >
-                <IoMdArrowDropdown />
-              </span>
-            ) : (
-              <span
-                className={styles.wrapper_span}
-                onClick={() => setHide(!hide)}
-              >
-                <IoMdArrowDropup />
-              </span>
-            )}
+            </div>
           </div>
           {!hide && (
             <div className={styles.condition_item2}>

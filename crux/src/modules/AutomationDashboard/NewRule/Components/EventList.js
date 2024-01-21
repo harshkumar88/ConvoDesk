@@ -8,6 +8,7 @@ function EventList({
   handleAddEvent,
   countIndex,
   error,
+  automationData,
 }) {
   const [selectedOption, setSelectedOption] = useState("any");
   useEffect(() => {
@@ -50,7 +51,7 @@ function EventList({
           </label>
         </div>
       </div>
-      <div>
+      <div className={styles.w_full}>
         {event?.properties?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>
@@ -61,6 +62,7 @@ function EventList({
                 idx={idx}
                 selectedOption={selectedOption}
                 setEvent={setEvent}
+                automationData={automationData}
               />
             </React.Fragment>
           );
