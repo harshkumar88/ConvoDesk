@@ -15,13 +15,14 @@ function Events({
   selectedOption,
   setEvent,
   automationData,
+  edit,
 }) {
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(edit);
   const ticketOptions = [
     { label: "Ticket", value: "Tickets" },
     { label: "Creation", value: "Creation" },
   ];
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(true);
   const [fieldType, setFieldType] = useState("");
   const [constantsMapping, setConstantsMapping] = useState({});
   const [ticketFields, setTicketFields] = useState([]);

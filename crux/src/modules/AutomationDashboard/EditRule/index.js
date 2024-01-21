@@ -293,6 +293,7 @@ function EditRule() {
                   countIndex={idx}
                   error={error}
                   automationData={automationData}
+                  edit={true}
                 />
               </React.Fragment>
             );
@@ -311,6 +312,7 @@ function EditRule() {
                 setConditions={setConditions}
                 countIndex={idx}
                 automationData={automationData}
+                edit={true}
               />
             </React.Fragment>
           );
@@ -319,7 +321,7 @@ function EditRule() {
       <div className={styles.header_label}>
         <label>Perform these actions:</label>
         <div className={styles.condition_container}>
-          <div>
+          <div className={styles.action_container}>
             {actions?.map((item, idx) => {
               return (
                 <React.Fragment key={idx}>
@@ -329,6 +331,7 @@ function EditRule() {
                     idx={idx}
                     setActions={setActions}
                     automationData={automationData}
+                    edit={true}
                   />
                 </React.Fragment>
               );

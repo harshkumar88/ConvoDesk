@@ -284,6 +284,7 @@ function NewRule() {
                   countIndex={idx}
                   error={error}
                   automationData={automationData}
+                  edit={false}
                 />
               </React.Fragment>
             );
@@ -303,6 +304,7 @@ function NewRule() {
                 countIndex={idx}
                 error={error}
                 automationData={automationData}
+                edit={false}
               />
             </React.Fragment>
           );
@@ -322,6 +324,7 @@ function NewRule() {
                     idx={idx}
                     setActions={setActions}
                     automationData={automationData}
+                    edit={false}
                   />
                 </React.Fragment>
               );

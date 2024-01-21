@@ -132,10 +132,11 @@ function Property({
           renderComponentSwitch={renderComponentSwitch}
         />
       </div>
-      <div className={styles.action_flex}>
-        {item?.properties?.property &&
-          fieldType == "dependent" &&
-          checkValidValue(item?.properties?.value) && (
+
+      {item?.properties?.property &&
+        fieldType == "dependent" &&
+        checkValidValue(item?.properties?.value) && (
+          <div className={styles.action_flex}>
             <PropertySubIssueRender
               actions={actions}
               setActions={setActions}
@@ -146,24 +147,27 @@ function Property({
               choices={subIssueChoices}
               handleTypeChange={handleTypeChange}
               renderComponentSwitch={renderComponentSwitch}
-            />
-          )}
-      </div>
+            />{" "}
+          </div>
+        )}
+
       {item?.properties?.property?.property &&
         fieldType == "dependent" &&
         checkValidValue(item?.properties?.property?.value) && (
-          <PropertyFurtherRender
-            actions={actions}
-            setActions={setActions}
-            ticketFields={ticketFields}
-            issueData={item}
-            subIssueData={item?.properties?.property}
-            item={item?.properties?.property?.property}
-            setFieldType={setFieldType}
-            choices={furtherChoices}
-            handleTypeChange={handleTypeChange}
-            renderComponentSwitch={renderComponentSwitch}
-          />
+          <div className={styles.action_flex}>
+            <PropertyFurtherRender
+              actions={actions}
+              setActions={setActions}
+              ticketFields={ticketFields}
+              issueData={item}
+              subIssueData={item?.properties?.property}
+              item={item?.properties?.property?.property}
+              setFieldType={setFieldType}
+              choices={furtherChoices}
+              handleTypeChange={handleTypeChange}
+              renderComponentSwitch={renderComponentSwitch}
+            />
+          </div>
         )}
     </div>
   );

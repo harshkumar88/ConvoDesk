@@ -13,8 +13,9 @@ function Actions({
   handleActionDelete,
   setActions,
   automationData,
+  edit,
 }) {
-  let [hide, setHide] = useState(false);
+  let [hide, setHide] = useState(edit);
   const [propertyOptions, setPropertyOptions] = useState([]);
 
   const [ticketOptions, setTicketOptions] = useState([]);

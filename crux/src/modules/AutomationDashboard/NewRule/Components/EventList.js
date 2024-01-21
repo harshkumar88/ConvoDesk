@@ -9,6 +9,7 @@ function EventList({
   countIndex,
   error,
   automationData,
+  edit,
 }) {
   const [selectedOption, setSelectedOption] = useState("any");
   useEffect(() => {
@@ -63,6 +64,7 @@ function EventList({
                 selectedOption={selectedOption}
                 setEvent={setEvent}
                 automationData={automationData}
+                edit={edit}
               />
             </React.Fragment>
           );

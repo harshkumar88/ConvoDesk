@@ -9,6 +9,7 @@ function ConditionList({
   countIndex,
   error,
   automationData,
+  edit,
 }) {
   const [selectedOption, setSelectedOption] = useState("any");
 
@@ -65,6 +66,7 @@ function ConditionList({
                 setConditions={setConditions}
                 automationData={automationData}
                 handleAddCondition={handleAddCondition}
+                edit={edit}
               />
             </React.Fragment>
           );

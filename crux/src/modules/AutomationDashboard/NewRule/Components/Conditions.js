@@ -11,6 +11,7 @@ import MultiWithCreatable from "./FieldComponents/MultiWithCreatable";
 import ConditionIssueRender from "./ConditionIssueRender";
 import ConditionSubIssueRender from "./ConditionSubIssueRender";
 import ConditionFurtherRender from "./ConditionFurtherRender";
+import BooleanInput from "./FieldComponents/Boolean";
 function Conditions({
   item,
   conditions,
@@ -20,8 +21,9 @@ function Conditions({
   index,
   automationData,
   handleAddCondition,
+  edit,
 }) {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(edit);
   const [fieldType, setFieldType] = useState("");
   const [constantsMapping, setConstantsMapping] = useState({});
   const [ticketFields, setTicketFields] = useState([]);
@@ -101,7 +103,7 @@ function Conditions({
 
   function renderComponentSwitch(item, fxn, choices, key) {
     if (item?.operator == "lte" || item?.operator == "gte") {
-      return <Text value={item?.value} callbackfn={fxn} />;
+      return <Text value={item?.value} callbackfn={fxn} number={true} />;
     } else if (item?.operator == "equal" && fieldType == "dependent") {
       return (
         <SingleSelect
@@ -113,6 +115,8 @@ function Conditions({
           setSubIssueId={setSubIssueId}
         />
       );
+    } else if (item?.operator == "equal" && fieldType == "boolean") {
+      return <BooleanInput value={item?.value} callbackfn={fxn} />;
     } else if (item?.operator == "equal") {
       return <MultiWithCreatable value={item?.value || []} callbackfn={fxn} />;
     } else if (
