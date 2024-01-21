@@ -6,6 +6,11 @@ import SingleSelect from "./FieldComponents/SingleSelect";
 import MultiSelect from "./FieldComponents/MultiSelect";
 import MultiWithCreatable from "./FieldComponents/MultiWithCreatable";
 import SingleWithCreatable from "./FieldComponents/SingleWithCreatable";
+import PropertyIssueRender from "./PropertyIssueRender";
+import PropertySubIssueRender from "./PropertySubIssueRender";
+import PropertyFurtherRender from "./PropertyFurtherRender";
+import SingleSelectText from "./FieldComponents/SingleSelectText";
+import BooleanInput from "./FieldComponents/Boolean";
 function Property({
   ticketOptions,
   item,
@@ -17,7 +22,10 @@ function Property({
   const [constantsMapping, setConstantsMapping] = useState({});
   const [ticketFields, setTicketFields] = useState([]);
   const [issueId, setIssueId] = useState(0);
-  const [choices, setChoices] = useState([]);
+  const [subIssueId, setSubIssueId] = useState(0);
+  const [issueChoices, setIssueChoices] = useState([]);
+  const [subIssueChoices, setSubIssueChoices] = useState([]);
+  const [furtherChoices, setFurtherChoices] = useState([]);
   const [loader, setLoader] = useState(true);
   const [hover, setHover] = useState(false);
   const [hide, setHide] = useState(false);
@@ -25,18 +33,52 @@ function Property({
   useEffect(() => {
     setConstantsMapping(automationData?.constants);
     setTicketFields(automationData?.ticketFields);
+
     const automation_data = automationData?.ticketFields?.find(
-      (info) => info.key == item?.key
+      (info) => info.key == item?.properties?.key
     );
+
     setFieldType(automation_data?.field_type || "");
-    setChoices(automation_data?.choices || []);
+    setIssueChoices(automation_data?.choices || []);
+
+    const issue_id =
+      automation_data?.choices?.find(
+        (info) => info.label == item?.properties?.value
+      )?.id || 0;
+
+    const subissue_id = automation_data?.choices
+      ?.find((info) => info.label == item?.properties?.value)
+      ?.choices?.find(
+        (info) => info.label == item?.properties?.property?.value
+      )?.id;
+
+    setIssueId(issue_id);
+    setSubIssueId(subissue_id);
+
     setLoader(false);
   }, [automationData, item]);
 
-  function handleTicketChange(label, value) {
-    console.log(label, value, "call");
+  useEffect(() => {
+    const automation_data = automationData?.ticketFields?.find(
+      (info) => info.key == item?.properties?.key
+    );
+    const subData =
+      automation_data?.choices?.find((info) => info.id == issueId)?.choices ||
+      [];
+
+    const fbData =
+      subData?.find((info) => info.id == subIssueId)?.choices || [];
+
+    setSubIssueChoices(subData);
+    setFurtherChoices(fbData);
+  }, [issueId, subIssueId]);
+
+  function handleTypeChange(label, value) {
     let actionList = actions?.map((data) => {
       if (item.uid == data.uid) {
+        if (label == "value") {
+          data.properties.property = {};
+        }
         return { ...data, properties: { ...data?.properties, [label]: value } };
       }
       return data;
@@ -45,90 +87,81 @@ function Property({
     setActions([...actionList]);
   }
 
-  function renderComponentSwitch() {
-    if (item?.operator == "lte" || item?.operator == "gte") {
+  function renderComponentSwitch(item, fxn, choices, key) {
+    if (fieldType == "dependent") {
       return (
-        <Text value={item?.properties?.value} callbackfn={handleTicketChange} />
-      );
-    } else if (item?.operator == "equal" && fieldType == "dependent") {
-      return (
-        <SingleSelect
-          value={item?.properties?.value}
-          callbackfn={handleTicketChange}
+        <SingleSelectText
+          value={item?.value}
+          callbackfn={fxn}
           choices={choices}
+          val={key}
+          setIssueId={setIssueId}
+          setSubIssueId={setSubIssueId}
         />
       );
-    } else if (item?.operator == "equal") {
-      return (
-        <MultiWithCreatable
-          value={item?.properties?.value || []}
-          callbackfn={handleTicketChange}
-        />
-      );
-    } else if (
-      (item?.operator == "not_equal" || item?.operator == "any") &&
-      fieldType == "dependent"
-    ) {
-      return (
-        <MultiSelect
-          value={item?.properties?.value || []}
-          callbackfn={handleTicketChange}
-          choices={choices}
-        />
-      );
-    } else if (item?.operator == "not_equal" || item?.operator == "any") {
-      return (
-        <MultiWithCreatable
-          value={item?.properties?.value || []}
-          callbackfn={handleTicketChange}
-        />
-      );
-    } else if (
-      item?.operator == "contains" ||
-      item?.operator == "not_contains"
-    ) {
-      return (
-        <MultiWithCreatable
-          value={item?.properties?.value || []}
-          callbackfn={handleTicketChange}
-        />
-      );
+    } else if (fieldType == "boolean") {
+      return <BooleanInput value={item?.value} callbackfn={fxn} />;
+    } else if (fieldType == "integer") {
+      return <Text value={item?.value} callbackfn={fxn} number={true} />;
+    } else {
+      return <Text value={item?.value} callbackfn={fxn} />;
     }
-    return (
-      <Text value={item?.properties?.value} callbackfn={handleTicketChange} />
-    );
   }
 
+  function checkValidValue(val) {
+    if (!val) return false;
+    if (Array.isArray(val)) {
+      return val.length > 0;
+    }
+    return val !== "";
+  }
+
+  useEffect(() => {
+    console.log(actions, "kk");
+  }, [actions]);
   return (
     <div className={styles.action_flex}>
-      <Select
-        options={ticketFields?.map((info) => {
-          return { ...info, value: info.key };
-        })}
-        placeholder="key"
-        className={styles.condition_select1}
-        value={ticketFields?.filter(
-          (info) => info?.key == item?.properties?.key
-        )}
-        onChange={(e) => {
-          setFieldType(e.field_type);
-          setChoices(e?.choices || []);
-          handleTicketChange("key", e.value);
-        }}
-        required
+      <PropertyIssueRender
+        actions={actions}
+        ticketFields={ticketFields}
+        item={item}
+        setFieldType={setFieldType}
+        choices={issueChoices}
+        handleTypeChange={handleTypeChange}
+        renderComponentSwitch={renderComponentSwitch}
       />
-
-      <div className={styles.condition_select4}>{renderComponentSwitch()}</div>
-      {/* <Select
-        options={ticketOptions}
-        placeholder="value"
-        className={styles.condition_select1}
-        value={ticketOptions?.filter(
-          (info) => info.value == item?.properties?.value
+      {item?.properties?.property &&
+        fieldType == "dependent" &&
+        checkValidValue(item?.properties?.value) && (
+          <PropertySubIssueRender
+            actions={actions}
+            setActions={setActions}
+            ticketFields={ticketFields}
+            issueData={item}
+            item={item?.properties?.property}
+            setFieldType={setFieldType}
+            choices={subIssueChoices}
+            handleTypeChange={handleTypeChange}
+            renderComponentSwitch={renderComponentSwitch}
+          />
         )}
-        onChange={(e) => handleTicketChange("value", e.value)}
-        required
-      /> */}
+
+      {item?.properties?.property?.property &&
+        fieldType == "dependent" &&
+        checkValidValue(item?.properties?.property?.value) && (
+          <PropertyFurtherRender
+            actions={actions}
+            setActions={setActions}
+            ticketFields={ticketFields}
+            issueData={item}
+            subIssueData={item?.properties?.property}
+            item={item?.properties?.property?.property}
+            setFieldType={setFieldType}
+            choices={furtherChoices}
+            handleTypeChange={handleTypeChange}
+            renderComponentSwitch={renderComponentSwitch}
+          />
+        )}
     </div>
   );
 }

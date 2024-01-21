@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Select from "react-select";
 import styles from "../../css/components.module.css";
-function SingleSelect({
+function SingleSelectText({
   value,
   callbackfn,
   choices,
@@ -21,9 +21,9 @@ function SingleSelect({
     }
 
     if (e?.value) {
-      callbackfn("value", [e?.value]);
+      callbackfn("value", e?.value);
     } else {
-      callbackfn("value", []);
+      callbackfn("value", "");
     }
   }
 
@@ -35,10 +35,10 @@ function SingleSelect({
       isClearable={true}
       placeholder="value"
       className={styles.select_field}
-      value={choices?.filter((info) => info.label == value?.[0])}
+      value={choices?.filter((info) => info.label == value)}
       onChange={handleChange}
     />
   );
 }
 
-export default SingleSelect;
+export default SingleSelectText;

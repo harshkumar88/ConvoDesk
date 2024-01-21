@@ -49,7 +49,11 @@ function NewRule() {
     for (let i = 0; i < actions.length; i++) {
       let item = actions[i];
       if (item?.type == "property") {
-        if (!item.property || !item.property.value || !item.property.key) {
+        if (
+          !item.properties ||
+          !item.properties.value ||
+          !item.properties.key
+        ) {
           appContext.setAlert("fill previous action", "alert_error");
           return false;
         }
@@ -148,15 +152,63 @@ function NewRule() {
       ...payload,
       actions: actions,
       conditions: conditions,
-      events: event,
     };
+
+    if (type == "updation") {
+      finalPayload.events = event;
+    }
     setPayload({
       ...finalPayload,
     });
-    localStorage.setItem("automation", JSON.stringify(finalPayload));
-    handleAutomationCreation(finalPayload);
 
-    console.log(finalPayload, "final data");
+    checkValidationErrors(finalPayload);
+  }
+
+  function cleanPayload(payload) {
+    if (payload === null || payload === undefined) {
+      return null;
+    }
+
+    if (Array.isArray(payload)) {
+      return payload.map((item) => cleanPayload(item));
+    }
+
+    if (typeof payload === "object") {
+      const cleanedObj = {};
+
+      for (const key in payload) {
+        const cleanedValue = cleanPayload(payload[key]);
+
+        if (cleanedValue !== null) {
+          cleanedObj[key] = cleanedValue;
+        }
+      }
+
+      // Special handling for 'actions', 'conditions', and 'events'
+      if (cleanedObj.actions) {
+        cleanedObj.actions = cleanedObj.actions.map((action) =>
+          cleanPayload(action)
+        );
+      }
+
+      if (cleanedObj.conditions) {
+        cleanedObj.conditions = cleanPayload(cleanedObj.conditions);
+      }
+
+      if (cleanedObj.events) {
+        cleanedObj.events = cleanPayload(cleanedObj.events);
+      }
+
+      return Object.keys(cleanedObj).length > 0 ? cleanedObj : null;
+    }
+
+    return payload;
+  }
+
+  function checkValidationErrors(final_payload) {
+    const finalData = cleanPayload(final_payload);
+    console.log(finalData, "last dtaa");
+    handleAutomationCreation(finalData);
   }
 
   async function handleAutomationCreation(ticket_payload) {
@@ -166,6 +218,7 @@ function NewRule() {
       appContext,
       true
     );
+    localStorage.setItem("automation", JSON.stringify(ticket_payload));
     navigate("/workflows/automation/dashboard");
   }
 
@@ -217,7 +270,7 @@ function NewRule() {
         />
       </div>
 
-      {type == "update" && (
+      {type == "updation" && (
         <div className={styles.header_label}>
           <label>Involves any of these events:</label>{" "}
           {countEvents?.map((item, idx) => {

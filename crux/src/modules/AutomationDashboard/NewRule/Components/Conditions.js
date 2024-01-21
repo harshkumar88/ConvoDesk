@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/style.module.css";
-import Select from "react-select";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
@@ -8,7 +7,9 @@ import Text from "./FieldComponents/Text";
 import SingleSelect from "./FieldComponents/SingleSelect";
 import MultiSelect from "./FieldComponents/MultiSelect";
 import MultiWithCreatable from "./FieldComponents/MultiWithCreatable";
-import SingleWithCreatable from "./FieldComponents/SingleWithCreatable";
+import ConditionIssueRender from "./ConditionIssueRender";
+import ConditionSubIssueRender from "./ConditionSubIssueRender";
+import ConditionFurtherRender from "./ConditionFurtherRender";
 function Conditions({
   item,
   conditions,
@@ -19,19 +20,17 @@ function Conditions({
   automationData,
   handleAddCondition,
 }) {
+  const [hide, setHide] = useState(false);
   const [fieldType, setFieldType] = useState("");
   const [constantsMapping, setConstantsMapping] = useState({});
   const [ticketFields, setTicketFields] = useState([]);
   const [issueId, setIssueId] = useState(0);
-  const [choices, setChoices] = useState([]);
+  const [subIssueId, setSubIssueId] = useState(0);
+  const [issueChoices, setIssueChoices] = useState([]);
+  const [subIssueChoices, setSubIssueChoices] = useState([]);
+  const [furtherChoices, setFurtherChoices] = useState([]);
   const [loader, setLoader] = useState(true);
   const [hover, setHover] = useState(false);
-  const [hide, setHide] = useState(false);
-
-  const ticketOptions = [
-    { label: "Ticket", value: "Tickets" },
-    { label: "Creation", value: "Creation" },
-  ];
 
   useEffect(() => {
     setConstantsMapping(automationData?.constants);
@@ -39,10 +38,38 @@ function Conditions({
     const automation_data = automationData?.ticketFields?.find(
       (info) => info.key == item?.key
     );
+
     setFieldType(automation_data?.field_type || "");
-    setChoices(automation_data?.choices || []);
+    setIssueChoices(automation_data?.choices || []);
+
+    const issue_id =
+      automation_data?.choices?.find((info) => info.label == item?.value?.[0])
+        ?.id || 0;
+
+    const subissue_id = automation_data?.choices
+      ?.find((info) => info.label == item?.value)
+      ?.choices?.find((info) => info.label == item?.property?.value?.[0])?.id;
+
+    setIssueId(issue_id);
+    setSubIssueId(subissue_id);
+
     setLoader(false);
-  }, [automationData]);
+  }, [item, automationData]);
+
+  useEffect(() => {
+    const automation_data = automationData?.ticketFields?.find(
+      (info) => info.key == item?.key
+    );
+    const subData =
+      automation_data?.choices?.find((info) => info.id == issueId)?.choices ||
+      [];
+
+    const fbData =
+      subData?.find((info) => info.id == subIssueId)?.choices || [];
+
+    setSubIssueChoices(subData);
+    setFurtherChoices(fbData);
+  }, [issueId, subIssueId]);
 
   //handle deletion of condition
   function handleConditionDelete() {
@@ -56,31 +83,37 @@ function Conditions({
 
   //handles the type of condition
   function handleTypeChange(label, value) {
+    if (label == "operator") {
+      item.value = "";
+    }
+
     let data = { ...item, [label]: value };
+    if (fieldType == "dependent") {
+      data = { ...data, property: {} };
+    }
+
     let conditionData = conditions;
     conditionData.properties[idx] = data;
     conditions = conditionData;
     setConditions({ ...conditions });
   }
 
-  function renderComponentSwitch() {
+  function renderComponentSwitch(item, fxn, choices, key) {
     if (item?.operator == "lte" || item?.operator == "gte") {
-      return <Text value={item?.value} callbackfn={handleTypeChange} />;
+      return <Text value={item?.value} callbackfn={fxn} />;
     } else if (item?.operator == "equal" && fieldType == "dependent") {
       return (
         <SingleSelect
           value={item?.value}
-          callbackfn={handleTypeChange}
+          callbackfn={fxn}
           choices={choices}
+          val={key}
+          setIssueId={setIssueId}
+          setSubIssueId={setSubIssueId}
         />
       );
     } else if (item?.operator == "equal") {
-      return (
-        <MultiWithCreatable
-          value={item?.value || []}
-          callbackfn={handleTypeChange}
-        />
-      );
+      return <MultiWithCreatable value={item?.value || []} callbackfn={fxn} />;
     } else if (
       (item?.operator == "not_equal" || item?.operator == "any") &&
       fieldType == "dependent"
@@ -88,32 +121,30 @@ function Conditions({
       return (
         <MultiSelect
           value={item?.value || []}
-          callbackfn={handleTypeChange}
+          callbackfn={fxn}
           choices={choices}
+          key={key}
         />
       );
     } else if (item?.operator == "not_equal" || item?.operator == "any") {
-      return (
-        <MultiWithCreatable
-          value={item?.value || []}
-          callbackfn={handleTypeChange}
-        />
-      );
+      return <MultiWithCreatable value={item?.value || []} callbackfn={fxn} />;
     } else if (
       item?.operator == "contains" ||
       item?.operator == "not_contains"
     ) {
-      return (
-        <MultiWithCreatable
-          value={item?.value || []}
-          callbackfn={handleTypeChange}
-        />
-      );
+      return <MultiWithCreatable value={item?.value || []} callbackfn={fxn} />;
     }
   }
 
+  function checkValidValue(val) {
+    if (Array.isArray(val)) {
+      return val.length > 0;
+    }
+    return val !== "";
+  }
+
   useEffect(() => {
-    console.log(conditions, "djkdjkdjk");
+    // console.log(conditions, "k");
   }, [conditions]);
   return loader ? (
     idx == 0 && <>Load</>
@@ -127,71 +158,89 @@ function Conditions({
       <div className={styles.delete_wrapper}>
         <div className={styles.action_delete}>
           <div>
-            <div className={styles.arrow_wrapper}>
-              <Select
-                options={ticketFields?.map((info) => {
-                  return { ...info, value: info.key };
-                })}
-                placeholder="key"
-                className={styles.condition_select1}
-                onChange={(e) => {
-                  item.operator = "";
-                  setFieldType(e.field_type);
-                  handleTypeChange("key", e.value);
-                  setChoices(e?.choices || []);
-                }}
-                value={ticketFields?.filter((info) => info.key == item?.key)}
-                required
-              />
-
-              <Select
-                options={constantsMapping?.operator_choices?.filter((info) => {
-                  return constantsMapping?.field_opertaor_mapping?.[
-                    fieldType
-                  ]?.includes(info.value);
-                })}
-                placeholder="Operator"
-                className={styles.condition_select2}
-                value={constantsMapping?.operator_choices?.filter(
-                  (info) => info.value == item?.operator
-                )}
-                required
-                onChange={(e) => handleTypeChange("operator", e.value)}
-              />
-              {!hide ? (
-                <span
-                  className={styles.wrapper_span}
-                  onClick={() => setHide(!hide)}
-                >
-                  <IoMdArrowDropdown />
-                </span>
-              ) : (
-                <span
-                  className={styles.wrapper_span}
-                  onClick={() => setHide(!hide)}
-                >
-                  <IoMdArrowDropup />
-                </span>
-              )}
-            </div>
-
-            {!hide && item?.operator ? (
-              <div className={styles.condition_item2}>
-                {renderComponentSwitch()}
-              </div>
-            ) : null}
-          </div>
-        </div>
-        {conditions?.properties?.length == 1 && idx == 0
-          ? null
-          : hover && (
+            {!hide ? (
               <span
-                className={styles.delete_icon}
-                onClick={() => handleConditionDelete()}
+                className={styles.wrapper_span}
+                onClick={() => setHide(!hide)}
               >
-                <FaTrash />
+                <IoMdArrowDropdown />
+              </span>
+            ) : (
+              <span
+                className={styles.wrapper_span}
+                onClick={() => setHide(!hide)}
+              >
+                <IoMdArrowDropup />
               </span>
             )}
+            {!hide && (
+              <div>
+                <ConditionIssueRender
+                  item={item}
+                  ticketFields={ticketFields}
+                  fieldType={fieldType}
+                  setFieldType={setFieldType}
+                  handleTypeChange={handleTypeChange}
+                  choices={issueChoices}
+                  setChoices={setIssueChoices}
+                  constantsMapping={constantsMapping}
+                  renderComponentSwitch={renderComponentSwitch}
+                />
+                {item?.property &&
+                  item?.value &&
+                  checkValidValue(item?.value) &&
+                  item?.operator == "equal" && (
+                    <ConditionSubIssueRender
+                      issueData={item}
+                      idx={idx}
+                      conditions={conditions}
+                      setConditions={setConditions}
+                      item={item?.property}
+                      ticketFields={ticketFields}
+                      fieldType={fieldType}
+                      setFieldType={setFieldType}
+                      handleTypeChange={handleTypeChange}
+                      choices={subIssueChoices}
+                      setChoices={setSubIssueChoices}
+                      constantsMapping={constantsMapping}
+                      renderComponentSwitch={renderComponentSwitch}
+                    />
+                  )}
+                {item?.property?.property &&
+                  item?.property?.value &&
+                  item?.property?.operator == "equal" &&
+                  checkValidValue(item?.property?.value) && (
+                    <ConditionFurtherRender
+                      issueData={item}
+                      subIssueData={item?.property}
+                      idx={idx}
+                      conditions={conditions}
+                      setConditions={setConditions}
+                      item={item?.property?.property}
+                      ticketFields={ticketFields}
+                      fieldType={fieldType}
+                      setFieldType={setFieldType}
+                      handleTypeChange={handleTypeChange}
+                      choices={furtherChoices}
+                      setChoices={setFurtherChoices}
+                      constantsMapping={constantsMapping}
+                      renderComponentSwitch={renderComponentSwitch}
+                    />
+                  )}
+              </div>
+            )}
+          </div>
+          {conditions?.properties?.length == 1 && idx == 0
+            ? null
+            : hover && (
+                <span
+                  className={styles.delete_icon}
+                  onClick={() => handleConditionDelete()}
+                >
+                  <FaTrash />
+                </span>
+              )}
+        </div>
       </div>
 
       {conditions?.properties?.length > 1 && idx != 0 && (

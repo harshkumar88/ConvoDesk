@@ -187,17 +187,60 @@ function EditRule() {
     };
 
     if (type == "updation") {
-      finalPayload = { ...finalPayload, events: event };
+      finalPayload.events = event;
     }
     setPayload({
       ...finalPayload,
     });
-    localStorage.setItem("automation", JSON.stringify(finalPayload));
-    handleAutomationUpdate(finalPayload);
 
-    console.log(finalPayload, "final data");
+    checkValidationErrors(finalPayload);
   }
 
+  function cleanPayload(payload) {
+    if (payload === null || payload === undefined) {
+      return null;
+    }
+
+    if (Array.isArray(payload)) {
+      return payload.map((item) => cleanPayload(item));
+    }
+
+    if (typeof payload === "object") {
+      const cleanedObj = {};
+
+      for (const key in payload) {
+        const cleanedValue = cleanPayload(payload[key]);
+
+        if (cleanedValue !== null) {
+          cleanedObj[key] = cleanedValue;
+        }
+      }
+
+      // Special handling for 'actions', 'conditions', and 'events'
+      if (cleanedObj.actions) {
+        cleanedObj.actions = cleanedObj.actions.map((action) =>
+          cleanPayload(action)
+        );
+      }
+
+      if (cleanedObj.conditions) {
+        cleanedObj.conditions = cleanPayload(cleanedObj.conditions);
+      }
+
+      if (cleanedObj.events) {
+        cleanedObj.events = cleanPayload(cleanedObj.events);
+      }
+
+      return Object.keys(cleanedObj).length > 0 ? cleanedObj : null;
+    }
+
+    return payload;
+  }
+
+  function checkValidationErrors(final_payload) {
+    const finalData = cleanPayload(final_payload);
+    handleAutomationUpdate(finalData);
+  }
   async function handleAutomationUpdate(ticket_payload) {
     const data = await patch_data(
       `https://qa1.crofarm.com/convo/automation/${id}/v1/`,
@@ -205,6 +248,8 @@ function EditRule() {
       appContext,
       true
     );
+    localStorage.setItem("automation", JSON.stringify(ticket_payload));
+
     navigate("/workflows/automation/dashboard");
   }
 

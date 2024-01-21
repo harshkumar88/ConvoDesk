@@ -108,6 +108,11 @@
   background-color: #f5f7f9;
 }
 
+.wrapper {
+  background-color: red !important;
+  /* display: flex; */
+}
+
 .delete_wrapper {
   display: flex;
   flex-direction: column;
