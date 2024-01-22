@@ -232,6 +232,7 @@ function App() {
     let arr = ["120", "130"];
     return arr.includes(get_agent_id());
   }
+
   return (
     <div className="row" onClick={checkClick}>
       <AppContext.Provider value={value}>

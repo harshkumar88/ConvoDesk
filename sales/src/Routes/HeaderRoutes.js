@@ -17,8 +17,8 @@ function HeaderRoutes(props) {
       data
     ) {
       let tempData = {};
-      let filterData = data.data;
-      filterData.map(function (item, idx) {
+      let filterData = data?.data;
+      filterData?.map(function (item, idx) {
         if (item["key"] == "issue") {
           let temp = {};
           item.choices.map(function (issue, index) {

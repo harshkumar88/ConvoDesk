@@ -9,6 +9,9 @@ import AgentRoles from "../modules/Admin/AgentRoles";
 import AdminRoutes from "./AdminRoutes";
 import LeadDetails from "../modules/LeadDetails";
 import Disposition from "../modules/Admin/Disposition";
+import NewRule from "../modules/AutomationDashboard/NewRule/index";
+import AutomationDashboard from "../modules/AutomationDashboard/index";
+import EditRule from "../modules/AutomationDashboard/EditRule/index";
 
 const Home = lazy(() => import("../modules/Leads"));
 function AppRoutes() {
@@ -25,6 +28,10 @@ function AppRoutes() {
           <Route path="/lead/details/:lead_id" element={<LeadDetails />} />
           <Route path="/*" element={<Navigate to={"/home"} replace={true} />} />
         </Route>
+
+        <Route path="/automation/dashboard" element={<AutomationDashboard />} />
+        <Route path="/automation/newrule/:type" element={<NewRule />} />
+        <Route path="/automation/editrule/:id/:type" element={<EditRule />} />
       </Route>
 
       <Route path="/" element={<AdminRoutes />}>

@@ -1,0 +1,60 @@
+.container {
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rules_label {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.tab_container {
+  display: flex;
+  gap: 30px;
+}
+.tab {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #6f7c87;
+}
+.tab:hover {
+  border-bottom: 1px solid #2c5cc5;
+}
+
+.active {
+  border-bottom: 3px solid #2c5cc5 !important;
+  color: #2c5cc5;
+  font-weight: 600;
+  cursor: default;
+}
+
+.rule_add_container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.btn_container {
+  display: flex;
+  gap: 10px;
+}
+
+.new_rule_btn {
+  padding: 0.7vh 1vw;
+  background-color: #264966;
+  border: 1px solid #12344d;
+  background-image: linear-gradient(to bottom, #264966, #12344d);
+  color: white;
+  border-radius: 5px;
+}
+.reorder_btn {
+  padding: 0.7vh 1vw;
+  background-color: #fbfbf8;
+  border: 1px solid #cccdce;
+  color: #12344d;
+  border-radius: 5px;
+}

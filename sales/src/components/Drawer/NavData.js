@@ -10,7 +10,13 @@ const nav_data = [
     activeicon: <Home />,
     children: [],
   },
-
+  {
+    path: "/automation/dashboard",
+    title: "Automations",
+    icon: <Admin />,
+    activeicon: <Admin />,
+    children: [],
+  },
   {
     path: "/admin",
     title: "Admin",
